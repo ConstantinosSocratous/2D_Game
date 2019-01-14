@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed9f54fd-4fad-44b9-9664-fbd1bd2afb10" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../37869720_1905519682845678_2511857201534992384_n.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../A level project/Chapter 1.docx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../A level project/Chapter 2 updated.docx" afterDir="false" />
@@ -394,83 +396,6 @@
       <change afterPath="$PROJECT_DIR$/../../GUI/Calculator/src/Bird.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../GUI/Calculator/src/GUI.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../GUI/Calculator/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/.classpath" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/.project" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/10C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/10D.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/10H.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/10S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/2C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/2D.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/2H.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/2S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/3C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/3D.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/3H.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/3S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/4C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/4D.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/4H.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/4S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/5C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/5D.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/5H.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/5S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/6C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/6D.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/6H.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/6S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/7C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/7D.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/7H.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/7S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/8C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/8D.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/8H.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/8S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/9C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/9D.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/9H.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/9S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/AC.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/AD.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/AH.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/AS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/Guess.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/JC.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/JD.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/JH.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/JS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/KC.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/KD.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/KH.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/KS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/QC.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/QD.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/QH.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/QS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/aces.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/back_cards-07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/bin/Card.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/bin/Main$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/bin/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/bin/MainScreen.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/blue_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/cards.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/gray_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/green_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/honor_clubs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/honor_diamond.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/honor_heart-14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/honors_spade-14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/purple_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/red_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/src/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/src/MainScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/title.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/CrazyMan/yellow_back.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../GUI/FindNumber.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../GUI/FindTheNumber/.classpath" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../GUI/FindTheNumber/.project" afterDir="false" />
@@ -1610,10 +1535,6 @@
       <change afterPath="$PROJECT_DIR$/../../GUI/Restaurant/bin/Table.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../GUI/Restaurant/bin/test$1.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../GUI/Restaurant/bin/test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/Restaurant/jgoodies-common-1.8.0-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/Restaurant/jgoodies-common-1.8.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/Restaurant/jgoodies-forms-1.8.0-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../GUI/Restaurant/jgoodies-forms-1.8.0.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../GUI/Restaurant/src/Bill.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../GUI/Restaurant/src/Food.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../GUI/Restaurant/src/Restaurant.java" afterDir="false" />
@@ -2136,7 +2057,7 @@
       <change afterPath="$PROJECT_DIR$/../../MEET EUROPE/ROME/bus.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../MEET EUROPE/ROME/cash.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../MEET EUROPE/ROME/sun-min.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/UIObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../MY GAME/TileGame/src/dev/codenmore/tilegame/tiles/UIObject.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Samurai-Lightning-master/+libs/commons-lang3-3.7.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Samurai-Lightning-master/+libs/commons-text-1.2.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Samurai-Lightning-master/+libs/opencsv-4.1.jar" afterDir="false" />
@@ -3297,6 +3218,76 @@
       <change afterPath="$PROJECT_DIR$/../../music/μαλάκα! - Με τον μαλάκα!.mp3" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../music/πανο στην τρελα μου.mp4.mp3" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/META-INF/TileGame.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/Handler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/Launcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/Sounds/Footstep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/Sounds/Sound.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/display/Display.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/entities/Entity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/entities/EntityManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/entities/EntityManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/entities/creatures/Creature.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/entities/creatures/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/entities/statics/StaticEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/gfx/Animation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/gfx/Assets.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/gfx/GameCamera.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/gfx/ImageLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/gfx/SoundManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/gfx/SpriteSheet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/input/KeyManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/input/MouseManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/states/GameState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/states/MenuState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/states/State.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/tiles/Cloud3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/tiles/Cloud4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/tiles/DirtTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/tiles/GrassTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/tiles/Lava.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/tiles/Rock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/tiles/Sky.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/tiles/Tile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/tiles/UIObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/utils/Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dev/codenmore/tilegame/worlds/World.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/Handler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/Sounds/Footstep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/Sounds/Footstep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/Sounds/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/Sounds/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/display/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/display/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/EntityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/entities/EntityManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/creatures/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/entities/creatures/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/creatures/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/entities/creatures/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/statics/StaticEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/entities/statics/StaticEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/gfx/Animation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/gfx/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/GameCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/gfx/GameCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/gfx/ImageLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/gfx/SoundManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/gfx/SpriteSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/input/KeyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/input/KeyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/input/MouseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/input/MouseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/states/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/states/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/states/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/states/MenuState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/states/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Cloud3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/tiles/Cloud3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Cloud4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/tiles/Cloud4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/DirtTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/tiles/DirtTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/GrassTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/tiles/GrassTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Lava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/tiles/Lava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Rock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/tiles/Rock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Sky.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/tiles/Sky.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/UIObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/tiles/UIObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/codenmore/tilegame/worlds/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/worlds/World.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -3307,63 +3298,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="e#3513#3514#0" expanded="true" />
-                <element signature="e#3537#3538#0" expanded="true" />
-                <element signature="e#3575#3576#0" expanded="true" />
-                <element signature="e#3599#3600#0" expanded="true" />
-                <element signature="e#3625#3626#0" expanded="true" />
-                <element signature="e#3668#3669#0" expanded="true" />
-                <element signature="e#3695#3696#0" expanded="true" />
-                <element signature="e#3739#3740#0" expanded="true" />
-                <element signature="e#4088#4089#0" expanded="true" />
-                <element signature="e#4111#4112#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/creatures/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="118" column="60" selection-start-line="118" selection-start-column="60" selection-end-line="118" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/states/GameState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
-              <folding>
-                <element signature="e#3510#3511#0" expanded="true" />
-                <element signature="e#3535#3536#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/states/State.java">
+        <entry file="file://$PROJECT_DIR$/src/tilegame/entities/statics/StaticEntity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/creatures/Creature.java">
+        <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/Cloud3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="167" column="5" lean-forward="true" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
+            <state relative-caret-position="153">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/Cloud4.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/DirtTile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/GrassTile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/Lava.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/Rock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tilegame/entities/creatures/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -3388,28 +3396,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/statics/Tree.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/GrassTile.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Sky.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Cloud.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Cloud3.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Cloud4.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/Launcher.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/input/MouseManager.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/Handler.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/MenuButtons.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/DirtTile.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Rock.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/Music.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/Sounds/Sounds.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/SoundManager.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/Sounds/Sound.java" />
-        <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/Sounds/Footstep.java" />
         <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Exit.java" />
         <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/states/State.java" />
         <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Lava.java" />
@@ -3428,6 +3419,39 @@
         <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/states/GameState.java" />
         <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/creatures/Player.java" />
         <option value="$PROJECT_DIR$/src/dev/codenmore/tilegame/Game.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/Launcher.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/Sounds/Sound.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/Sounds/Footstep.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/input/MouseManager.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/input/KeyManager.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/gfx/Animation.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/gfx/Assets.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/gfx/ImageLoader.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/gfx/SpriteSheet.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/entities/EntityManager.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/entities/Entity.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/entities/statics/StaticEntity.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/display/Display.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/worlds/World.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/Game.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/tiles/UIObject.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/gfx/GameCamera.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/gfx/SoundManager.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/states/GameState.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/states/MenuState.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/states/State.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/Handler.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/entities/creatures/Creature.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/tiles/Tile.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/tiles/Sky.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/tiles/Cloud3.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/tiles/Cloud4.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/tiles/DirtTile.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/tiles/GrassTile.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/tiles/Lava.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/tiles/Rock.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/entities/creatures/Player.java" />
       </list>
     </option>
   </component>
@@ -3438,8 +3462,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1041" />
-    <option name="y" value="227" />
+    <option name="x" value="1040" />
+    <option name="y" value="226" />
     <option name="width" value="1750" />
     <option name="height" value="980" />
   </component>
@@ -3450,7 +3474,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -3518,13 +3541,6 @@
               <item name="TileGame" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="tilegame" type="462c0819:PsiDirectoryNode" />
-              <item name="Sounds" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TileGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TileGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tilegame" type="462c0819:PsiDirectoryNode" />
               <item name="states" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -3539,16 +3555,24 @@
               <item name="TileGame" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="tilegame" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TileGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TileGame" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tilegame" type="462c0819:PsiDirectoryNode" />
               <item name="worlds" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547484500237" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547490123445" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
@@ -3566,7 +3590,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dev.codenmore.tilegame.Launcher" />
+      <option name="MAIN_CLASS_NAME" value="tilegame.Launcher" />
       <module name="TileGame" />
       <extension name="coverage">
         <pattern>
@@ -3599,8 +3623,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24630873" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -3609,7 +3634,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.20538244" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20538244" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -3628,7 +3653,7 @@
       <window_info anchor="right" id="Maven" order="7" weight="0.3295302" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24630873" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -3657,181 +3682,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/RockTile.java" />
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Cloud.java" />
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Cloud3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/statics/Tree.java" />
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/SpriteSheet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/DirtTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Sky.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk/src.zip!/javax/sound/sampled/AudioSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="515" column="23" selection-start-line="515" selection-start-column="23" selection-end-line="515" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/ImageLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Cloud4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="34" lean-forward="true" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk/src.zip!/javax/sound/sampled/Clip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/Sounds/Sound.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/Sounds/Footstep.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#868#869#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/SoundManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
-            <element signature="e#285#286#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Rock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" lean-forward="true" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Exit.java" />
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk/src.zip!/javax/imageio/ImageIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="1387" selection-start-line="1387" selection-end-line="1387" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk/src.zip!/java/awt/event/MouseEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="262" column="28" selection-start-line="262" selection-start-column="28" selection-end-line="262" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/input/MouseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-129">
-          <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#394#395#0" expanded="true" />
-            <element signature="e#428#429#0" expanded="true" />
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#530#531#0" expanded="true" />
-            <element signature="e#559#560#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#617#618#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/Animation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding>
-            <element signature="e#622#623#0" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Lava.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#813#814#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Heart.java" />
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/statics/StaticEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk/src.zip!/java/awt/Rectangle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -3839,177 +3689,301 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/EntityManager.java">
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/EntityManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/Assets.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/GrassTile.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/worlds/World.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Tile.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/Entity.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/display/Display.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/GameCamera.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/input/KeyManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/states/MenuState.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/UIObject.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/Handler.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/creatures/Creature.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/states/State.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/states/GameState.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/creatures/Player.java" />
+    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/Game.java" />
+    <entry file="file://$PROJECT_DIR$/src/tilegame/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding>
-            <element signature="e#1195#1196#0" expanded="true" />
-            <element signature="e#1215#1216#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/Assets.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/GrassTile.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/Sounds/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/Sounds/Footstep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/input/MouseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/Assets.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/worlds/World.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/ImageLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/display/Display.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2175#2176#0" expanded="true" />
-            <element signature="e#2193#2194#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/Tile.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        <state relative-caret-position="187">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/UIObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/GameCamera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#860#861#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="e#1185#1186#0" expanded="true" />
-            <element signature="e#1200#1201#0" expanded="true" />
-            <element signature="e#1380#1381#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/display/Display.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/gfx/GameCamera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="40" column="73" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/input/KeyManager.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/SpriteSheet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding>
-            <element signature="e#774#775#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
-          </folding>
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/states/MenuState.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/SoundManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/tiles/UIObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        <state relative-caret-position="85">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/Handler.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/Animation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/EntityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
           <folding>
-            <element signature="e#449#450#0" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#509#510#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#639#640#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/creatures/Creature.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="167" column="5" lean-forward="true" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
+        <state relative-caret-position="119">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/states/State.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/creatures/Creature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/input/KeyManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/states/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/states/MenuState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/states/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/worlds/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="50" column="69" selection-start-line="50" selection-start-column="69" selection-end-line="50" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/Sky.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding>
+            <element signature="e#124#125#0" expanded="true" />
+            <element signature="e#161#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/statics/StaticEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/states/GameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
           <folding>
-            <element signature="e#3510#3511#0" expanded="true" />
-            <element signature="e#3535#3536#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/entities/creatures/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/Cloud3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="118" column="60" selection-start-line="118" selection-start-column="60" selection-end-line="118" selection-end-column="60" />
+        <state relative-caret-position="153">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dev/codenmore/tilegame/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/Cloud4.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="136">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/DirtTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/GrassTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/Lava.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/Rock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/creatures/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
           <folding>
-            <element signature="e#3513#3514#0" expanded="true" />
-            <element signature="e#3537#3538#0" expanded="true" />
-            <element signature="e#3575#3576#0" expanded="true" />
-            <element signature="e#3599#3600#0" expanded="true" />
-            <element signature="e#3625#3626#0" expanded="true" />
-            <element signature="e#3668#3669#0" expanded="true" />
-            <element signature="e#3695#3696#0" expanded="true" />
-            <element signature="e#3739#3740#0" expanded="true" />
-            <element signature="e#4088#4089#0" expanded="true" />
-            <element signature="e#4111#4112#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
