@@ -21,11 +21,9 @@ public class EntityManager {
 		}
 	};
 	
-	public EntityManager(Handler handler, Player player){
+	public EntityManager(Handler handler){
 		this.handler = handler;
-		this.player = player;
 		entities = new ArrayList<Entity>();
-		addEntity(player);
 	}
 	
 	public void tick(){

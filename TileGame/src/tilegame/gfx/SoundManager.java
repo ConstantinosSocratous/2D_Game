@@ -8,6 +8,7 @@ public class SoundManager {
     public static Sound footstep;
 
     public static void init(){
-        footstep = new Footstep("res/sounds/footstep.wav");
+        //footstep = new Footstep("res/sounds/footstep.wav");
     }
+
 }

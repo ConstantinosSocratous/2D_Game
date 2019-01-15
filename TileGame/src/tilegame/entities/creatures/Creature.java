@@ -102,7 +102,9 @@ public abstract class Creature extends Entity {
 			}
 
 		}
+
 		fall();
+
 	}
 
 	protected void fall(){
@@ -133,7 +135,7 @@ public abstract class Creature extends Entity {
 	protected boolean collisionWithDamageTile(int x, int y){
 		return handler.getWorld().getTile(x, y).isDoingDamage();
 	}
-	
+
 	//GETTERS SETTERS
 
 	public float getxMove() {
@@ -161,6 +163,7 @@ public abstract class Creature extends Entity {
 	}
 
 	public void decreaseHealth(){health-=2;}
+	public void decreaseHealth(int num){health-=num;}
 
 	public boolean isDead(){
 		if(health < 0) return true;

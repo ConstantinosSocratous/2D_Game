@@ -10,8 +10,10 @@ import tilegame.gfx.SoundManager;
 import tilegame.input.KeyManager;
 import tilegame.input.MouseManager;
 import tilegame.states.GameState;
+import tilegame.states.LevelsState;
 import tilegame.states.MenuState;
 import tilegame.states.State;
+import tilegame.worlds.AllLevels;
 
 public class Game implements Runnable {
 
@@ -28,6 +30,7 @@ public class Game implements Runnable {
 	//States
 	private State gameState;
 	private State menuState;
+	private State levelState;
 	
 	//Input
 	private KeyManager keyManager;
@@ -41,6 +44,9 @@ public class Game implements Runnable {
 	
 	//Handler
 	private Handler handler;
+
+	//ALL LEVELS
+	private AllLevels allLevels;
 
 	//fps
 	public double lastFPS;
@@ -70,9 +76,12 @@ public class Game implements Runnable {
 		
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0);
-		
-		gameState = new GameState(handler);
+
+		allLevels = new AllLevels(handler);
+
+		gameState = new GameState(handler,"res/worlds/world1.txt");
 		menuState = new MenuState(handler);
+		levelState = new LevelsState(handler);
 		State.setState(menuState);
 	}
 	
@@ -86,7 +95,7 @@ public class Game implements Runnable {
 	private void render(){
 		bs = display.getCanvas().getBufferStrategy();
 		if(bs == null){
-			display.getCanvas().createBufferStrategy(3);
+			display.getCanvas().createBufferStrategy(5);
 			return;
 		}
 		g = bs.getDrawGraphics();
@@ -108,47 +117,46 @@ public class Game implements Runnable {
 		g.dispose();
 	}
 	
-	public void run(){
-		
+	public void run() {
+
 		init();
-		int fps = 60;
-		double timePerTick = 1000000000 / fps;
-		delta = 0;
-		long now;
+
 		long lastTime = System.nanoTime();
-		long timer = 0;
-		double ticks = 0;
-
-		while(running){
-			now = System.nanoTime();
-			delta += (now - lastTime) / timePerTick;
-			//delta = (now - lastTime);
-			timer += now - lastTime;
+		double amountOfTicks = 60.0;
+		double ns = 1000000000 / amountOfTicks;
+		double delta = 0;
+		long timer = System.currentTimeMillis();
+		int frames = 0;
+		while (running) {
+			long now = System.nanoTime();
+			delta += (now - lastTime) / ns;
 			lastTime = now;
-
-			if(delta >= 1) {
-				delta--;
+			while (delta >= 1) {
 				tick();
-				render();
-				ticks++;
-
+				//updates++;
+				delta--;
 			}
+			render();
+			frames++;
 
-			if(timer >= 1000000000 ){//|| ticks == fps){
-				lastFPS = ticks;
-				//System.out.println("Ticks and Frames: " + ticks);
-				ticks = 0;
-				timer = 0;
+			if (System.currentTimeMillis() - timer > 1000) {
+				timer += 1000;
+				lastFPS = frames;
+				frames = 0;
+				//updates = 0;
 			}
 		}
-
-		
 		stop();
-		
+
 	}
+
+	public AllLevels getAllLevels(){return allLevels;}
 	public SoundManager getSoundManager(){return soundManager;}
 	public State getGameState(){return gameState;}
 	public State getMenuState(){return menuState;}
+	public State getLevelState(){return levelState;}
+
+	public Graphics getGraphics(){return g;}
 
 	public MouseManager getMouseManager(){	return mouseManager;}
 	public KeyManager getKeyManager(){
@@ -189,6 +197,8 @@ public class Game implements Runnable {
 	public void setMenuState(MenuState menu){
 		menuState = menu;
 	}
+	public void setLevelState(LevelsState level){levelState= level;}
+	public void setGameState(GameState ga){ gameState = ga;}
 	
 }
 

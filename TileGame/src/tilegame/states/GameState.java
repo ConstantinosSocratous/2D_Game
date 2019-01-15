@@ -19,11 +19,12 @@ public class GameState extends State {
 	private boolean won = false;
 	private boolean lost = false;
 
+	private LostState lostObj = new LostState(handler);
 
-	public GameState(Handler handler) {
+
+	public GameState(Handler handler,String str) {
 		super(handler);
-		init("LEVELS EXTENSION");
-
+		init(str);
 	}
 
 	public void init(String path) {
@@ -31,8 +32,13 @@ public class GameState extends State {
 	}
 
 	public void createWorld(String path) {
+		won = false;
+		lost = false;
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
-		exit = new UIObject(sheet.crop(0, height * 2, width, height), sheet.crop(width, height * 2, width, height), handler.getGame().getWidth() - width * 3, (int) (height / 2));
+        BufferedImage[] temp1 = new BufferedImage[2];
+		temp1[0] = sheet.crop(0, height * 2, width, height);
+		temp1[1] = sheet.crop(width, height * 2, width, height);
+		exit = new UIObject(temp1, handler.getGame().getWidth() - width * 3, (int) (height / 2));
 
 		SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
 		BufferedImage[] temp = new BufferedImage[5];
@@ -44,55 +50,57 @@ public class GameState extends State {
 
 		heart = new UIObject((temp), handler.getGame().getWidth() - width * 5 - 16, (int) (height / 2));
 
-		world = new World(handler, "res/worlds/world1.txt");
+		world = new World(handler, path);
 		handler.setWorld(world);
+
 	}
 
 	@Override
 	public void tick() {
-		world.tick();
-		if (handler.getMouseManager().isLeftPressed() && exit.isMouseOver(handler)) {
+
+			world.tick();
+			if (handler.getMouseManager().isLeftPressed() && exit.isMouseOver(handler)) {
 			/*try {
 				Thread.sleep(1500);
 			} catch (Exception e) {;}*/
-			exitGameState();
-		}if (handler.getWorld().getEntityManager().getPlayer().isDead()) {
-			setLost(true);
-
-		}
-
-	}
-
-	private void exitGameState() {
-			try {
-				Thread.sleep(2500);
-				handler.getGame().setMenuState(new MenuState(handler));
-				State.setState(handler.getGame().getMenuState());
-				setWorld(null);
-			} catch (InterruptedException e) {
-				;
+				exitGameState();
 			}
-
-        //handler.getGame().getGameState().init("LEVELS EXTENSION");
+			if (handler.getWorld().getEntityManager().getPlayer().isDead()) {
+				setLost(true);
+			}
 	}
 
 	@Override
 	public void render(Graphics g) {
-		world.render(g);
+		if(State.getState().equals( handler.getGame().getGameState())) {
+			world.render(g);
 
-		if (exit.isMouseOver(handler))
-			g.drawImage(exit.getImageOver(), exit.getX(), exit.getY(), exit.getWidth() * 2, exit.getHeight() * 2, null);
-		else g.drawImage(exit.getImage(), exit.getX(), exit.getY(), exit.getWidth() * 2, exit.getHeight() * 2, null);
-		g.drawImage(getCurrentImage(), heart.getX(), heart.getY(), heart.getWidth() * 2, heart.getHeight() * 2, null);
+			BufferedImage temp = exit.getCurrentImage(handler);
+			g.drawImage(temp, exit.getX(), exit.getY(), temp.getWidth() * 2, temp.getHeight() * 2, null);
 
-		if(isLost()){
-			//System.out.println("LOST");
-			//LOST METHOD
-			exitGameState();
+			g.drawImage(getCurrentImage(), heart.getX(), heart.getY(), heart.getWidth() * 2, heart.getHeight() * 2, null);
+
+			if (isLost()) {
+				//System.out.println("LOST");
+				//LOST METHOD
+
+				lostObj.tick();
+				lostObj.render(g);
+				//exitGameState();
+			}
 		}
-
 	}
 
+	private void exitGameState() {
+		sleep(100);
+		State.setState(handler.getGame().getMenuState());
+		setWorld(null);
+
+		//handler.getGame().getGameState().init("LEVELS EXTENSION");
+	}
+
+
+	//MADE FOR HEART OBJECT
 	public BufferedImage getCurrentImage() {
 		int h = handler.getWorld().getEntityManager().getPlayer().getHealth();
 		int dh = handler.getWorld().getEntityManager().getPlayer().getDefaultHealth();

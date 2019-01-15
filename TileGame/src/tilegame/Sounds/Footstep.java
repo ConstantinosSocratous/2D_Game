@@ -15,7 +15,7 @@ public class Footstep extends Sound {
             clip = AudioSystem.getClip();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
             clip.open(inputStream);
-            this.path = path;
+            clip.start();
         }catch(Exception e){
             e.printStackTrace();}
 
@@ -26,7 +26,7 @@ public class Footstep extends Sound {
             clip = AudioSystem.getClip();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
             clip.open(inputStream);
-            clip.start();
+
         }catch(Exception e){
             e.printStackTrace();}
 

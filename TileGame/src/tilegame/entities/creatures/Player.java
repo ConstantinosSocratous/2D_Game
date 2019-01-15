@@ -4,12 +4,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import tilegame.Handler;
+import tilegame.Sounds.Footstep;
+import tilegame.entities.Entity;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
 import tilegame.tiles.Tile;
 import tilegame.worlds.World;
 
-import javax.annotation.processing.SupportedSourceVersion;
 
 public class Player extends Creature {
 	
@@ -18,6 +19,7 @@ public class Player extends Creature {
 	private Animation standar,animRight,animLeft, animUpRight, animUpLeft;
 	private boolean isDead = false;
 
+
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
@@ -25,6 +27,10 @@ public class Player extends Creature {
 		bounds.y = 0;
 		bounds.width = 64-21-21;
 		bounds.height = 64-1;
+		/*bounds.x = 25;
+		bounds.y = 0;
+		bounds.width = 96-21-21-10;
+		bounds.height =96-1;*/
 
 		//bounds = new Rectangle(0, 0, width, height);
 		
@@ -47,16 +53,24 @@ public class Player extends Creature {
 		//Movement
 		getInput();
 		move();
-		checkForDamage();
-		//handler.getGame().getSoundManager().footstep.start();
-		handler.getGameCamera().centerOnEntity(this);
+		checkForDamageWithTiles();
 
-		//if(isDead()) handler.getGame().getGameState()..setLost(true);
+		Entity e = getEntityWithCollision(xMove, 0f);
+		if(e != null) DamageWithCreature(e);
+
+		Entity e1 = getEntityWithCollision(0f, yMove);
+		if(e1 != null) DamageWithCreature(e1);
+
+		//System.out.println(health);
+		handler.getGameCamera().centerOnEntity(this);
 	}
 
-	private void checkForDamage(){
+	private void DamageWithCreature(Entity e){
+		if(e.isDoingDamage()) decreaseHealth(15);
 
+	}
 
+	private void checkForDamageWithTiles(){
 			if(xMove >= 0){//Moving right
 				int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
 
@@ -76,9 +90,7 @@ public class Player extends Creature {
                     decreaseHealth();
                     return;
 				}else{
-
 				}
-
 			}
 			if(yMove < 0){//Up
 				int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
@@ -88,7 +100,6 @@ public class Player extends Creature {
                     decreaseHealth();
                     return;
 				}else{
-
 				}
 			}
 			if(yMove > 0){//Down
@@ -108,6 +119,11 @@ public class Player extends Creature {
 	}
 
 	private void getInput(){
+		if(isDead()){
+			xMove = 0;
+			yMove = 0;
+			return;
+		}
 		xMove = 0;
 		//yMove = 0;
 
@@ -115,10 +131,14 @@ public class Player extends Creature {
 			jump(17f);
 			handler.getKeyManager().stopJump();
 		}
-		if(handler.getKeyManager().left)
-			xMove = -speed ;// * (float)handler.getGame().delta;
-		if(handler.getKeyManager().right)
-			xMove = speed ;//* (float) handler.getGame().delta;
+		if(handler.getKeyManager().left){
+
+			xMove = -speed ;//* (float)handler.getGame().lastFPS/1000000000/(float)handler.getGame().delta;
+		}
+		if(handler.getKeyManager().right){
+
+			xMove = speed ;//* (float)handler.getGame().lastFPS/1000000000/(float) handler.getGame().delta;
+		}
 		fall();
 
 	}
@@ -127,17 +147,14 @@ public class Player extends Creature {
 	public void render(Graphics g) {
 		g.drawImage(getCurrentAnimationFrame(), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 
-//		g.setColor(Color.red);
-		//g.fillRect( (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), bounds.width,bounds.height);
-//				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-//				bounds.width, bounds.height);
+
 	}
 	
 	private BufferedImage getCurrentAnimationFrame(){
 
-		if(yMove < 0 && xMove > 0){//Jump Right
+		if(falling && xMove > 0){//Jump Right
 			return animUpRight.getCurrentFrame();
-		}else if(yMove < 0 && xMove < 0){//Jump Right
+		}else if(falling && xMove < 0){//Jump Right
 			return animUpLeft.getCurrentFrame();
 		}else if(xMove < 0){
 			return animLeft.getCurrentFrame();

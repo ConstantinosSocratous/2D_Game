@@ -4,6 +4,7 @@ import java.awt.*;
 
 import tilegame.Handler;
 import tilegame.entities.EntityManager;
+import tilegame.entities.creatures.Mushroom;
 import tilegame.entities.creatures.Player;
 import tilegame.tiles.Tile;
 import tilegame.utils.Utils;
@@ -19,9 +20,13 @@ public class World {
 	
 	public World(Handler handler, String path){
 		this.handler = handler;
-		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
+		entityManager = new EntityManager(handler);
+
 		// Temporary entity code!
-		//entityManager.addEntity(new ASD(handler, 100, 250));
+
+		Player pl = new Player(handler, 100, 100);
+		entityManager.addEntity(pl);
+		entityManager.setPlayer(pl);
 		
 		loadWorld(path);
 		
@@ -34,6 +39,7 @@ public class World {
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);
 	}
+
 
 	public void tick(){
 		entityManager.tick();

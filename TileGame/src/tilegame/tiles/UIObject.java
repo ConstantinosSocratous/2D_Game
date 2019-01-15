@@ -10,18 +10,7 @@ public class UIObject {
     private int x;
     private int y;
     private int width,height;
-    private BufferedImage image;
     private BufferedImage[] imageArr;
-    private BufferedImage imageWhenOver;
-
-    public UIObject(BufferedImage image, BufferedImage over, int x, int y){
-        this.x = x;
-        this.y = y;
-        this.image = image;
-        this.imageWhenOver = over;
-        width = image.getWidth();
-        height = image.getHeight();
-    }
 
     public UIObject(BufferedImage[] image, int x, int y){
         this.x = x;
@@ -50,6 +39,12 @@ public class UIObject {
 
     }
 
+    public BufferedImage getCurrentImage(Handler handler){
+        if(isMouseOver(handler))
+            return imageArr[1];
+        else return imageArr[0];
+    }
+
     public int getWidth() {
         return width;
     }
@@ -61,22 +56,11 @@ public class UIObject {
     public int getY() {
         return y;
     }
-    public BufferedImage getImageOver() {
-        return imageWhenOver;
-    }
-    public BufferedImage getImage() {
-        return image;
-    }
+
     public void setX(int x) {
         this.x = x;
     }
     public void setY(int y) {
         this.y = y;
-    }
-    public void setImage(BufferedImage img) {
-        this.image = img;
-    }
-    public void setImageOver(BufferedImage img) {
-        this.imageWhenOver = img;
     }
 }
