@@ -22,15 +22,15 @@ public class Player extends Creature {
 
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
-
 		bounds.x = 21;
 		bounds.y = 0;
 		bounds.width = 64-21-21;
 		bounds.height = 64-1;
-		/*bounds.x = 25;
+		/*super(handler, x, y, 80, 80);
+		bounds.x = 21+15;
 		bounds.y = 0;
-		bounds.width = 96-21-21-10;
-		bounds.height =96-1;*/
+		bounds.width = 80-21-21-17;
+		bounds.height =80-1;*/
 
 		//bounds = new Rectangle(0, 0, width, height);
 		

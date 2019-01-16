@@ -10,11 +10,11 @@ import java.awt.*;
 public class Mushroom extends Creature {
 
         private Animation anim;
+        private boolean left;
 
-
-    public Mushroom(Handler handler, float x, float y) {
+    public Mushroom(Handler handler, float x, float y, boolean left) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH*2, Creature.DEFAULT_CREATURE_HEIGHT*2);
-
+        this.left = left;
         bounds.x = 15;
         bounds.y = 28;
         bounds.width = 64-27;
@@ -35,7 +35,11 @@ public class Mushroom extends Creature {
 
         anim.tick();
 
-        if(xMove == 0) xMove = speed;
+        if(xMove == 0){
+            if(left) xMove = -speed;
+            else xMove = speed;
+
+        }
         move();
 
         //checkForDamage();
@@ -43,9 +47,9 @@ public class Mushroom extends Creature {
     }
 
     public void move(){
-        if(!checkEntityCollisions(xMove, 0f))
+        //if(!checkEntityCollisions(xMove, 0f))
             moveX();
-        if(!checkEntityCollisions(0f, yMove))
+        //if(!checkEntityCollisions(0f, yMove))
             moveY();
     }
 

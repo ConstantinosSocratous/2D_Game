@@ -10,12 +10,12 @@ public class Tile {
 	//STATIC STUFF HERE
 	
 	public static Tile[] tiles = new Tile[256];
-	public static Tile grassTile = new GrassTile(1);
+	public static Tile grassTile = new GrassTile(5);
 	public static Tile dirtTile = new DirtTile(0);
 	public static Tile sky = new Sky(2);
 	public static Tile cloud3 = new Cloud3(3);
 	public static Tile cloud4 = new Cloud4(4);
-	public static Tile rock = new Rock(5);
+	public static Tile rock = new Rock(1);
 	public static Tile lava = new Lava(Assets.lava, 6);
 
 	//CLASS
