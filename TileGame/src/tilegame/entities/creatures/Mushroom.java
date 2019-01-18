@@ -12,8 +12,9 @@ public class Mushroom extends Creature {
         private Animation anim;
         private boolean left;
 
-    public Mushroom(Handler handler, float x, float y, boolean left) {
+    public Mushroom(Handler handler, float x, float y, boolean left, int speed) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH*2, Creature.DEFAULT_CREATURE_HEIGHT*2);
+        this.speed = speed;
         this.left = left;
         bounds.x = 15;
         bounds.y = 28;
@@ -122,8 +123,8 @@ public class Mushroom extends Creature {
         fall();
     }
 
-    protected void fall(){
 
+    protected void fall(){
         yMove += gravity;
         if (yMove > maxDY) yMove = maxDY;
 

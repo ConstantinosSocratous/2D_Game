@@ -1,7 +1,6 @@
 package tilegame.entities;
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
+import java.awt.*;
 
 import tilegame.Handler;
 
@@ -24,7 +23,7 @@ public abstract class Entity {
 		bounds = new Rectangle(0, 0, width, height);
 
 	}
-	
+
 	public abstract void tick();
 	
 	public abstract void render(Graphics g);
@@ -34,6 +33,16 @@ public abstract class Entity {
 			if(e.equals(this))
 				continue;
 			if(e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset)))
+				return true;
+		}
+		return false;
+	}
+
+	public boolean checkEntityCollisionsPoint(float xOffset, float yOffset){
+		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+			if(e.equals(this))
+				continue;
+			if(e.getCollisionBounds(0f, 0f).intersects(new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset), 1, 1)))
 				return true;
 		}
 		return false;
@@ -88,5 +97,6 @@ public abstract class Entity {
 	public boolean isDoingDamage(){return doingDamage;}
 
 	public void setIsDoingDamage(boolean bool){ doingDamage = bool;}
-	
+
+
 }

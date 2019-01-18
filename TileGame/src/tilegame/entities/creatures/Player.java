@@ -4,12 +4,11 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import tilegame.Handler;
-import tilegame.Sounds.Footstep;
 import tilegame.entities.Entity;
+import tilegame.entities.statics.Door;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
 import tilegame.tiles.Tile;
-import tilegame.worlds.World;
 
 
 public class Player extends Creature {
@@ -17,15 +16,14 @@ public class Player extends Creature {
 	//Animations
 	//private Animation animDown, animUp, animLeft, animRight;
 	private Animation standar,animRight,animLeft, animUpRight, animUpLeft;
-	private boolean isDead = false;
-
+	private boolean winLevel=false;
 
 	public Player(Handler handler, float x, float y) {
-		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT+16);
 		bounds.x = 21;
 		bounds.y = 0;
 		bounds.width = 64-21-21;
-		bounds.height = 64-1;
+		bounds.height = 64+16-1;
 		/*super(handler, x, y, 80, 80);
 		bounds.x = 21+15;
 		bounds.y = 0;
@@ -51,23 +49,44 @@ public class Player extends Creature {
 		animUpLeft.tick();
 		animUpRight.tick();
 		//Movement
+
+
 		getInput();
 		move();
 		checkForDamageWithTiles();
 
 		Entity e = getEntityWithCollision(xMove, 0f);
-		if(e != null) DamageWithCreature(e);
+		if(e != null){
+			InteractWithCreatureOnX(e);
+		}else {
+			Entity e1 = getEntityWithCollision(0f, yMove);
+			if (e1 != null) {
+				canJump = true;
+				InteractWithCreatureOnY(e1);
+				//DamageWithCreature(e1);
+			}
+		}
 
-		Entity e1 = getEntityWithCollision(0f, yMove);
-		if(e1 != null) DamageWithCreature(e1);
 
-		//System.out.println(health);
 		handler.getGameCamera().centerOnEntity(this);
 	}
 
-	private void DamageWithCreature(Entity e){
-		if(e.isDoingDamage()) decreaseHealth(15);
+	private void InteractWithCreatureOnY(Entity e){
+		if(e instanceof Mushroom)  handler.getWorld().getEntityManager().deleteEntity(e);
 
+		//if(e instanceof JumpingWall ){
+		//	winLevel = true;
+		//}
+	}
+
+	private void InteractWithCreatureOnX(Entity e){
+		if(e.isDoingDamage()) {
+			if (e instanceof Mushroom) decreaseHealth(12);
+		}
+
+		if(e instanceof Door ){
+			winLevel = true;
+		}
 	}
 
 	private void checkForDamageWithTiles(){
@@ -77,6 +96,7 @@ public class Player extends Creature {
 				if(collisionWithDamageTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) ||
 						collisionWithDamageTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
                     decreaseHealth();
+                    //canJump = true;
                     return;
 				}else{
 
@@ -88,6 +108,7 @@ public class Player extends Creature {
 				if(collisionWithDamageTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) ||
 						collisionWithDamageTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
                     decreaseHealth();
+					//canJump = true;
                     return;
 				}else{
 				}
@@ -97,6 +118,7 @@ public class Player extends Creature {
 
 				if(collisionWithDamageTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) ||
 						collisionWithDamageTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
+					//canJump = true;
                     decreaseHealth();
                     return;
 				}else{
@@ -108,6 +130,8 @@ public class Player extends Creature {
 
 				if(collisionWithDamageTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) ||
 						collisionWithDamageTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
+					//falling = false;
+					//canJump = true;
 					decreaseHealth();
                     return;
 				}else {
@@ -119,16 +143,16 @@ public class Player extends Creature {
 	}
 
 	private void getInput(){
-		if(isDead()){
+		if(isDead() || hasWon()){
 			xMove = 0;
 			yMove = 0;
 			return;
 		}
 		xMove = 0;
-		//yMove = 0;
+
 
 		if(handler.getKeyManager().up){
-			jump(17f);
+			jump(20f);
 			handler.getKeyManager().stopJump();
 		}
 		if(handler.getKeyManager().left){
@@ -169,5 +193,8 @@ public class Player extends Creature {
 			return animDown.getCurrentFrame();
 		}*/
 	}
+
+	public boolean hasWon(){return winLevel;}
+	public void interact(){;}
 
 }

@@ -40,7 +40,6 @@ public class MenuState extends State {
                 sleep(100);
                 State.setState(handler.getGame().getLevelState());
             } else if (handler.getMouseManager().isLeftPressed() && exit.isMouseOver(handler)) {
-                System.out.println("HERE");
                 System.exit(0);
             }
 	}

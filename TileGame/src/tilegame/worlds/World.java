@@ -3,6 +3,7 @@ package tilegame.worlds;
 import java.awt.*;
 
 import tilegame.Handler;
+import tilegame.entities.Entity;
 import tilegame.entities.EntityManager;
 import tilegame.entities.creatures.Mushroom;
 import tilegame.entities.creatures.Player;
@@ -103,6 +104,7 @@ public class World {
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
+
 
 }
 

@@ -20,6 +20,7 @@ public class GameState extends State {
 	private boolean lost = false;
 
 	private LostState lostObj = new LostState(handler);
+	private WonState wonObj = new WonState(handler);
 
 
 	public GameState(Handler handler,String str) {
@@ -65,6 +66,9 @@ public class GameState extends State {
 			} catch (Exception e) {;}*/
 				exitGameState();
 			}
+			if (handler.getWorld().getEntityManager().getPlayer().hasWon()) {
+				setWon(true);
+			}else
 			if (handler.getWorld().getEntityManager().getPlayer().isDead()) {
 				setLost(true);
 			}
@@ -80,10 +84,12 @@ public class GameState extends State {
 
 			g.drawImage(getCurrentImage(), heart.getX(), heart.getY(), heart.getWidth() * 2, heart.getHeight() * 2, null);
 
-			if (isLost()) {
+			if(isWon()){
+				wonObj.tick();
+				wonObj.render(g);
+			}else if (isLost()) {
 				//System.out.println("LOST");
 				//LOST METHOD
-
 				lostObj.tick();
 				lostObj.render(g);
 				//exitGameState();

@@ -4,10 +4,12 @@ import tilegame.Handler;
 import tilegame.entities.Entity;
 import tilegame.tiles.Tile;
 
+import java.awt.*;
+
 public abstract class Creature extends Entity {
 	
 	public static final int DEFAULT_HEALTH = 100;
-	public static final float DEFAULT_SPEED = 3.4f;
+	public static final float DEFAULT_SPEED = 3.8f;
 	public static final int DEFAULT_CREATURE_WIDTH = 64,
 							DEFAULT_CREATURE_HEIGHT = 64;
 	
@@ -19,6 +21,9 @@ public abstract class Creature extends Entity {
 	protected float gravity = 0.5f;
 	protected boolean falling = true;
 	protected boolean canJump = false;
+	protected Rectangle rect = new Rectangle(bounds.x,bounds.y,bounds.width,bounds.height);
+	protected  Point downL = new Point(bounds.height,bounds.y + bounds.width);
+	protected  Point downR = new Point(bounds.height+ bounds.x,bounds.y + bounds.width);
 
 	public Creature(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
@@ -29,10 +34,37 @@ public abstract class Creature extends Entity {
 	}
 	
 	public void move(){
-		if(!checkEntityCollisions(xMove, 0f))
+		if(!checkEntityCollisions(xMove, 0f)){
 			moveX();
-		if(!checkEntityCollisions(0f, yMove))
+		}
+
+		if(!checkEntityCollisions(0f, yMove)){
+			//System.out.println("I AM HERE");
 			moveY();
+		}else{
+			if(yMove < 0){ //UP
+				int ty = (int) (y + yMove + bounds.y);
+				y = ty + bounds.y ;
+				yMove = y;
+				falling = true;
+				canJump = false;
+			}/*else if(yMove > 0){	//DOWN
+				//int ty = (int) (y + yMove + bounds.y + bounds.height);
+				//y = ty  - bounds.y - bounds.height ;
+				y+=yMove;
+				falling = true;
+				//syMove = y;
+				canJump = false;
+			}*/
+			//fall();
+					//y = yMove;
+			//jump(25);
+			//moveY();
+			/*if(yMove > 0){
+				falling = true;
+				System.out.println("I AM HERE");
+			}*/
+		}
 	}
 	
 	public void moveX(){
@@ -70,12 +102,13 @@ public abstract class Creature extends Entity {
 	public void moveY(){
 		if(yMove < 0){//Up
 			int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-			
+
 			if(!collisionWithTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
 					!collisionWithTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
 				canJump = false;
 				falling = true;
 				y += yMove;
+				//System.out.println(x + " " + y + " " + "JUMP---33333");
 
 			}else{
 				//y += yMove;
@@ -83,8 +116,9 @@ public abstract class Creature extends Entity {
 				yMove = y;
 				falling = true;
 				canJump = false;
+				//System.out.println(x + " " + y + " " + "JUMP-----222");
 			}
-			
+
 		}else if(yMove > 0){//Down
 			int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
 			if(ty > handler.getGame().getHeight())	return;
@@ -94,18 +128,24 @@ public abstract class Creature extends Entity {
 				canJump = false;
 				falling = true;
 				y += yMove;
+				//System.out.println(x + " " + y + " " + "JUMP-111");
 			}else {
 				y = ty * Tile.TILEHEIGHT - bounds.y - bounds.height - 1;
 				falling = false;
 				//yMove=0;
 				canJump = true;
+				//System.out.println(x + " " + y + " " + "JUMP");
 			}
+
+
 
 		}
 
 		fall();
-
 	}
+
+	public float getXMove(){return xMove;}
+	public float getYMove(){return yMove;}
 
 	protected void fall(){
 		if (!falling) {
@@ -185,5 +225,5 @@ public abstract class Creature extends Entity {
 	public void setSpeed(float speed) {
 		this.speed = speed;
 	}
-	
+
 }

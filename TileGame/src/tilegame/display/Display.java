@@ -1,7 +1,6 @@
 package tilegame.display;
 
-import java.awt.Canvas;
-import java.awt.Dimension;
+import java.awt.*;
 
 import javax.swing.JFrame;
 
@@ -23,15 +22,19 @@ public class Display {
 	
 	private void createDisplay(){
 		frame = new JFrame(title);
-        frame.setExtendedState(frame.getExtendedState() | frame.MAXIMIZED_BOTH);
-		//frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		//Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		//frame.setSize(screenSize.width, screenSize.height);
+
+        //frame.setExtendedState(Frame.MAXIMIZED_HORIZ);
+
+		frame.setExtendedState(frame.getExtendedState() | frame.MAXIMIZED_BOTH);
         //frame.setDefaultLookAndFeelDecorated(true);
 		//frame.setUndecorated(true);
-		//frame.setPreferredSize(new Dimension(1300, 850));
+		//frame.setPreferredSize(new Dimension(1850, 1015));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame.setResizable(false);
 
-		frame.setLocationRelativeTo(null);
+		//frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
 		canvas = new Canvas();

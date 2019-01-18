@@ -43,7 +43,14 @@ public class EntityManager {
 	public void addEntity(Entity e){
 		entities.add(e);
 	}
-	
+
+	public void deleteEntity(Entity e){
+		//for(Entity ent : entities){
+		//	if(e.equals(ent))
+				entities.remove(e);
+		//}
+	}
+
 	//GETTERS SETTERS
 
 	public Handler getHandler() {

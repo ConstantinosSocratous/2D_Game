@@ -16,10 +16,10 @@ public class Door extends StaticEntity {
     }
 
     private void init(){
-        bounds.x = 15;
-        bounds.y = 28;
-        bounds.width = 96-27;
-        bounds.height = 96-35;
+        bounds.x = 32*3-35; //12;
+        bounds.y = 0;
+        bounds.width = 38;//65;
+        bounds.height = 64*3;
         anim = new Animation(500, Assets.door);
     }
 
@@ -29,6 +29,8 @@ public class Door extends StaticEntity {
 
     public void render(Graphics g){
         g.drawImage(anim.getCurrentFrame(),(int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()),width,height,null);
+
+        //g.fillRect((int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()),width,height);
 
     }
 
