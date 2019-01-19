@@ -1,6 +1,7 @@
 package tilegame.states;
 
 import java.awt.*;
+import java.awt.geom.CubicCurve2D;
 import java.awt.image.BufferedImage;
 
 import tilegame.Handler;
@@ -22,8 +23,6 @@ public class GameState extends State {
 
 	private LostState lostObj = new LostState(handler);
 	private WonState wonObj = new WonState(handler);
-
-	private int currentLevel = 0;
 
 
 	public GameState(Handler handler) {
@@ -90,8 +89,11 @@ public class GameState extends State {
 			g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
 			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-225,32);
 
+			int curL = currentLevel + 1;
+            g.drawString("Level "+ curL, handler.getGame().getWidth()/2-30,32);
 
-			if(isWon()){
+
+            if(isWon()){
 				wonObj.tick();
 				wonObj.render(g);
 			}else if (isLost()) {
@@ -100,8 +102,7 @@ public class GameState extends State {
 				lostObj.render(g);
 				//exitGameState();
 			}
-
-
+            
 		}
 	}
 

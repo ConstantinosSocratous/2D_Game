@@ -22,7 +22,7 @@ public class AllLevels {
         //ALL_LEVELS[0]
         LevelsState.ALL_LEVELS[0].setEligableToJump(true);
         handler.getGame().getGameState().init(LevelsState.ALL_LEVELS[0].getPath());
-        handler.getGame().getGameState().setCurrentLevel(1);
+        handler.getGame().getGameState().setCurrentLevel(0);
         State.setState(handler.getGame().getGameState());
 
 
@@ -83,7 +83,7 @@ public class AllLevels {
     public static void LEVEL1(){
 
         handler.getGame().getGameState().init(LevelsState.ALL_LEVELS[1].getPath());
-        handler.getGame().getGameState().setCurrentLevel(2);
+        handler.getGame().getGameState().setCurrentLevel(1);
         State.setState(handler.getGame().getGameState());
         //Mushroom m = new Mushroom(handler,800,550);
 
