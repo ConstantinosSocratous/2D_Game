@@ -77,11 +77,12 @@ public class Game implements Runnable {
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0);
 
-		allLevels = new AllLevels(handler);
 
-		gameState = new GameState(handler,"res/worlds/world1.txt");
+		allLevels = new AllLevels(handler);
+		gameState = new GameState(handler);
 		menuState = new MenuState(handler);
 		levelState = new LevelsState(handler);
+
 		State.setState(menuState);
 	}
 	
@@ -108,7 +109,7 @@ public class Game implements Runnable {
 
 		g.setColor(Color.RED);
 
-		g.drawString("FPS: " + lastFPS , getWidth()- 32*5, 32/2);
+		g.drawString("FPS: " + lastFPS , 32, 32);
 		//g.drawRect(300,300,300,300);
 		//g.drawString("FPS: " + ticks ,0,0);
 

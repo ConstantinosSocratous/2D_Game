@@ -38,17 +38,17 @@ public abstract class Creature extends Entity {
 			moveX();
 		}
 
-		if(!checkEntityCollisions(0f, yMove)){
+		//if(!checkEntityCollisions(0f, yMove)){
 			//System.out.println("I AM HERE");
 			moveY();
-		}else{
-			if(yMove < 0){ //UP
+		//}
+			/*if(yMove < 0){ //UP
 				int ty = (int) (y + yMove + bounds.y);
 				y = ty + bounds.y ;
 				yMove = y;
 				falling = true;
-				canJump = false;
-			}/*else if(yMove > 0){	//DOWN
+				canJump = false;*/
+			/*else if(yMove > 0){	//DOWN
 				//int ty = (int) (y + yMove + bounds.y + bounds.height);
 				//y = ty  - bounds.y - bounds.height ;
 				y+=yMove;
@@ -64,7 +64,7 @@ public abstract class Creature extends Entity {
 				falling = true;
 				System.out.println("I AM HERE");
 			}*/
-		}
+
 	}
 	
 	public void moveX(){

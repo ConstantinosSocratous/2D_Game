@@ -13,7 +13,6 @@ public class Lava extends Tile {
     private Animation animLava;
 
 
-
     public Lava(BufferedImage[] texture, int id) {
         super(null,id);
         imgs = texture;
@@ -28,7 +27,6 @@ public class Lava extends Tile {
     public void render(Graphics g, int x, int y){
         g.drawImage(animLava.getCurrentFrame(), x, y, TILEWIDTH, TILEHEIGHT, null);
     }
-
 
     @Override
     public boolean isSolid(){

@@ -15,10 +15,8 @@ public class LevelsState extends State{
     private BufferedImage background;
     private final int width = 32;
     private final int height = 32;
-    private LevelObject level1,level2;
+    public static LevelObject[] ALL_LEVELS = new LevelObject[2];
     private UIObject exit;
-
-
 
     public LevelsState(Handler handler){
         super(handler);
@@ -28,12 +26,12 @@ public class LevelsState extends State{
         BufferedImage[] temp = new BufferedImage[2];
         temp[0] = sheet.crop(0,0, width,height);
         temp[1] = sheet.crop(width,0, width,height);
-        level1 = new LevelObject(temp, handler.getWidth()/2 -200 , handler.getHeight()/2-200 , "res/worlds/world1.txt");
+        ALL_LEVELS[0] = new LevelObject(temp, handler.getWidth()/2 -200 , handler.getHeight()/2-200 , "/worlds/world0.txt");
 
         BufferedImage[] temp2 = new BufferedImage[2];
         temp2[0] = sheet.crop(width*2,0, width,height);
         temp2[1] = sheet.crop(width*3,0, width,height);
-        level2 = new LevelObject(temp2, handler.getWidth()/2  , handler.getHeight()/2-200 , "res/worlds/world2.txt");
+        ALL_LEVELS[1] = new LevelObject(temp2, handler.getWidth()/2  , handler.getHeight()/2-200 , "/worlds/world1.txt");
 
         SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
         BufferedImage[] exitI = new BufferedImage[2];
@@ -53,17 +51,15 @@ public class LevelsState extends State{
                     sleep(100);
                     State.setState(handler.getGame().getMenuState());
                 }
-                if(level1.isMouseOver(handler)){
+                if(ALL_LEVELS[0].isMouseOver(handler)){    //LEVEL 1
                     sleep(100);
-                    handler.getGame().getGameState().init(level1.getPath());
-                    State.setState(handler.getGame().getGameState());
-                    AllLevels.LEVEL1();
+                    AllLevels.goToLevel(0);
+                    handler.getGame().getGameState().setCurrentLevel(0);
                 }
-                if(level2.isMouseOver(handler)){
+                if(ALL_LEVELS[1].isMouseOver(handler)){    //LEVEL 2
                     sleep(100);
-                    handler.getGame().getGameState().init(level2.getPath());
-                    State.setState(handler.getGame().getGameState());
-                    AllLevels.LEVEL2();
+                    AllLevels.goToLevel(1);
+                    handler.getGame().getGameState().setCurrentLevel(1);
                 }
             }
 
@@ -73,15 +69,19 @@ public class LevelsState extends State{
         if(State.getState().equals(handler.getGame().getLevelState())) {
             g.drawImage(background, 0, 0, handler.getWidth(), handler.getHeight(), null);
 
-            BufferedImage temp = level1.getCurrentImage(handler);
-            g.drawImage(temp, level1.getX(), level1.getY(), temp.getWidth() * 3, temp.getHeight() * 3, null);
+            BufferedImage temp = ALL_LEVELS[0].getCurrentImage(handler);
+            g.drawImage(temp, ALL_LEVELS[0].getX(), ALL_LEVELS[0].getY(), temp.getWidth() * 3, temp.getHeight() * 3, null);
 
-            BufferedImage temp2 = level2.getCurrentImage(handler);
-            g.drawImage(temp2, level2.getX(), level2.getY(), temp2.getWidth() * 3, temp2.getHeight() * 3, null);
+            BufferedImage temp2 = ALL_LEVELS[1].getCurrentImage(handler);
+            g.drawImage(temp2, ALL_LEVELS[1].getX(), ALL_LEVELS[1].getY(), temp2.getWidth() * 3, temp2.getHeight() * 3, null);
 
             BufferedImage temp3 = exit.getCurrentImage(handler);
             g.drawImage(temp3, exit.getX(), exit.getY(), temp3.getWidth() * 2, temp3.getHeight() * 2, null);
 
         }
+    }
+
+    public LevelObject[] getALL_LEVELS() {
+        return ALL_LEVELS;
     }
 }

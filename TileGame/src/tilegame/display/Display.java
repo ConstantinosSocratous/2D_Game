@@ -24,15 +24,17 @@ public class Display {
 		frame = new JFrame(title);
 		//Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		//frame.setSize(screenSize.width, screenSize.height);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-        //frame.setExtendedState(Frame.MAXIMIZED_HORIZ);
-
-		frame.setExtendedState(frame.getExtendedState() | frame.MAXIMIZED_BOTH);
+        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+		frame.setSize(screenSize);
+		// rame.setState(Frame.NORMAL);
+		//frame.setExtendedState(frame.getExtendedState() | frame.MAXIMIZED_BOTH);
         //frame.setDefaultLookAndFeelDecorated(true);
 		//frame.setUndecorated(true);
 		//frame.setPreferredSize(new Dimension(1850, 1015));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.setResizable(false);
+		frame.setResizable(false);
 
 		//frame.setLocationRelativeTo(null);
 		frame.setVisible(true);

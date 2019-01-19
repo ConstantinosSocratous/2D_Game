@@ -7,12 +7,13 @@ import tilegame.Handler;
 import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SpriteSheet;
 import tilegame.tiles.UIObject;
+import tilegame.worlds.AllLevels;
 import tilegame.worlds.World;
 
 public class GameState extends State {
 
 	private World world;
-	private UIObject exit, heart;
+	private UIObject exit, heart,score;
 	private final int width = 32;
 	private final int height = 32;
 
@@ -22,10 +23,12 @@ public class GameState extends State {
 	private LostState lostObj = new LostState(handler);
 	private WonState wonObj = new WonState(handler);
 
+	private int currentLevel = 0;
 
-	public GameState(Handler handler,String str) {
+
+	public GameState(Handler handler) {
 		super(handler);
-		init(str);
+		//init(str);
 	}
 
 	public void init(String path) {
@@ -58,7 +61,6 @@ public class GameState extends State {
 
 	@Override
 	public void tick() {
-
 			world.tick();
 			if (handler.getMouseManager().isLeftPressed() && exit.isMouseOver(handler)) {
 			/*try {
@@ -66,6 +68,7 @@ public class GameState extends State {
 			} catch (Exception e) {;}*/
 				exitGameState();
 			}
+			//AllLevels.goToLevel(getCurrentLevel() + 1);
 			if (handler.getWorld().getEntityManager().getPlayer().hasWon()) {
 				setWon(true);
 			}else
@@ -84,16 +87,21 @@ public class GameState extends State {
 
 			g.drawImage(getCurrentImage(), heart.getX(), heart.getY(), heart.getWidth() * 2, heart.getHeight() * 2, null);
 
+			g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-225,32);
+
+
 			if(isWon()){
 				wonObj.tick();
 				wonObj.render(g);
 			}else if (isLost()) {
 				//System.out.println("LOST");
-				//LOST METHOD
 				lostObj.tick();
 				lostObj.render(g);
 				//exitGameState();
 			}
+
+
 		}
 	}
 

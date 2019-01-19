@@ -8,6 +8,7 @@ import tilegame.entities.EntityManager;
 import tilegame.entities.creatures.Mushroom;
 import tilegame.entities.creatures.Player;
 import tilegame.tiles.Tile;
+import tilegame.utils.FileLoader;
 import tilegame.utils.Utils;
 
 public class World {
@@ -79,6 +80,7 @@ public class World {
 	
 	private void loadWorld(String path){
 		String file = Utils.loadFileAsString(path);
+		//String file = FileLoader.loadFileAsString(path);
 		String[] tokens = file.split("\\s+");
 		width = Utils.parseInt(tokens[0]);
 		height = Utils.parseInt(tokens[1]);

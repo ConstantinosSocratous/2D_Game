@@ -5,9 +5,11 @@ import java.awt.image.BufferedImage;
 
 import tilegame.Handler;
 import tilegame.entities.Entity;
+import tilegame.entities.statics.Coin;
 import tilegame.entities.statics.Door;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
+import tilegame.states.LevelsState;
 import tilegame.tiles.Tile;
 
 
@@ -17,6 +19,7 @@ public class Player extends Creature {
 	//private Animation animDown, animUp, animLeft, animRight;
 	private Animation standar,animRight,animLeft, animUpRight, animUpLeft;
 	private boolean winLevel=false;
+	private int score = 0;
 
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT+16);
@@ -66,26 +69,48 @@ public class Player extends Creature {
 				//DamageWithCreature(e1);
 			}
 		}
-
-
 		handler.getGameCamera().centerOnEntity(this);
 	}
 
 	private void InteractWithCreatureOnY(Entity e){
-		if(e instanceof Mushroom)  handler.getWorld().getEntityManager().deleteEntity(e);
+		if(e instanceof Mushroom) {
+
+		    if(!handler.getWorld().getTile((int)(e.getX()+75)/64,(int)e.getY()/64).isSolid())
+                handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()+75),e.getY(),0,0));
+            else if(!handler.getWorld().getTile((int)(e.getX()-75)/64,(int)e.getY()/64).isSolid())
+                handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()-75),e.getY(),0,0));
+            else
+                handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()),e.getY()-120,0,0));
+
+            //handler.getWorld().getEntityManager().addEntity(new Coin(handler,e.getX(),e.getY(),0,0));
+            handler.getWorld().getEntityManager().deleteEntity(e);
+            if(!isEligibleToJump()) fall();
+        }
+        else if(e instanceof Coin) {
+			handler.getWorld().getEntityManager().deleteEntity(e);
+			score +=100;
+			if(!isEligibleToJump()) fall();
+		}
 
 		//if(e instanceof JumpingWall ){
 		//	winLevel = true;
 		//}
 	}
 
+	private boolean isEligibleToJump(){
+        int currentLevelTemp = handler.getGame().getGameState().getCurrentLevel();
+        return LevelsState.ALL_LEVELS[currentLevelTemp].isEligableToJump();
+    }
+
 	private void InteractWithCreatureOnX(Entity e){
 		if(e.isDoingDamage()) {
 			if (e instanceof Mushroom) decreaseHealth(12);
-		}
-
-		if(e instanceof Door ){
+		}else if(e instanceof Door ){
 			winLevel = true;
+		}else if(e instanceof Coin) {
+			handler.getWorld().getEntityManager().deleteEntity(e);
+			score +=100;
+
 		}
 	}
 
@@ -194,6 +219,7 @@ public class Player extends Creature {
 		}*/
 	}
 
+	public int getScore(){return score;}
 	public boolean hasWon(){return winLevel;}
 	public void interact(){;}
 
