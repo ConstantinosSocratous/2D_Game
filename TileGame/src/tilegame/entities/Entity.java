@@ -12,7 +12,7 @@ public abstract class Entity {
 	protected Rectangle bounds;
 	protected boolean doingDamage = false;
 	protected float speed;
-	
+
 	public Entity(Handler handler, float x, float y, int width, int height){
 		this.handler = handler;
 		this.x = x;
@@ -37,17 +37,7 @@ public abstract class Entity {
 		}
 		return false;
 	}
-
-	public boolean checkEntityCollisionsPoint(float xOffset, float yOffset){
-		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
-			if(e.equals(this))
-				continue;
-			if(e.getCollisionBounds(0f, 0f).intersects(new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset), 1, 1)))
-				return true;
-		}
-		return false;
-	}
-
+	
 	public Entity getEntityWithCollision(float xOffset, float yOffset){
 		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
 			if(e.equals(this))

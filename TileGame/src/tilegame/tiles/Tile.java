@@ -42,14 +42,12 @@ public class Tile {
 	}
 	
 	public void render(Graphics g, int x, int y){
-		//+h.getGameCamera().getxOffset()
-		//h.getGameCamera().getyOffset(/
 		//int x1 = (int)(x + h.getGameCamera().getxOffset())/64;
 		//int y1 = (int)(y + h.getGameCamera().getyOffset())/64;
 		g.drawImage(texture, x, y, TILEWIDTH, TILEHEIGHT, null);
-		/*g.setColor(Color.RED);
-		g.drawString("x:" + x1*64 , x, y);
-		g.drawString("y:" + y1*64 , x, y+9);*/
+		//g.setColor(Color.RED);
+		//g.drawString("x:" + x1*64 , x, y);
+		//g.drawString("y:" + y1*64 , x, y+9);
 	}
 	
 	public boolean isSolid(){

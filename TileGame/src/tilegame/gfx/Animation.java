@@ -32,4 +32,6 @@ public class Animation {
 		return frames[index];
 	}
 
+	public int getIndex(){return index;}
+
 }

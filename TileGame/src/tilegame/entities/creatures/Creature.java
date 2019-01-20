@@ -37,33 +37,9 @@ public abstract class Creature extends Entity {
 		if(!checkEntityCollisions(xMove, 0f)){
 			moveX();
 		}
-
-		//if(!checkEntityCollisions(0f, yMove)){
-			//System.out.println("I AM HERE");
+		if(!checkEntityCollisions(xMove, 0f)) {
 			moveY();
-		//}
-			/*if(yMove < 0){ //UP
-				int ty = (int) (y + yMove + bounds.y);
-				y = ty + bounds.y ;
-				yMove = y;
-				falling = true;
-				canJump = false;*/
-			/*else if(yMove > 0){	//DOWN
-				//int ty = (int) (y + yMove + bounds.y + bounds.height);
-				//y = ty  - bounds.y - bounds.height ;
-				y+=yMove;
-				falling = true;
-				//syMove = y;
-				canJump = false;
-			}*/
-			//fall();
-					//y = yMove;
-			//jump(25);
-			//moveY();
-			/*if(yMove > 0){
-				falling = true;
-				System.out.println("I AM HERE");
-			}*/
+		}
 
 	}
 	

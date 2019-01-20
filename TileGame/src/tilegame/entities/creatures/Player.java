@@ -7,6 +7,7 @@ import tilegame.Handler;
 import tilegame.entities.Entity;
 import tilegame.entities.statics.Coin;
 import tilegame.entities.statics.Door;
+import tilegame.entities.statics.Trap;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
 import tilegame.states.LevelsState;
@@ -35,7 +36,7 @@ public class Player extends Creature {
 
 		//bounds = new Rectangle(0, 0, width, height);
 		
-		//Animatonsa
+		//Animations
 		animLeft = new Animation(250, Assets.player_left);
 		animRight = new Animation(250, Assets.player_right);
 		animUpRight = new Animation(250, Assets.playerUpRight);
@@ -53,15 +54,17 @@ public class Player extends Creature {
 		animUpRight.tick();
 		//Movement
 
-
 		getInput();
 		move();
 		checkForDamageWithTiles();
 
+
+
+
 		Entity e = getEntityWithCollision(xMove, 0f);
 		if(e != null){
 			InteractWithCreatureOnX(e);
-		}else {
+		}else if(e == null) {
 			Entity e1 = getEntityWithCollision(0f, yMove);
 			if (e1 != null) {
 				canJump = true;
@@ -69,49 +72,62 @@ public class Player extends Creature {
 				//DamageWithCreature(e1);
 			}
 		}
+
+		Entity e3 = getEntityWithCollision(0f, 0f);
+		if (e3 != null) {
+			if (e3 instanceof Trap)
+				if (e3.isDoingDamage()) {
+					decreaseHealth(15);
+				}
+			fall();
+		}
+
 		handler.getGameCamera().centerOnEntity(this);
 	}
 
-	private void InteractWithCreatureOnY(Entity e){
-		if(e instanceof Mushroom) {
+	public void move(){
+		//if(!checkEntityCollisions(xMove, 0f)){
+			moveX();
+		//}
+		//if(!checkEntityCollisions(xMove, 0f)) {
+			moveY();
+		//}
 
+	}
+	private void InteractWithCreatureOnY(Entity e){
+		if(e instanceof Mushroom) {	 //INTERACT WITH MUSHROOM
 		    if(!handler.getWorld().getTile((int)(e.getX()+75)/64,(int)e.getY()/64).isSolid())
                 handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()+75),e.getY(),0,0));
             else if(!handler.getWorld().getTile((int)(e.getX()-75)/64,(int)e.getY()/64).isSolid())
                 handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()-75),e.getY(),0,0));
             else
                 handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()),e.getY()-120,0,0));
-
             //handler.getWorld().getEntityManager().addEntity(new Coin(handler,e.getX(),e.getY(),0,0));
             handler.getWorld().getEntityManager().deleteEntity(e);
-            if(!isEligibleToJump()) fall();
+            //if(!isEligibleToJump()) fall();
         }
-        else if(e instanceof Coin) {
+        else if(e instanceof Coin) {  //INTERACT WITH COIN
 			handler.getWorld().getEntityManager().deleteEntity(e);
 			score +=100;
 			if(!isEligibleToJump()) fall();
-		}
+		}else{fall();}
 
-		//if(e instanceof JumpingWall ){
-		//	winLevel = true;
-		//}
 	}
 
-	private boolean isEligibleToJump(){
-        int currentLevelTemp = handler.getGame().getGameState().getCurrentLevel();
-        return LevelsState.ALL_LEVELS[currentLevelTemp].isEligableToJump();
-    }
-
 	private void InteractWithCreatureOnX(Entity e){
-		if(e.isDoingDamage()) {
+		if(e.isDoingDamage()) { //INTERACT WITH MUSHROOM
 			if (e instanceof Mushroom) decreaseHealth(12);
 		}else if(e instanceof Door ){
 			winLevel = true;
-		}else if(e instanceof Coin) {
+		}else if(e instanceof Coin) {	//INTERACT WITH COIN
 			handler.getWorld().getEntityManager().deleteEntity(e);
 			score +=100;
-
 		}
+	}
+
+	private boolean isEligibleToJump(){
+		int currentLevelTemp = handler.getGame().getGameState().getCurrentLevel();
+		return LevelsState.ALL_LEVELS[currentLevelTemp].isEligableToJump();
 	}
 
 	private void checkForDamageWithTiles(){
@@ -195,10 +211,16 @@ public class Player extends Creature {
 	@Override
 	public void render(Graphics g) {
 		g.drawImage(getCurrentAnimationFrame(), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-
-
 	}
-	
+
+	private int getTempX(){
+		return  (int)xMove+(int)x- (int)handler.getGameCamera().getxOffset();
+	}
+	private int getTempY(){
+		return  (int)yMove+(int)y- (int)handler.getGameCamera().getyOffset();
+	}
+
+
 	private BufferedImage getCurrentAnimationFrame(){
 
 		if(falling && xMove > 0){//Jump Right
@@ -221,6 +243,5 @@ public class Player extends Creature {
 
 	public int getScore(){return score;}
 	public boolean hasWon(){return winLevel;}
-	public void interact(){;}
 
 }

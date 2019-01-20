@@ -26,12 +26,12 @@ public class LevelsState extends State{
         BufferedImage[] temp = new BufferedImage[2];
         temp[0] = sheet.crop(0,0, width,height);
         temp[1] = sheet.crop(width,0, width,height);
-        ALL_LEVELS[0] = new LevelObject(temp, handler.getWidth()/2 -200 , handler.getHeight()/2-200 , "/worlds/world0.txt");
+        ALL_LEVELS[0] = new LevelObject(temp, handler.getWidth()/2 -200 , handler.getHeight()/2-200 , "/worlds/world0.txt", "The Basics");
 
         BufferedImage[] temp2 = new BufferedImage[2];
         temp2[0] = sheet.crop(width*2,0, width,height);
         temp2[1] = sheet.crop(width*3,0, width,height);
-        ALL_LEVELS[1] = new LevelObject(temp2, handler.getWidth()/2  , handler.getHeight()/2-200 , "/worlds/world1.txt");
+        ALL_LEVELS[1] = new LevelObject(temp2, handler.getWidth()/2  , handler.getHeight()/2-200 , "/worlds/world1.txt", "Above ground");
 
         SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
         BufferedImage[] exitI = new BufferedImage[2];

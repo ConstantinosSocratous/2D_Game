@@ -39,7 +39,6 @@ public class Mushroom extends Creature {
         if(xMove == 0){
             if(left) xMove = -speed;
             else xMove = speed;
-
         }
         move();
 

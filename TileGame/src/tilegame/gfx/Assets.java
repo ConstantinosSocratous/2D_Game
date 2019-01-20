@@ -8,7 +8,7 @@ public class Assets {
 	
 	public static BufferedImage dirt, grass, sky, cloud3, cloud4,rock;
 	public static BufferedImage[] player_static, player_left, player_right, playerUpRight, playerUpLeft, lava;
-	public static BufferedImage[] enemyMoving, door, movingWalls, coin;
+	public static BufferedImage[] enemyMoving, door, movingWalls, coin, trap;
 	//public static BufferedImage[] zombie_down, zombie_up, zombie_left, zombie_right;
 
 	public static void init(){
@@ -25,6 +25,7 @@ public class Assets {
 		door = new BufferedImage[2];
 		movingWalls = new BufferedImage[1];
 		coin = new BufferedImage[6];
+		trap = new BufferedImage[2];
 		/*player_down[0] = sheet.crop(width * 4, 0, width, height);
 		player_down[1] = sheet.crop(width * 5, 0, width, height);
 		player_up[0] = sheet.crop(width * 6, 0, width, height);
@@ -44,6 +45,8 @@ public class Assets {
 		door[0] = sheet.crop(0 , height*6, width, height*2);
 		door[1] = sheet.crop(width , height*6, width, height*2);
 		movingWalls[0] = sheet.crop(width*3 , height*2, width*5, height);
+		trap[0] = sheet.crop(width*4 , height*4, width, height);
+		trap[1] = sheet.crop(width*5 , height*4, width, height);
 
 		SpriteSheet sheetCoin = new SpriteSheet(ImageLoader.loadImage("/textures/coin.png"));
 		coin[0] = sheetCoin.crop(0, 0, width, height);

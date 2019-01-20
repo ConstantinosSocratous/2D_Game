@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.geom.CubicCurve2D;
 import java.awt.image.BufferedImage;
 
+import sun.util.resources.cldr.ebu.LocaleNames_ebu;
 import tilegame.Handler;
 import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SpriteSheet;
@@ -62,12 +63,8 @@ public class GameState extends State {
 	public void tick() {
 			world.tick();
 			if (handler.getMouseManager().isLeftPressed() && exit.isMouseOver(handler)) {
-			/*try {
-				Thread.sleep(1500);
-			} catch (Exception e) {;}*/
 				exitGameState();
 			}
-			//AllLevels.goToLevel(getCurrentLevel() + 1);
 			if (handler.getWorld().getEntityManager().getPlayer().hasWon()) {
 				setWon(true);
 			}else
@@ -82,15 +79,16 @@ public class GameState extends State {
 			world.render(g);
 
 			BufferedImage temp = exit.getCurrentImage(handler);
+			//DRAW EXIT BUTTON
 			g.drawImage(temp, exit.getX(), exit.getY(), temp.getWidth() * 2, temp.getHeight() * 2, null);
-
+			//DRAW HEART IMAGE
 			g.drawImage(getCurrentImage(), heart.getX(), heart.getY(), heart.getWidth() * 2, heart.getHeight() * 2, null);
 
 			g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-225,32);
-
-			int curL = currentLevel + 1;
-            g.drawString("Level "+ curL, handler.getGame().getWidth()/2-30,32);
+			//DRAW SCORE
+			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-240,48);
+			//DRAW TITLE OF THE LEVE;
+			g.drawString(LevelsState.ALL_LEVELS[currentLevel].getTitle(), handler.getGame().getWidth()/2-30,32);
 
 
             if(isWon()){
@@ -126,7 +124,7 @@ public class GameState extends State {
 		} else if (h >= dh * 33 / 100 ) {
 			//System.out.println(h);
 			return heart.getImage(2);
-		} else if(h > dh *  2/ 100  ) {
+		} else if(h > dh *  0/ 100  ) {
 			//System.out.println(h);
 			return heart.getImage(3);
 		}
