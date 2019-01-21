@@ -24,8 +24,6 @@ public class World {
 		this.handler = handler;
 		entityManager = new EntityManager(handler);
 
-		// Temporary entity code!
-
 		Player pl = new Player(handler, 100, 100);
 		entityManager.addEntity(pl);
 		entityManager.setPlayer(pl);
@@ -35,13 +33,6 @@ public class World {
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);
 	}
-
-	public void changePath(String path){
-		loadWorld(path);
-		entityManager.getPlayer().setX(spawnX);
-		entityManager.getPlayer().setY(spawnY);
-	}
-
 
 	public void tick(){
 		entityManager.tick();
@@ -70,7 +61,7 @@ public class World {
 
 		Tile t = Tile.tiles[tiles[x][y]];
 		if(t == null)
-			return Tile.dirtTile;
+			return Tile.white;
 		return t;
 	}
 

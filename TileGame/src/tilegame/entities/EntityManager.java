@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import tilegame.Cinematic.Kingdom;
 import tilegame.Handler;
 import tilegame.entities.creatures.Player;
 
@@ -29,7 +30,11 @@ public class EntityManager {
 	public void tick(){
 		for(int i = 0;i < entities.size();i++){
 			Entity e = entities.get(i);
-			e.tick();
+			if(e instanceof Kingdom) e.tick();
+		}
+		for(int i = 0;i < entities.size();i++){
+			Entity e = entities.get(i);
+			if(!(e instanceof  Kingdom))e.tick();
 		}
 		entities.sort(renderSorter);
 	}

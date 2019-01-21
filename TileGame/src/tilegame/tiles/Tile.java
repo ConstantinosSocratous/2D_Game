@@ -18,6 +18,7 @@ public class Tile {
 	public static Tile cloud4 = new Cloud4(4);
 	public static Tile rock = new Rock(1);
 	public static Tile lava = new Lava(Assets.lava, 6);
+	public static Tile white = new White(7);
 
 	//CLASS
 	

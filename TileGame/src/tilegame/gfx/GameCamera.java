@@ -49,6 +49,22 @@ public class GameCamera {
 
 		checkBlankSpace();
 	}
+
+	public void centerOnPointX(int xIn){
+		//if(Math.abs(xOffset-e.getX))
+		xOffset = xIn - handler.getWidth() / 2 + 16;
+		//if(camera2-temp2 > 32|| temp2-camera2 >32)
+		//yOffset = yIn;
+		//if(e.getY() < yDown )
+		//if(Math.abs((int)(-e.getY()+previousY)) < 32*4 )//|| Math.abs((int)(e.getY()-previousY)) < 32* )
+
+
+		//previousY = e.getY();
+		//else if(e.getY() >= yDown)
+		//yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
+
+		checkBlankSpace();
+	}
 	
 	public void move(float xAmt, float yAmt){
 		xOffset += xAmt;

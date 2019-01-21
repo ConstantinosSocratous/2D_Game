@@ -2,6 +2,7 @@ package tilegame.entities.creatures;
 
 import tilegame.Handler;
 import tilegame.entities.Entity;
+import tilegame.gfx.SoundManager;
 import tilegame.tiles.Tile;
 
 import java.awt.*;

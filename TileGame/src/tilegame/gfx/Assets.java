@@ -6,9 +6,9 @@ public class Assets {
 	
 	private static final int width = 32, height = 32;
 	
-	public static BufferedImage dirt, grass, sky, cloud3, cloud4,rock;
+	public static BufferedImage dirt, grass, sky, cloud3, cloud4,rock, white;
 	public static BufferedImage[] player_static, player_left, player_right, playerUpRight, playerUpLeft, lava;
-	public static BufferedImage[] enemyMoving, door, movingWalls, coin, trap;
+	public static BufferedImage[] enemyMoving, door, movingWalls, coin, trap, kingdom,fire;
 	//public static BufferedImage[] zombie_down, zombie_up, zombie_left, zombie_right;
 
 	public static void init(){
@@ -26,6 +26,7 @@ public class Assets {
 		movingWalls = new BufferedImage[1];
 		coin = new BufferedImage[6];
 		trap = new BufferedImage[2];
+		kingdom = new BufferedImage[4];
 		/*player_down[0] = sheet.crop(width * 4, 0, width, height);
 		player_down[1] = sheet.crop(width * 5, 0, width, height);
 		player_up[0] = sheet.crop(width * 6, 0, width, height);
@@ -55,26 +56,29 @@ public class Assets {
 		coin[3] = sheetCoin.crop(height*3, 0, width, height);
 		coin[4] = sheetCoin.crop(height*4, 0, width, height);
 		coin[5] = sheetCoin.crop(height*5, 0, width, height);
-		/*zombie_down = new BufferedImage[2];
-		zombie_up = new BufferedImage[2];
-		zombie_left = new BufferedImage[2];
-		zombie_right = new BufferedImage[2];
-		
-		zombie_down[0] = sheet.crop(width * 4, height * 2, width, height);
-		zombie_down[1] = sheet.crop(width * 5, height * 2, width, height);
-		zombie_up[0] = sheet.crop(width * 6, height * 2, width, height);
-		zombie_up[1] = sheet.crop(width * 7, height * 2, width, height);
-		zombie_right[0] = sheet.crop(width * 4, height * 3, width, height);
-		zombie_right[1] = sheet.crop(width * 5, height * 3, width, height);
-		zombie_left[0] = sheet.crop(width * 6, height * 3, width, height);
-		zombie_left[1] = sheet.crop(width * 7, height * 3, width, height);
-		*/
+
+		kingdom[0] = ImageLoader.loadImage("/cinematic/kingdom/kingdom1.png");
+		kingdom[1] = ImageLoader.loadImage("/cinematic/kingdom/kingdom2.png");
+		kingdom[2] = ImageLoader.loadImage("/cinematic/kingdom/kingdom3.png");
+		kingdom[3] = ImageLoader.loadImage("/cinematic/kingdom/kingdom2.png");
+
+
+
+		white = sheet.crop(width*7, 0, width, height);
 		dirt = sheet.crop(width, 0, width, height);
 		grass = sheet.crop(0, 0, width, height);
 		rock = sheet.crop(0,height, width,height);
 		sky = sheet.crop(0, height * 2, width, height);
 		cloud3 = sheet.crop(width, height * 2, width, height);
 		cloud4 = sheet.crop(width * 2  , height * 2, width, height);
+
+
+
+		fire = new BufferedImage[7];
+		SpriteSheet fireSheet = new SpriteSheet(ImageLoader.loadImage("/cinematic/fire.png"));
+		for(int i=0; i< fire.length; i++){
+			fire[i] = fireSheet.crop(24*i, 0, 24, 24);
+ 		}
 
 	}
 	

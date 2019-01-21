@@ -3,6 +3,7 @@ package tilegame;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
+import tilegame.Cinematic.FirstScene;
 import tilegame.display.Display;
 import tilegame.gfx.Assets;
 import tilegame.gfx.GameCamera;
@@ -31,6 +32,7 @@ public class Game implements Runnable {
 	private State gameState;
 	private State menuState;
 	private State levelState;
+	private State firstScene;
 	
 	//Input
 	private KeyManager keyManager;
@@ -82,8 +84,12 @@ public class Game implements Runnable {
 		gameState = new GameState(handler);
 		menuState = new MenuState(handler);
 		levelState = new LevelsState(handler);
+		firstScene = new FirstScene(handler);
 
-		State.setState(menuState);
+		//menuState.init("");
+		//State.setState(menuState);
+
+		State.setState(firstScene);
 	}
 	
 	private void tick(){
@@ -123,7 +129,7 @@ public class Game implements Runnable {
 		init();
 
 		long lastTime = System.nanoTime();
-		double amountOfTicks = 60.0;
+		double amountOfTicks = 65.0;
 		double ns = 1000000000 / amountOfTicks;
 		double delta = 0;
 		long timer = System.currentTimeMillis();
@@ -151,8 +157,6 @@ public class Game implements Runnable {
 
 	}
 
-	public AllLevels getAllLevels(){return allLevels;}
-	public SoundManager getSoundManager(){return soundManager;}
 	public State getGameState(){return gameState;}
 	public State getMenuState(){return menuState;}
 	public State getLevelState(){return levelState;}
@@ -195,12 +199,6 @@ public class Game implements Runnable {
 		}
 	}
 
-	public void setMenuState(MenuState menu){
-		menuState = menu;
-	}
-	public void setLevelState(LevelsState level){levelState= level;}
-	public void setGameState(GameState ga){ gameState = ga;}
-	
 }
 
 

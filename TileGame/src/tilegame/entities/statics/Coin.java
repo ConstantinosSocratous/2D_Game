@@ -12,10 +12,10 @@ public class Coin extends StaticEntity {
 
     public Coin(Handler handler, float x, float y, int width, int height){
         super(handler, x, y, 32, 32);
-        bounds.x = 1;
-        bounds.y = 0;
-        bounds.width = 32-2;
-        bounds.height = 32;
+        bounds.x = 6;
+        bounds.y = 5;
+        bounds.width = 32-8;
+        bounds.height = 32-5;
         anim = new Animation(100, Assets.coin);
     }
 

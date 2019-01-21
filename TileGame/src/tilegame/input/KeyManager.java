@@ -7,44 +7,40 @@ public class KeyManager implements KeyListener {
 
 	private boolean[] keys;
 	public boolean up, left, right;
-	private boolean isUp = false;
+	public boolean isUp = false;
+	private int i = 0;
 	
 	public KeyManager(){
 		keys = new boolean[256];
 	}
 	
 	public void tick(){
-		up = keys[KeyEvent.VK_UP];
+		//up = keys[KeyEvent.VK_UP];
 		left = keys[KeyEvent.VK_LEFT];
 		right = keys[KeyEvent.VK_RIGHT];
 	}
 
 	@Override
 	public synchronized void keyPressed(KeyEvent e) {
-		keys[e.getKeyCode()] = true;
-		isUp = false;
-		//keys[e.getKeyCode()] = true;
-		/*if(e.getKeyCode() == KeyEvent.VK_A)
-			current = "left";
-		if(e.getKeyCode() == KeyEvent.VK_D)
-			current = "right";
-		if(e.getKeyCode() == KeyEvent.VK_W)
-			isUp = true;
-			*/
-	}
+		if(e.getKeyCode() == KeyEvent.VK_UP) {
+			if(i < 1){
+				isUp = true;
+			}
+			i++;
+		}else {
+			isUp = false;
+			keys[e.getKeyCode()] = true;
+		}
 
-	public void stopJump(){
-		isUp = false;
 	}
 
 	@Override
 	public synchronized void keyReleased(KeyEvent e) {
-		//if(e.getKeyCode() == KeyEvent.VK_W) {
-		//	isUp = true;
-		//}
-		//else isUp = false;
-		keys[e.getKeyCode()] = false;
+		if(e.getKeyCode() == KeyEvent.VK_UP) {
+			i = 0;
+		}else isUp = false;
 
+		keys[e.getKeyCode()] = false;
 
 	}
 

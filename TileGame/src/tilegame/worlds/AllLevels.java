@@ -5,13 +5,13 @@ import tilegame.entities.creatures.Mushroom;
 import tilegame.entities.statics.Coin;
 import tilegame.entities.statics.Door;
 import tilegame.entities.statics.Trap;
+import tilegame.gfx.SoundManager;
 import tilegame.states.LevelsState;
 import tilegame.states.State;
 
 public class AllLevels {
 
     private static Handler handler;
-    private static int numOfLevels = 2;
 
     public AllLevels(Handler handler){
         this.handler = handler;
@@ -134,10 +134,22 @@ public class AllLevels {
     }
 
     public static void goToLevel(int num){
-        if(num == 0 )AllLevels.LEVEL0();
-        else if(num == 1 )AllLevels.LEVEL1();
+        if(num != handler.getGame().getGameState().getCurrentLevel()){
+            SoundManager.stopAll();
+            SoundManager.jungle.loop();
+        }
+
+        if(num == 0 ){
+            handler.getGame().getGameState().setCurrentLevel(0);
+            AllLevels.LEVEL0();
+        }
+        else if(num == 1 ){
+            handler.getGame().getGameState().setCurrentLevel(1);
+            AllLevels.LEVEL1();
+        }
 
         else if(num >= LevelsState.ALL_LEVELS.length){
+            handler.getGame().getGameState().setCurrentLevel(0);
             AllLevels.LEVEL0();
         }
     }

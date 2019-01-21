@@ -4,7 +4,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import tilegame.Handler;
+import tilegame.Sounds.Sound;
 import tilegame.gfx.ImageLoader;
+import tilegame.gfx.SoundManager;
 import tilegame.gfx.SpriteSheet;
 import tilegame.tiles.UIObject;
 
@@ -17,16 +19,18 @@ public class MenuState extends State {
 
 	public MenuState(Handler handler){
 		super(handler);
-		background = ImageLoader.loadImage("/textures/bg.png");
-		init();
+		background = ImageLoader.loadImage("/textures/Background/bg.png");
+
+		//init();
 	}
 
 	private void init(){
+		SoundManager.menu.loop();
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
 		BufferedImage[] playI = new BufferedImage[2];
-		playI[0] = sheet.crop(0,0, width*4,height*2);
-		playI[1] = sheet.crop(width*4,0, width*4,height*2);
-		play = new UIObject(playI ,handler.getWidth()/2-150,handler.getHeight()/2-200);
+		playI[0] = sheet.crop(width*2,0, width*3,height*3);
+		playI[1] = sheet.crop(width*5,0, width*3,height*3);
+		play = new UIObject(playI ,handler.getWidth()/2-125,200);
 
 		BufferedImage[] exitI = new BufferedImage[2];
 		exitI[0] = sheet.crop(0,height*2, width,height);
@@ -37,8 +41,8 @@ public class MenuState extends State {
 	@Override
 	public void tick() {
             if (handler.getMouseManager().isLeftPressed() && play.isMouseOver(handler)) {
-                sleep(100);
                 State.setState(handler.getGame().getLevelState());
+				sleep(500);
             } else if (handler.getMouseManager().isLeftPressed() && exit.isMouseOver(handler)) {
                 System.exit(0);
             }
@@ -60,5 +64,12 @@ public class MenuState extends State {
         }
 	}
 
-	public void init(String path){}
+	public void startMusic(){
+		SoundManager.menu.loop();
+	}
+	public void stopMusic(){
+
+	}
+
+	public void init(String path){init();}
 }

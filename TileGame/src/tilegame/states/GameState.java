@@ -6,7 +6,9 @@ import java.awt.image.BufferedImage;
 
 import sun.util.resources.cldr.ebu.LocaleNames_ebu;
 import tilegame.Handler;
+import tilegame.Sounds.Sound;
 import tilegame.gfx.ImageLoader;
+import tilegame.gfx.SoundManager;
 import tilegame.gfx.SpriteSheet;
 import tilegame.tiles.UIObject;
 import tilegame.worlds.AllLevels;
@@ -15,7 +17,7 @@ import tilegame.worlds.World;
 public class GameState extends State {
 
 	private World world;
-	private UIObject exit, heart,score;
+	private UIObject menu,repeat;//, heart;
 	private final int width = 32;
 	private final int height = 32;
 
@@ -25,13 +27,19 @@ public class GameState extends State {
 	private LostState lostObj = new LostState(handler);
 	private WonState wonObj = new WonState(handler);
 
+	private BufferedImage bg1,bg2,bg3,bg4,bg5;
 
 	public GameState(Handler handler) {
 		super(handler);
-		//init(str);
 	}
 
 	public void init(String path) {
+		bg1 = ImageLoader.loadImage("/textures/Background/bg1.png");
+		bg2 = ImageLoader.loadImage("/textures/Background/bg2.png");
+		bg3 = ImageLoader.loadImage("/textures/Background/bg3.png");
+		bg4 = ImageLoader.loadImage("/textures/Background/bg4.png");
+		bg5 = ImageLoader.loadImage("/textures/Background/bg5.png");
+
 		createWorld(path);
 	}
 
@@ -40,19 +48,16 @@ public class GameState extends State {
 		lost = false;
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
         BufferedImage[] temp1 = new BufferedImage[2];
-		temp1[0] = sheet.crop(0, height * 2, width, height);
-		temp1[1] = sheet.crop(width, height * 2, width, height);
-		exit = new UIObject(temp1, handler.getGame().getWidth() - width * 3, (int) (height / 2));
+		temp1[0] = sheet.crop(0, 0, width, height);
+		temp1[1] = sheet.crop(width, 0 , width, height);
+		menu = new UIObject(temp1, handler.getGame().getWidth() - width * 3, (int) (height / 2));
 
-		SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
-		BufferedImage[] temp = new BufferedImage[5];
-		temp[0] = sheet1.crop(0, height * 3, width, height);
-		temp[1] = sheet1.crop(width, height * 3, width, height);
-		temp[2] = sheet1.crop(width * 2, height * 3, width, height);
-		temp[3] = sheet1.crop(width * 3, height * 3, width, height);
-		temp[4] = sheet1.crop(width * 4, height * 3, width, height);
 
-		heart = new UIObject((temp), handler.getGame().getWidth() - width * 5 - 16, (int) (height / 2));
+		BufferedImage[] temp3 = new BufferedImage[2];
+		temp3[0] = sheet.crop(0, height, width, height);
+		temp3[1] = sheet.crop(width, height, width, height);
+		repeat = new UIObject(temp3, handler.getGame().getWidth() - width * 6, (int) (height / 2));
+		//heart = new UIObject((temp), handler.getGame().getWidth() - width * 5 - 16, (int) (height / 2));
 
 		world = new World(handler, path);
 		handler.setWorld(world);
@@ -62,8 +67,13 @@ public class GameState extends State {
 	@Override
 	public void tick() {
 			world.tick();
-			if (handler.getMouseManager().isLeftPressed() && exit.isMouseOver(handler)) {
-				exitGameState();
+			if (handler.getMouseManager().isLeftPressed()){
+				if (menu.isMouseOver(handler))	exitGameState();
+				else if (repeat.isMouseOver(handler)){
+					//sleep(500);
+
+					AllLevels.goToLevel(currentLevel);
+				}
 			}
 			if (handler.getWorld().getEntityManager().getPlayer().hasWon()) {
 				setWon(true);
@@ -76,18 +86,23 @@ public class GameState extends State {
 	@Override
 	public void render(Graphics g) {
 		if(State.getState().equals( handler.getGame().getGameState())) {
+			g.drawImage(bg2, 0, 0, handler.getWidth(), handler.getHeight(), null);
 			world.render(g);
 
-			BufferedImage temp = exit.getCurrentImage(handler);
+			BufferedImage temp = menu.getCurrentImage(handler);
 			//DRAW EXIT BUTTON
-			g.drawImage(temp, exit.getX(), exit.getY(), temp.getWidth() * 2, temp.getHeight() * 2, null);
+			g.drawImage(temp, menu.getX(), menu.getY(), temp.getWidth() * 2, temp.getHeight() * 2, null);
+
+
+			BufferedImage temp1 = repeat.getCurrentImage(handler);
+			g.drawImage(temp1, repeat.getX(), repeat.getY(), temp1.getWidth() * 2, temp1.getHeight() * 2, null);
 			//DRAW HEART IMAGE
-			g.drawImage(getCurrentImage(), heart.getX(), heart.getY(), heart.getWidth() * 2, heart.getHeight() * 2, null);
+			//g.drawImage(getCurrentImage(), heart.getX(), heart.getY(), heart.getWidth() * 2, heart.getHeight() * 2, null);
 
 			g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
 			//DRAW SCORE
 			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-240,48);
-			//DRAW TITLE OF THE LEVE;
+			//DRAW TITLE OF THE LEVEL;
 			g.drawString(LevelsState.ALL_LEVELS[currentLevel].getTitle(), handler.getGame().getWidth()/2-30,32);
 
 
@@ -105,7 +120,9 @@ public class GameState extends State {
 	}
 
 	private void exitGameState() {
-		sleep(100);
+		SoundManager.jungle.stop();
+		sleep(500);
+		handler.getGame().getMenuState().init("");
 		State.setState(handler.getGame().getMenuState());
 		setWorld(null);
 
@@ -114,6 +131,7 @@ public class GameState extends State {
 
 
 	//MADE FOR HEART OBJECT
+	/*
 	public BufferedImage getCurrentImage() {
 		int h = handler.getWorld().getEntityManager().getPlayer().getHealth();
 		int dh = handler.getWorld().getEntityManager().getPlayer().getDefaultHealth();
@@ -124,13 +142,13 @@ public class GameState extends State {
 		} else if (h >= dh * 33 / 100 ) {
 			//System.out.println(h);
 			return heart.getImage(2);
-		} else if(h > dh *  0/ 100  ) {
+		} else if(h > dh *  1/ 100  ) {
 			//System.out.println(h);
 			return heart.getImage(3);
 		}
 		return heart.getImage(4);
 
-	}
+	}*/
 
 	public void setLost(boolean bool){	lost = bool;}
 	public boolean isLost(){return lost;}

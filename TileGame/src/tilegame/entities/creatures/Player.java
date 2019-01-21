@@ -10,6 +10,7 @@ import tilegame.entities.statics.Door;
 import tilegame.entities.statics.Trap;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
+import tilegame.gfx.SoundManager;
 import tilegame.states.LevelsState;
 import tilegame.tiles.Tile;
 
@@ -19,7 +20,7 @@ public class Player extends Creature {
 	//Animations
 	//private Animation animDown, animUp, animLeft, animRight;
 	private Animation standar,animRight,animLeft, animUpRight, animUpLeft;
-	private boolean winLevel=false;
+	private boolean winLevel=false, canMove= true;
 	private int score = 0;
 
 	public Player(Handler handler, float x, float y) {
@@ -54,12 +55,9 @@ public class Player extends Creature {
 		animUpRight.tick();
 		//Movement
 
-		getInput();
+		if(canMove)getInput();
 		move();
 		checkForDamageWithTiles();
-
-
-
 
 		Entity e = getEntityWithCollision(xMove, 0f);
 		if(e != null){
@@ -77,7 +75,7 @@ public class Player extends Creature {
 		if (e3 != null) {
 			if (e3 instanceof Trap)
 				if (e3.isDoingDamage()) {
-					decreaseHealth(15);
+					decreaseHealth(100);
 				}
 			fall();
 		}
@@ -109,6 +107,7 @@ public class Player extends Creature {
         else if(e instanceof Coin) {  //INTERACT WITH COIN
 			handler.getWorld().getEntityManager().deleteEntity(e);
 			score +=100;
+			SoundManager.coin.play();
 			if(!isEligibleToJump()) fall();
 		}else{fall();}
 
@@ -116,10 +115,11 @@ public class Player extends Creature {
 
 	private void InteractWithCreatureOnX(Entity e){
 		if(e.isDoingDamage()) { //INTERACT WITH MUSHROOM
-			if (e instanceof Mushroom) decreaseHealth(12);
+			if (e instanceof Mushroom) decreaseHealth(100);
 		}else if(e instanceof Door ){
 			winLevel = true;
 		}else if(e instanceof Coin) {	//INTERACT WITH COIN
+			SoundManager.coin.play();
 			handler.getWorld().getEntityManager().deleteEntity(e);
 			score +=100;
 		}
@@ -136,7 +136,7 @@ public class Player extends Creature {
 
 				if(collisionWithDamageTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) ||
 						collisionWithDamageTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
-                    decreaseHealth();
+                    decreaseHealth(100);
                     //canJump = true;
                     return;
 				}else{
@@ -148,7 +148,7 @@ public class Player extends Creature {
 
 				if(collisionWithDamageTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) ||
 						collisionWithDamageTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
-                    decreaseHealth();
+                    decreaseHealth(100);
 					//canJump = true;
                     return;
 				}else{
@@ -156,11 +156,10 @@ public class Player extends Creature {
 			}
 			if(yMove < 0){//Up
 				int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-
 				if(collisionWithDamageTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) ||
 						collisionWithDamageTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
 					//canJump = true;
-                    decreaseHealth();
+                    decreaseHealth(100);
                     return;
 				}else{
 				}
@@ -173,7 +172,7 @@ public class Player extends Creature {
 						collisionWithDamageTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
 					//falling = false;
 					//canJump = true;
-					decreaseHealth();
+					decreaseHealth(100);
                     return;
 				}else {
 
@@ -192,16 +191,16 @@ public class Player extends Creature {
 		xMove = 0;
 
 
-		if(handler.getKeyManager().up){
+		if(handler.getKeyManager().isUp){
 			jump(20f);
-			handler.getKeyManager().stopJump();
+			//handler.getKeyManager().stopJump();
+			handler.getKeyManager().isUp = false;
 		}
 		if(handler.getKeyManager().left){
-
 			xMove = -speed ;//* (float)handler.getGame().lastFPS/1000000000/(float)handler.getGame().delta;
 		}
 		if(handler.getKeyManager().right){
-
+			//SoundManager.footstep.start();
 			xMove = speed ;//* (float)handler.getGame().lastFPS/1000000000/(float) handler.getGame().delta;
 		}
 		fall();
@@ -241,7 +240,16 @@ public class Player extends Creature {
 		}*/
 	}
 
+	public void setCanMove(boolean bool){
+		canMove = bool;
+	}
+
 	public int getScore(){return score;}
 	public boolean hasWon(){return winLevel;}
+
+	public void increasexMove(float x){xMove+=x; }
+	public void increaseyMove(float y){yMove+=y; }
+	public void clearxMove(){xMove = 0; }
+	public void clearyMove(){yMove = 0; }
 
 }

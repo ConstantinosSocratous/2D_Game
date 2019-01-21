@@ -2,6 +2,7 @@ package tilegame.states;
 
 import tilegame.Handler;
 import tilegame.gfx.ImageLoader;
+import tilegame.gfx.SoundManager;
 import tilegame.gfx.SpriteSheet;
 import tilegame.tiles.LevelObject;
 import tilegame.tiles.UIObject;
@@ -16,11 +17,11 @@ public class LevelsState extends State{
     private final int width = 32;
     private final int height = 32;
     public static LevelObject[] ALL_LEVELS = new LevelObject[2];
-    private UIObject exit;
+    private UIObject menu;
 
     public LevelsState(Handler handler){
         super(handler);
-        background = ImageLoader.loadImage("/textures/bg.png");
+        background = ImageLoader.loadImage("/textures/Background/bg.png");
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/levels.png"));
 
         BufferedImage[] temp = new BufferedImage[2];
@@ -34,10 +35,10 @@ public class LevelsState extends State{
         ALL_LEVELS[1] = new LevelObject(temp2, handler.getWidth()/2  , handler.getHeight()/2-200 , "/worlds/world1.txt", "Above ground");
 
         SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
-        BufferedImage[] exitI = new BufferedImage[2];
-        exitI[0] = sheet1.crop(0,height*2, width,height);
-        exitI[1] = sheet1.crop(width,height*2, width,height);
-        exit = new UIObject(exitI,handler.getGame().getWidth() - width * 3, (int) (height / 2));
+        BufferedImage[] menuI = new BufferedImage[2];
+        menuI[0] = sheet1.crop(0,0, width,height);
+        menuI[1] = sheet1.crop(width,0, width,height);
+        menu = new UIObject(menuI,handler.getGame().getWidth() - width * 3, (int) (height / 2));
     }
 
     public void init(String path){
@@ -47,19 +48,21 @@ public class LevelsState extends State{
     public void tick(){
 
             if(handler.getMouseManager().isLeftPressed()){
-                if(exit.isMouseOver(handler)){
-                    sleep(100);
+                if(menu.isMouseOver(handler)){
+                    //handler.getGame().getMenuState().init("");
                     State.setState(handler.getGame().getMenuState());
+                    sleep(500);
                 }
                 if(ALL_LEVELS[0].isMouseOver(handler)){    //LEVEL 1
-                    sleep(100);
+
+                    SoundManager.menu.stop();
                     AllLevels.goToLevel(0);
-                    handler.getGame().getGameState().setCurrentLevel(0);
+                    sleep(500);
                 }
                 if(ALL_LEVELS[1].isMouseOver(handler)){    //LEVEL 2
-                    sleep(100);
                     AllLevels.goToLevel(1);
-                    handler.getGame().getGameState().setCurrentLevel(1);
+                    SoundManager.menu.stop();
+                    sleep(500);
                 }
             }
 
@@ -75,8 +78,8 @@ public class LevelsState extends State{
             BufferedImage temp2 = ALL_LEVELS[1].getCurrentImage(handler);
             g.drawImage(temp2, ALL_LEVELS[1].getX(), ALL_LEVELS[1].getY(), temp2.getWidth() * 3, temp2.getHeight() * 3, null);
 
-            BufferedImage temp3 = exit.getCurrentImage(handler);
-            g.drawImage(temp3, exit.getX(), exit.getY(), temp3.getWidth() * 2, temp3.getHeight() * 2, null);
+            BufferedImage temp3 = menu.getCurrentImage(handler);
+            g.drawImage(temp3, menu.getX(), menu.getY(), temp3.getWidth() * 2, temp3.getHeight() * 2, null);
 
         }
     }

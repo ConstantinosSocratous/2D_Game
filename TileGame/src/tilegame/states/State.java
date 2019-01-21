@@ -21,7 +21,7 @@ public abstract class State {
 	//CLASS
 	
 	protected Handler handler;
-	protected int currentLevel = 0;
+	protected int currentLevel = -1;
 	
 	public State(Handler handler){
 		this.handler = handler;
