@@ -11,7 +11,7 @@ public class SoundManager {
 
     public static void init(){
         sounds = new ArrayList<>();
-        coin = new Sound("coin.wav");
+        coin = new Sound("Music/coin.wav");
         menu = new Sound("Music/menu.wav");
         jungle = new Sound("Music/jungle.wav");
         intro = new Sound("Music/intro.wav");

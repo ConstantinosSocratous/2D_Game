@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import tilegame.Handler;
+import tilegame.Sounds.Sound;
 import tilegame.entities.Entity;
 import tilegame.entities.statics.Coin;
 import tilegame.entities.statics.Door;
@@ -119,6 +120,7 @@ public class Player extends Creature {
 		}else if(e instanceof Door ){
 			winLevel = true;
 		}else if(e instanceof Coin) {	//INTERACT WITH COIN
+			//SoundManager.coin.stop();
 			SoundManager.coin.play();
 			handler.getWorld().getEntityManager().deleteEntity(e);
 			score +=100;

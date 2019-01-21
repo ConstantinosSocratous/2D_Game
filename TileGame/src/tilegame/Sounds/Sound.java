@@ -40,6 +40,7 @@ public class Sound {
         try{
 
             //clip.open(inputStream);
+            clip.setFramePosition(0);
             clip.start();
 
         }catch(Exception e){

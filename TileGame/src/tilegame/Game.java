@@ -88,7 +88,7 @@ public class Game implements Runnable {
 
 		menuState.init("");
 		State.setState(menuState);
-
+		//firstScene.init("/cinematic/world.txt");
 		//State.setState(firstScene);
 	}
 	
