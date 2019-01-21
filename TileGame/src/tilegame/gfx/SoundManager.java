@@ -11,10 +11,10 @@ public class SoundManager {
 
     public static void init(){
         sounds = new ArrayList<>();
-        coin = new Sound("/sounds/coin.wav");
-        menu = new Sound("/sounds/music/menu.wav");
-        jungle = new Sound("/sounds/music/jungle.wav");
-        intro = new Sound("/sounds/music/intro.wav");
+        coin = new Sound("coin.wav");
+        menu = new Sound("Music/menu.wav");
+        jungle = new Sound("Music/jungle.wav");
+        intro = new Sound("Music/intro.wav");
     }
 
     public static void addToSounds(Sound s){

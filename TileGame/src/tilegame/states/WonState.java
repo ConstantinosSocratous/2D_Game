@@ -3,14 +3,17 @@ package tilegame.states;
 import tilegame.Handler;
 import tilegame.gfx.Animation;
 import tilegame.gfx.ImageLoader;
+import tilegame.gfx.SpriteSheet;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.nio.Buffer;
+import java.nio.BufferOverflowException;
 
 public class WonState {
     private BufferedImage[] won;
-    private Animation animWon;
     private Handler handler;
+    private int width = 32, height = 32;
 
     public WonState(Handler handler){
         this.handler = handler;
@@ -18,20 +21,35 @@ public class WonState {
     }
 
     public void init(){
-        won = new BufferedImage[3];
-        won[0] = ImageLoader.loadImage("/textures/won/won1.png");
-        won[1] = ImageLoader.loadImage("/textures/won/won2.png");
-        won[2] = ImageLoader.loadImage("/textures/won/won3.png");
+        won = new BufferedImage[4];
+        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/won/won.png"));
+        won[0] = sheet.crop(0, 0, width*5, height*3);
+        won[1] = sheet.crop(width *5, 0, width*5, height*3);
+        won[2] = sheet.crop(0, height*3, width*5, height*3);
+        won[3] = sheet.crop(width *5, height*3, width*5, height*3);
 
-        animWon = new Animation(500, won);
     }
 
     public void tick(){
-        animWon.tick();
+
     }
 
     public void render(Graphics g){
-        BufferedImage temp = animWon.getCurrentFrame();
-        g.drawImage(temp,handler.getWidth()/2- temp.getWidth()/2,handler.getHeight()/2-temp.getHeight()/2, temp.getWidth(), temp.getHeight(),null);
+        BufferedImage img = getCurrentImage();
+        g.drawImage(img,handler.getWidth()/2- 200,handler.getHeight()/2-200, img.getWidth()*3, img.getHeight()*3,null);
+
+
+        int scr = handler.getWorld().getEntityManager().getPlayer().getScore();
+        g.drawString(scr+ "",handler.getWidth()/2,handler.getHeight()/2+100);
+
+    }
+
+    private BufferedImage getCurrentImage(){
+        int scr = handler.getWorld().getEntityManager().getPlayer().getScore();
+        if(scr<=200) return won[0];
+        else if(scr > 200 && scr <= 400 ) return won[1];
+        else if(scr > 400 && scr <= 600 ) return won[2];
+        else return won[3];
+
     }
 }

@@ -25,12 +25,23 @@ public class FirstScene extends State {
     private Kingdom kingdom;
     private ArrayList<Fire> fires = new ArrayList<>();
 
+    //For speeches
+    private Speech[] speeches = new Speech[1];
+    private int currSpeach = 0;
+    private boolean canSpeak = false;
+
+
+    private int numOfTicks = 0;
+
     public FirstScene(Handler handler){
         super(handler);
         this.handler = handler;
 
-        init("/cinematic/world.txt");
 
+
+    }
+    public void init(){
+        init("/cinematic/world.txt");
     }
 
     public void init(String path){
@@ -40,8 +51,6 @@ public class FirstScene extends State {
         handler.setWorld(world);
         world.getEntityManager().getPlayer().setCanMove(false);
         this.player = world.getEntityManager().getPlayer();
-
-
 
         kingdom = new Kingdom(handler, 2000, 511,0,0);
         fires.add(new Fire(handler,2200,610,72*2,72*2));
@@ -55,21 +64,33 @@ public class FirstScene extends State {
         fires.add(new Fire(handler,2450,690,72*2,72*2));
         fires.add(new Fire(handler,2400,660,72*2,72*2));
 
+
+        speeches[0] = new Speech(ImageLoader.loadImage("/cinematic/speeches/1.png"),768,640);
+
     }
 
     public void tick(){
         world.tick();
         kingdom.tick();
+        numOfTicks++;
 
         for(Fire f : fires) f.tick();
 
-        if(player.getX() <= 1800) {
-            player.setxMove(1.5f);
+        if(numOfTicks < 300){//player.getX() <= 500) {
+            player.setxMove(1.2f);
             player.move();
-        }else{
+        }else if(numOfTicks>=300 && numOfTicks < 550){
             player.clearxMove();
-        }
+            canSpeak = true;
+        }else if(numOfTicks >= 550 && numOfTicks < 620 ){
+            canSpeak = false;
+        }else if(numOfTicks >= 620 && numOfTicks < 1000){
+            player.setxMove(1.2f);
+            player.move();
+        }else if(numOfTicks >= 1000){
+            player.clearxMove();
 
+        }
     }
 
     public void render(Graphics g){
@@ -78,6 +99,10 @@ public class FirstScene extends State {
         kingdom.render(g);
 
         for(Fire f : fires) f.render(g);
+
+        if(canSpeak)
+            g.drawImage(speeches[currSpeach].getImage(),speeches[currSpeach].getX(), speeches[currSpeach].getY(),128,128,null);
+        //(int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset())
     }
 
 

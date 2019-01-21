@@ -29,6 +29,8 @@ public class GameState extends State {
 
 	private BufferedImage bg1,bg2,bg3,bg4,bg5;
 
+	private int numOfTicks = 0;
+
 	public GameState(Handler handler) {
 		super(handler);
 	}
@@ -44,6 +46,7 @@ public class GameState extends State {
 	}
 
 	public void createWorld(String path) {
+		numOfTicks = 0;
 		won = false;
 		lost = false;
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
@@ -111,8 +114,11 @@ public class GameState extends State {
 				wonObj.render(g);
 			}else if (isLost()) {
 				//System.out.println("LOST");
-				lostObj.tick();
-				lostObj.render(g);
+				numOfTicks++;
+				if(numOfTicks>60) {
+					numOfTicks = 0;
+					AllLevels.goToLevel(currentLevel);
+				}
 				//exitGameState();
 			}
             
@@ -122,7 +128,8 @@ public class GameState extends State {
 	private void exitGameState() {
 		SoundManager.jungle.stop();
 		sleep(500);
-		handler.getGame().getMenuState().init("");
+		//handler.getGame().getMenuState().init("");
+        SoundManager.menu.loop();
 		State.setState(handler.getGame().getMenuState());
 		setWorld(null);
 

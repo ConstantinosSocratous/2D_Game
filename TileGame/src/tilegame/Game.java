@@ -86,10 +86,10 @@ public class Game implements Runnable {
 		levelState = new LevelsState(handler);
 		firstScene = new FirstScene(handler);
 
-		//menuState.init("");
-		//State.setState(menuState);
+		menuState.init("");
+		State.setState(menuState);
 
-		State.setState(firstScene);
+		//State.setState(firstScene);
 	}
 	
 	private void tick(){

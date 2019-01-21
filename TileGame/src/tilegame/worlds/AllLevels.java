@@ -74,6 +74,7 @@ public class AllLevels {
         handler.getWorld().getEntityManager().addEntity(new Coin(handler,4992,773,0,0));
         handler.getWorld().getEntityManager().addEntity(new Coin(handler,3900,755,0,0));
 
+
         //CREATE TRAPS
         handler.getWorld().getEntityManager().addEntity(new Trap(handler,1024,515,128,64,2000));
         handler.getWorld().getEntityManager().addEntity(new Trap(handler,3900,770,96,64,2000));
@@ -81,7 +82,6 @@ public class AllLevels {
 
         //CREATE WINNING DOOR
         handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
-
 
     }
 

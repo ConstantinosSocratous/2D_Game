@@ -16,13 +16,13 @@ public class KeyManager implements KeyListener {
 	
 	public void tick(){
 		//up = keys[KeyEvent.VK_UP];
-		left = keys[KeyEvent.VK_LEFT];
-		right = keys[KeyEvent.VK_RIGHT];
+		left = keys[KeyEvent.VK_A];
+		right = keys[KeyEvent.VK_D];
 	}
 
 	@Override
 	public synchronized void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_UP) {
+		if(e.getKeyCode() == KeyEvent.VK_W) {
 			if(i < 1){
 				isUp = true;
 			}
@@ -36,7 +36,7 @@ public class KeyManager implements KeyListener {
 
 	@Override
 	public synchronized void keyReleased(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_UP) {
+		if(e.getKeyCode() == KeyEvent.VK_W) {
 			i = 0;
 		}else isUp = false;
 
