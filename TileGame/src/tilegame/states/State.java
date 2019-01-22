@@ -21,7 +21,6 @@ public abstract class State {
 	//CLASS
 	
 	protected Handler handler;
-	protected int currentLevel = -1;
 	
 	public State(Handler handler){
 		this.handler = handler;
@@ -41,15 +40,8 @@ public abstract class State {
 		}
 	}
 
-	public int getCurrentLevel() {
-		return currentLevel;
-	}
-
-	public void setCurrentLevel(int currentLevel) {
-		this.currentLevel = currentLevel;
-	}
-	//public abstract void setWorld(World world);
 
 
-	
+
+
 }

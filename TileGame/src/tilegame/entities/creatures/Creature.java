@@ -22,9 +22,7 @@ public abstract class Creature extends Entity {
 	protected float gravity = 0.5f;
 	protected boolean falling = true;
 	protected boolean canJump = false;
-	protected Rectangle rect = new Rectangle(bounds.x,bounds.y,bounds.width,bounds.height);
-	protected  Point downL = new Point(bounds.height,bounds.y + bounds.width);
-	protected  Point downR = new Point(bounds.height+ bounds.x,bounds.y + bounds.width);
+
 
 	public Creature(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
@@ -124,7 +122,7 @@ public abstract class Creature extends Entity {
 	public float getXMove(){return xMove;}
 	public float getYMove(){return yMove;}
 
-	protected void fall(){
+	public void fall(){
 		if (!falling) {
 			canJump = true;
 		} else {

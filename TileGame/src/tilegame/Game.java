@@ -10,10 +10,7 @@ import tilegame.gfx.GameCamera;
 import tilegame.gfx.SoundManager;
 import tilegame.input.KeyManager;
 import tilegame.input.MouseManager;
-import tilegame.states.GameState;
-import tilegame.states.LevelsState;
-import tilegame.states.MenuState;
-import tilegame.states.State;
+import tilegame.states.*;
 import tilegame.worlds.AllLevels;
 
 public class Game implements Runnable {
@@ -29,10 +26,7 @@ public class Game implements Runnable {
 	private Graphics g;
 	
 	//States
-	private State gameState;
-	private State menuState;
-	private State levelState;
-	private State firstScene;
+	private State gameState,menuState,levelState,firstScene,settingsState;
 	
 	//Input
 	private KeyManager keyManager;
@@ -85,6 +79,7 @@ public class Game implements Runnable {
 		menuState = new MenuState(handler);
 		levelState = new LevelsState(handler);
 		firstScene = new FirstScene(handler);
+		settingsState = new SettingsState(handler);
 
 		menuState.init("");
 		State.setState(menuState);
@@ -160,6 +155,7 @@ public class Game implements Runnable {
 	public State getGameState(){return gameState;}
 	public State getMenuState(){return menuState;}
 	public State getLevelState(){return levelState;}
+	public State getSettingsState(){return settingsState;}
 
 	public Graphics getGraphics(){return g;}
 

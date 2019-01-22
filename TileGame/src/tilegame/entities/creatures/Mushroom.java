@@ -29,17 +29,17 @@ public class Mushroom extends Creature {
         setIsDoingDamage(true);
         //Animation
         anim = new Animation(250, Assets.enemyMoving);
-
+        if(xMove == 0){
+            if(left) xMove = -speed;
+            else xMove = speed;
+        }
     }
 
     public void tick(){
 
         anim.tick();
 
-        if(xMove == 0){
-            if(left) xMove = -speed;
-            else xMove = speed;
-        }
+
         move();
 
         //checkForDamage();
@@ -123,7 +123,7 @@ public class Mushroom extends Creature {
     }
 
 
-    protected void fall(){
+    public void fall(){
         yMove += gravity;
         if (yMove > maxDY) yMove = maxDY;
 

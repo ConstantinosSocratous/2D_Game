@@ -98,6 +98,9 @@ public class World {
 		return entityManager;
 	}
 
+	public int getSpawnX(){return spawnX;}
+	public int getSpawnY(){return spawnY;}
+
 
 }
 

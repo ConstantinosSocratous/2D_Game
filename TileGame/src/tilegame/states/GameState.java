@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 import sun.util.resources.cldr.ebu.LocaleNames_ebu;
 import tilegame.Handler;
 import tilegame.Sounds.Sound;
+import tilegame.entities.creatures.Creature;
+import tilegame.entities.statics.CheckPoint;
 import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SoundManager;
 import tilegame.gfx.SpriteSheet;
@@ -23,25 +25,29 @@ public class GameState extends State {
 
 	private boolean won = false;
 	private boolean lost = false;
+	private int currentLevel = -1;
 
 	private LostState lostObj = new LostState(handler);
 	private WonState wonObj = new WonState(handler);
 
-	private BufferedImage bg1,bg2,bg3,bg4,bg5;
+	private BufferedImage bg2;
 
 	private int numOfTicks = 0;
+	private float xSpawn = 0,ySpawn = 0;
+	private CheckPoint currentCheckPoint = null;
+
 
 	public GameState(Handler handler) {
 		super(handler);
 	}
 
 	public void init(String path) {
-		bg1 = ImageLoader.loadImage("/textures/Background/bg1.png");
+		//bg1 = ImageLoader.loadImage("/textures/Background/bg1.png");
 		bg2 = ImageLoader.loadImage("/textures/Background/bg2.png");
-		bg3 = ImageLoader.loadImage("/textures/Background/bg3.png");
+		/*bg3 = ImageLoader.loadImage("/textures/Background/bg3.png");
 		bg4 = ImageLoader.loadImage("/textures/Background/bg4.png");
 		bg5 = ImageLoader.loadImage("/textures/Background/bg5.png");
-
+		*/
 		createWorld(path);
 	}
 
@@ -60,10 +66,32 @@ public class GameState extends State {
 		temp3[0] = sheet.crop(0, height, width, height);
 		temp3[1] = sheet.crop(width, height, width, height);
 		repeat = new UIObject(temp3, handler.getGame().getWidth() - width * 6, (int) (height / 2));
-		//heart = new UIObject((temp), handler.getGame().getWidth() - width * 5 - 16, (int) (height / 2));
 
 		world = new World(handler, path);
+
 		handler.setWorld(world);
+
+	}
+
+	public CheckPoint getCurrentCheckPoint(){return currentCheckPoint;}
+	public void setCurrentCheckPoint(CheckPoint c){
+		currentCheckPoint = c;
+	}
+
+	public void respawn(){
+		won = false;
+		lost = false;
+		world.getEntityManager().getPlayer().setHealth(Creature.DEFAULT_HEALTH);
+
+		if(currentCheckPoint == null){
+			handler.getWorld().getEntityManager().getPlayer().setX(handler.getWorld().getSpawnX());
+			handler.getWorld().getEntityManager().getPlayer().setY(handler.getWorld().getSpawnY());
+			handler.getWorld().getEntityManager().getPlayer().setyMove(0.01f);
+		}else{
+			handler.getWorld().getEntityManager().getPlayer().setX(currentCheckPoint.getX());
+			handler.getWorld().getEntityManager().getPlayer().setY(currentCheckPoint.getY());
+			handler.getWorld().getEntityManager().getPlayer().setyMove(0.01f);
+		}
 
 	}
 
@@ -74,7 +102,7 @@ public class GameState extends State {
 				if (menu.isMouseOver(handler))	exitGameState();
 				else if (repeat.isMouseOver(handler)){
 					//sleep(500);
-
+					initSpawns();
 					AllLevels.goToLevel(currentLevel);
 				}
 			}
@@ -84,6 +112,7 @@ public class GameState extends State {
 			if (handler.getWorld().getEntityManager().getPlayer().isDead()) {
 				setLost(true);
 			}
+			handler.getWorld().getEntityManager().deleteCollusionBullets();
 	}
 
 	@Override
@@ -117,12 +146,24 @@ public class GameState extends State {
 				numOfTicks++;
 				if(numOfTicks>60) {
 					numOfTicks = 0;
-					AllLevels.goToLevel(currentLevel);
+					respawn();
+					//AllLevels.goToLevel(currentLevel);
 				}
 				//exitGameState();
 			}
             
 		}
+	}
+	public void initSpawns(){
+		xSpawn = 0;
+		ySpawn = 0;
+	}
+	public int getCurrentLevel() {
+		return currentLevel;
+	}
+
+	public void setCurrentLevel(int currentLevel) {
+		this.currentLevel = currentLevel;
 	}
 
 	private void exitGameState() {
@@ -132,30 +173,7 @@ public class GameState extends State {
         SoundManager.menu.loop();
 		State.setState(handler.getGame().getMenuState());
 		setWorld(null);
-
-		//handler.getGame().getGameState().init("LEVELS EXTENSION");
 	}
-
-
-	//MADE FOR HEART OBJECT
-	/*
-	public BufferedImage getCurrentImage() {
-		int h = handler.getWorld().getEntityManager().getPlayer().getHealth();
-		int dh = handler.getWorld().getEntityManager().getPlayer().getDefaultHealth();
-
-		if (dh == h) return heart.getImage(0);
-		else if (h >= dh * 66 / 100 ) {
-			return heart.getImage(1);
-		} else if (h >= dh * 33 / 100 ) {
-			//System.out.println(h);
-			return heart.getImage(2);
-		} else if(h > dh *  1/ 100  ) {
-			//System.out.println(h);
-			return heart.getImage(3);
-		}
-		return heart.getImage(4);
-
-	}*/
 
 	public void setLost(boolean bool){	lost = bool;}
 	public boolean isLost(){return lost;}
@@ -166,6 +184,7 @@ public class GameState extends State {
 	public void setWorld(World world){
 		this.world = world;
 	}
+
 
 
 

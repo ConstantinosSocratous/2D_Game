@@ -37,6 +37,7 @@ public class Sound {
     }
 
     public void play(){
+        if(SoundManager.mute)  return;
         try{
 
             //clip.open(inputStream);
@@ -48,6 +49,7 @@ public class Sound {
     }
 
     public void loop(){
+        if(SoundManager.mute)  return;
         try{
 
 //            clip.open(inputStream);
@@ -59,6 +61,7 @@ public class Sound {
     }
 
     public void stop(){
+        if(SoundManager.mute)  return;
         clip.stop();
     }
     public boolean isPlaying(){

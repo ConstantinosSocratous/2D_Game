@@ -8,6 +8,7 @@ public class SoundManager {
 
     public static Sound coin,menu,jungle,intro;
     public static ArrayList<Sound> sounds;
+    public static boolean mute = true;
 
     public static void init(){
         sounds = new ArrayList<>();
@@ -25,6 +26,14 @@ public class SoundManager {
             if(s.isPlaying())
                 s.stop();
         }
+    }
+
+    public static void muteAll(){
+        SoundManager.stopAll();
+        mute = true;
+    }
+    public static void Unmute(){
+        mute = false;
     }
 
 }

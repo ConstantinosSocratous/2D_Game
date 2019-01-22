@@ -5,13 +5,16 @@ import java.awt.image.BufferedImage;
 
 import tilegame.Handler;
 import tilegame.Sounds.Sound;
+import tilegame.entities.Bullet;
 import tilegame.entities.Entity;
+import tilegame.entities.statics.CheckPoint;
 import tilegame.entities.statics.Coin;
 import tilegame.entities.statics.Door;
 import tilegame.entities.statics.Trap;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
 import tilegame.gfx.SoundManager;
+import tilegame.states.GameState;
 import tilegame.states.LevelsState;
 import tilegame.tiles.Tile;
 
@@ -74,10 +77,16 @@ public class Player extends Creature {
 
 		Entity e3 = getEntityWithCollision(0f, 0f);
 		if (e3 != null) {
-			if (e3 instanceof Trap)
+			if (e3 instanceof Trap) {
 				if (e3.isDoingDamage()) {
 					decreaseHealth(100);
 				}
+			}else if(e3 instanceof CheckPoint){
+				((GameState)(handler.getGame().getGameState())).setCurrentCheckPoint((CheckPoint) e3);
+
+				handler.getWorld().getEntityManager().deleteEntity(e3);
+			}
+
 			fall();
 		}
 
@@ -101,7 +110,6 @@ public class Player extends Creature {
                 handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()-75),e.getY(),0,0));
             else
                 handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()),e.getY()-120,0,0));
-            //handler.getWorld().getEntityManager().addEntity(new Coin(handler,e.getX(),e.getY(),0,0));
             handler.getWorld().getEntityManager().deleteEntity(e);
             //if(!isEligibleToJump()) fall();
         }
@@ -120,7 +128,6 @@ public class Player extends Creature {
 		}else if(e instanceof Door ){
 			winLevel = true;
 		}else if(e instanceof Coin) {	//INTERACT WITH COIN
-			//SoundManager.coin.stop();
 			SoundManager.coin.play();
 			handler.getWorld().getEntityManager().deleteEntity(e);
 			score +=100;
@@ -128,7 +135,7 @@ public class Player extends Creature {
 	}
 
 	private boolean isEligibleToJump(){
-		int currentLevelTemp = handler.getGame().getGameState().getCurrentLevel();
+		int currentLevelTemp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
 		return LevelsState.ALL_LEVELS[currentLevelTemp].isEligableToJump();
 	}
 
@@ -194,7 +201,7 @@ public class Player extends Creature {
 
 
 		if(handler.getKeyManager().isUp){
-			jump(20f);
+			jump(20);
 			//handler.getKeyManager().stopJump();
 			handler.getKeyManager().isUp = false;
 		}
@@ -204,6 +211,15 @@ public class Player extends Creature {
 		if(handler.getKeyManager().right){
 			//SoundManager.footstep.start();
 			xMove = speed ;//* (float)handler.getGame().lastFPS/1000000000/(float) handler.getGame().delta;
+		}
+		if(handler.getKeyManager().isSpace){
+			if(xMove>0)
+				handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,false));
+			else if(xMove<0)
+				handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,true));
+			else handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,false));
+
+			handler.getKeyManager().isSpace = false;
 		}
 		fall();
 

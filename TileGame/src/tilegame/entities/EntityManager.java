@@ -57,6 +57,19 @@ public class EntityManager {
 	}
 
 	//GETTERS SETTERS
+	public void deleteCollusionBullets(){
+		ArrayList<Entity> temp = new ArrayList<>();
+		for(Entity entity : entities){
+			if(entity instanceof Bullet){
+				if(((Bullet) entity).isCollusion()){
+					temp.add(entity);
+				}
+			}
+		}
+		for(Entity e: temp){
+			entities.remove(e);
+		}
+	}
 
 	public Handler getHandler() {
 		return handler;

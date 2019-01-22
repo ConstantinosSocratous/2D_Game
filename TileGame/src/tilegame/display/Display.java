@@ -28,11 +28,7 @@ public class Display {
 
         frame.setExtendedState(Frame.MAXIMIZED_BOTH);
 		frame.setSize(screenSize);
-		// rame.setState(Frame.NORMAL);
-		//frame.setExtendedState(frame.getExtendedState() | frame.MAXIMIZED_BOTH);
-        //frame.setDefaultLookAndFeelDecorated(true);
-		//frame.setUndecorated(true);
-		//frame.setPreferredSize(new Dimension(1850, 1015));
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 

@@ -8,7 +8,9 @@ public class KeyManager implements KeyListener {
 	private boolean[] keys;
 	public boolean up, left, right;
 	public boolean isUp = false;
-	private int i = 0;
+	public boolean isSpace = false;
+	private int iSpace = 0;
+	private int iUp = 0;
 	
 	public KeyManager(){
 		keys = new boolean[256];
@@ -23,11 +25,16 @@ public class KeyManager implements KeyListener {
 	@Override
 	public synchronized void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_W) {
-			if(i < 1){
+			if(iUp < 1){
 				isUp = true;
 			}
-			i++;
-		}else {
+			iUp++;
+		}else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+			if(iSpace < 1){
+				isSpace = true;
+			}
+			iSpace++;
+		}else{
 			isUp = false;
 			keys[e.getKeyCode()] = true;
 		}
@@ -37,8 +44,13 @@ public class KeyManager implements KeyListener {
 	@Override
 	public synchronized void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_W) {
-			i = 0;
-		}else isUp = false;
+			iUp= 0;
+		}else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+			iSpace= 0;
+		}/*else{
+			isUp = false;
+			isSpace = false;
+		}*/
 
 		keys[e.getKeyCode()] = false;
 
