@@ -137,14 +137,15 @@ public class GameState extends State {
 			//DRAW TITLE OF THE LEVEL;
 			g.drawString(LevelsState.ALL_LEVELS[currentLevel].getTitle(), handler.getGame().getWidth()/2-30,32);
 
-
             if(isWon()){
 				wonObj.tick();
 				wonObj.render(g);
 			}else if (isLost()) {
+				if(numOfTicks ==0)SoundManager.die.play();
 				//System.out.println("LOST");
 				numOfTicks++;
-				if(numOfTicks>60) {
+
+				if(numOfTicks>80) {
 					numOfTicks = 0;
 					respawn();
 					//AllLevels.goToLevel(currentLevel);

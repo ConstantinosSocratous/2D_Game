@@ -3117,42 +3117,13 @@
       <change afterPath="$PROJECT_DIR$/../../music/μαλάκα! - Με τον μαλάκα!.mp3" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../music/πανο στην τρελα μου.mp4.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/Sounds/Sound.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/Sounds/Sound.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/display/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/display/Display.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/entities/creatures/Creature.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/entities/creatures/Creature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/entities/creatures/Mushroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/entities/creatures/Mushroom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/entities/creatures/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/entities/creatures/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/entities/statics/Trap.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/entities/statics/Trap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/gfx/Assets.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/gfx/Assets.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/tilegame/entities/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/entities/Bullet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/tilegame/gfx/SoundManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/gfx/SoundManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/tilegame/states/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/states/GameState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/states/MenuState.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/states/MenuState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/states/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/states/State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/tiles/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/tiles/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/worlds/AllLevels.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/worlds/AllLevels.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tilegame/worlds/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tilegame/worlds/World.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/menuSheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/menuSheet.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/sheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/sheet.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/worlds/world0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/worlds/world0.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/worlds/world1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/worlds/world1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/Sounds/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/Sounds/Sound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/display/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/display/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/entities/EntityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/entities/EntityManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/entities/creatures/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/entities/creatures/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/entities/creatures/Mushroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/entities/creatures/Mushroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/entities/creatures/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/entities/creatures/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/entities/statics/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/entities/statics/Trap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/gfx/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/gfx/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/TileGame_jar/TileGame.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tilegame/gfx/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/gfx/SoundManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/input/KeyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/input/KeyManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tilegame/states/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/states/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/states/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/states/MenuState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/states/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/tiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/worlds/AllLevels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/worlds/AllLevels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tilegame/worlds/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tilegame/worlds/World.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -3167,122 +3138,7 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tilegame/states/GameState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="112" column="30" lean-forward="true" selection-start-line="112" selection-start-column="30" selection-end-line="112" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2352#2353#0" expanded="true" />
-                <element signature="e#2377#2378#0" expanded="true" />
-                <element signature="e#4977#4978#0" expanded="true" />
-                <element signature="e#5016#5017#0" expanded="true" />
-                <element signature="e#4850#4851#0" expanded="true" />
-                <element signature="e#4875#4876#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tilegame/entities/EntityManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="758">
-              <caret line="59" column="38" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tilegame/entities/Entity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1411#1412#0" expanded="true" />
-                <element signature="e#1426#1427#0" expanded="true" />
-                <element signature="e#1456#1457#0" expanded="true" />
-                <element signature="e#1473#1474#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tilegame/entities/creatures/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="69" column="46" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="46" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tilegame/input/KeyManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/tilegame/entities/Bullet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#688#689#0" expanded="true" />
-                <element signature="e#715#716#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tilegame/entities/statics/CheckPoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/Assets.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="65" column="53" lean-forward="true" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tilegame/entities/creatures/Creature.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="138" column="27" lean-forward="true" selection-start-line="138" selection-start-column="27" selection-end-line="138" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -3352,14 +3208,12 @@
         <option value="$PROJECT_DIR$/src/tilegame/display/Display.java" />
         <option value="$PROJECT_DIR$/src/tilegame/states/LevelsState.java" />
         <option value="$PROJECT_DIR$/src/tilegame/tiles/UIObject.java" />
-        <option value="$PROJECT_DIR$/src/tilegame/Sounds/Sound.java" />
         <option value="$PROJECT_DIR$/src/tilegame/tiles/Mute.java" />
         <option value="$PROJECT_DIR$/src/tilegame/states/SettingsState.java" />
         <option value="$PROJECT_DIR$/src/tilegame/states/MenuState.java" />
         <option value="$PROJECT_DIR$/src/tilegame/tiles/CheckPointObject.java" />
         <option value="$PROJECT_DIR$/src/tilegame/entities/statics/CheckPoint.java" />
         <option value="$PROJECT_DIR$/src/tilegame/entities/creatures/Creature.java" />
-        <option value="$PROJECT_DIR$/src/tilegame/gfx/SoundManager.java" />
         <option value="$PROJECT_DIR$/src/tilegame/worlds/World.java" />
         <option value="$PROJECT_DIR$/src/tilegame/tiles/Tile.java" />
         <option value="$PROJECT_DIR$/src/tilegame/states/State.java" />
@@ -3368,10 +3222,12 @@
         <option value="$PROJECT_DIR$/src/tilegame/gfx/Assets.java" />
         <option value="$PROJECT_DIR$/src/tilegame/input/KeyManager.java" />
         <option value="$PROJECT_DIR$/src/tilegame/entities/EntityManager.java" />
-        <option value="$PROJECT_DIR$/src/tilegame/states/GameState.java" />
         <option value="$PROJECT_DIR$/src/tilegame/entities/creatures/Mushroom.java" />
         <option value="$PROJECT_DIR$/src/tilegame/entities/creatures/Player.java" />
         <option value="$PROJECT_DIR$/src/tilegame/entities/Bullet.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/Sounds/Sound.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/states/GameState.java" />
+        <option value="$PROJECT_DIR$/src/tilegame/gfx/SoundManager.java" />
       </list>
     </option>
   </component>
@@ -3382,12 +3238,14 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="557" />
-    <option name="y" value="22" />
+    <option name="x" value="555" />
+    <option name="y" value="20" />
     <option name="width" value="1750" />
     <option name="height" value="980" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -3508,7 +3366,7 @@
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548180784309" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15429688" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -3575,7 +3433,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1852349" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1932886" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -3796,16 +3654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tilegame/Sounds/Sound.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tilegame/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
@@ -3854,9 +3702,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/CheckPointObject.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/tiles/CheckPointObject.java" />
     <entry file="file://$PROJECT_DIR$/src/tilegame/entities/statics/StaticEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -3895,18 +3741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/SoundManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3975,30 +3809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tilegame/input/KeyManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/statics/CheckPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/Assets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="65" column="53" lean-forward="true" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tilegame/entities/creatures/Mushroom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -4009,26 +3819,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tilegame/states/GameState.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/input/KeyManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="112" column="30" lean-forward="true" selection-start-line="112" selection-start-column="30" selection-end-line="112" selection-end-column="30" />
+        <state relative-caret-position="629">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/statics/CheckPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2352#2353#0" expanded="true" />
-            <element signature="e#2377#2378#0" expanded="true" />
-            <element signature="e#4977#4978#0" expanded="true" />
-            <element signature="e#5016#5017#0" expanded="true" />
-            <element signature="e#4850#4851#0" expanded="true" />
-            <element signature="e#4875#4876#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/Assets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tilegame/entities/creatures/Creature.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="138" column="27" lean-forward="true" selection-start-line="138" selection-start-column="27" selection-end-line="138" selection-end-column="27" />
+        <state relative-caret-position="2261">
+          <caret line="138" column="27" selection-start-line="138" selection-start-column="27" selection-end-line="138" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="30" column="23" lean-forward="true" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/states/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="141" column="33" lean-forward="true" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/EntityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="59" column="38" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tilegame/Sounds/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -4037,7 +3895,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tilegame/entities/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="646">
           <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -4049,19 +3907,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/EntityManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="59" column="38" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tilegame/entities/creatures/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
+        <state relative-caret-position="901">
           <caret line="69" column="46" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -4069,14 +3917,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tilegame/entities/Bullet.java">
+    <entry file="file://$PROJECT_DIR$/src/tilegame/gfx/SoundManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+        <state relative-caret-position="51">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
           </folding>
         </state>
       </provider>

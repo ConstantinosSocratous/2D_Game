@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class SoundManager {
 
-    public static Sound coin,menu,jungle,intro;
+    public static Sound coin,menu,jungle,intro,die;
     public static ArrayList<Sound> sounds;
     public static boolean mute = true;
 
@@ -16,6 +16,7 @@ public class SoundManager {
         menu = new Sound("Music/menu.wav");
         jungle = new Sound("Music/jungle.wav");
         intro = new Sound("Music/intro.wav");
+        die = new Sound("Music/die.wav");
     }
 
     public static void addToSounds(Sound s){
