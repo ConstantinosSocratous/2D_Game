@@ -97,7 +97,7 @@ public class Game implements Runnable {
 	private void render(){
 		bs = display.getCanvas().getBufferStrategy();
 		if(bs == null){
-			display.getCanvas().createBufferStrategy(5);
+			display.getCanvas().createBufferStrategy(3);
 			return;
 		}
 		g = bs.getDrawGraphics();

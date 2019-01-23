@@ -146,7 +146,7 @@ public class AllLevels {
 
         else if(num >= LevelsState.ALL_LEVELS.length){
             ((GameState)(handler.getGame().getGameState())).setCurrentLevel(0);
-            AllLevels.LEVEL0();
+            ((GameState)(handler.getGame().getGameState())).exitGameState();
         }
     }
 }

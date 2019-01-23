@@ -12,6 +12,7 @@ import tilegame.entities.statics.CheckPoint;
 import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SoundManager;
 import tilegame.gfx.SpriteSheet;
+import tilegame.tiles.Heart;
 import tilegame.tiles.UIObject;
 import tilegame.worlds.AllLevels;
 import tilegame.worlds.World;
@@ -35,6 +36,8 @@ public class GameState extends State {
 	private int numOfTicks = 0;
 	private float xSpawn = 0,ySpawn = 0;
 	private CheckPoint currentCheckPoint = null;
+
+	private Heart heart;
 
 
 	public GameState(Handler handler) {
@@ -67,6 +70,8 @@ public class GameState extends State {
 		temp3[1] = sheet.crop(width, height, width, height);
 		repeat = new UIObject(temp3, handler.getGame().getWidth() - width * 6, (int) (height / 2));
 
+		heart = new Heart(handler,handler.getGame().getWidth() - width * 9, (int) (height / 2));
+
 		world = new World(handler, path);
 
 		handler.setWorld(world);
@@ -79,20 +84,25 @@ public class GameState extends State {
 	}
 
 	public void respawn(){
-		won = false;
-		lost = false;
-		world.getEntityManager().getPlayer().setHealth(Creature.DEFAULT_HEALTH);
+		heart.setCurrentNum(heart.getCurrentNum()-1);
+		if(heart.getCurrentNum()==0){
+			initSpawns();
+			AllLevels.goToLevel(currentLevel);
+		}else {
+			won = false;
+			lost = false;
+			world.getEntityManager().getPlayer().setHealth(Creature.DEFAULT_HEALTH);
 
-		if(currentCheckPoint == null){
-			handler.getWorld().getEntityManager().getPlayer().setX(handler.getWorld().getSpawnX());
-			handler.getWorld().getEntityManager().getPlayer().setY(handler.getWorld().getSpawnY());
-			handler.getWorld().getEntityManager().getPlayer().setyMove(0.01f);
-		}else{
-			handler.getWorld().getEntityManager().getPlayer().setX(currentCheckPoint.getX());
-			handler.getWorld().getEntityManager().getPlayer().setY(currentCheckPoint.getY());
-			handler.getWorld().getEntityManager().getPlayer().setyMove(0.01f);
+			if (currentCheckPoint == null) {
+				handler.getWorld().getEntityManager().getPlayer().setX(handler.getWorld().getSpawnX());
+				handler.getWorld().getEntityManager().getPlayer().setY(handler.getWorld().getSpawnY());
+				handler.getWorld().getEntityManager().getPlayer().setyMove(0.01f);
+			} else {
+				handler.getWorld().getEntityManager().getPlayer().setX(currentCheckPoint.getX());
+				handler.getWorld().getEntityManager().getPlayer().setY(currentCheckPoint.getY());
+				handler.getWorld().getEntityManager().getPlayer().setyMove(0.01f);
+			}
 		}
-
 	}
 
 	@Override
@@ -125,21 +135,29 @@ public class GameState extends State {
 			//DRAW EXIT BUTTON
 			g.drawImage(temp, menu.getX(), menu.getY(), temp.getWidth() * 2, temp.getHeight() * 2, null);
 
-
 			BufferedImage temp1 = repeat.getCurrentImage(handler);
 			g.drawImage(temp1, repeat.getX(), repeat.getY(), temp1.getWidth() * 2, temp1.getHeight() * 2, null);
-			//DRAW HEART IMAGE
-			//g.drawImage(getCurrentImage(), heart.getX(), heart.getY(), heart.getWidth() * 2, heart.getHeight() * 2, null);
 
-			g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+			heart.tick(g);
+			heart.render(g);
+
+			g.setFont(new Font("TimesRoman", Font.BOLD, 25));
 			//DRAW SCORE
-			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-240,48);
+			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-width*14,48);
+
+			g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
 			//DRAW TITLE OF THE LEVEL;
 			g.drawString(LevelsState.ALL_LEVELS[currentLevel].getTitle(), handler.getGame().getWidth()/2-30,32);
 
             if(isWon()){
 				wonObj.tick();
 				wonObj.render(g);
+				numOfTicks++;
+
+				if(numOfTicks>320) {
+					numOfTicks = 0;
+					AllLevels.goToLevel(getCurrentLevel()+1);
+				}
 			}else if (isLost()) {
 				if(numOfTicks ==0)SoundManager.die.play();
 				//System.out.println("LOST");
@@ -167,7 +185,7 @@ public class GameState extends State {
 		this.currentLevel = currentLevel;
 	}
 
-	private void exitGameState() {
+	public void exitGameState() {
 		SoundManager.jungle.stop();
 		sleep(500);
 		//handler.getGame().getMenuState().init("");
@@ -185,8 +203,5 @@ public class GameState extends State {
 	public void setWorld(World world){
 		this.world = world;
 	}
-
-
-
 
 }

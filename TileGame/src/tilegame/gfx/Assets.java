@@ -6,7 +6,7 @@ public class Assets {
 	
 	private static final int width = 32, height = 32;
 	
-	public static BufferedImage dirt, grass, sky, cloud3, cloud4,rock, white,checkpoint,bullet;
+	public static BufferedImage dirt, grass, sky, cloud3, cloud4,rock, white,checkpoint,bullet,heart;
 	public static BufferedImage[] player_static, player_left, player_right, playerUpRight, playerUpLeft, lava;
 	public static BufferedImage[] enemyMoving, door, movingWalls, coin, trap, kingdom,fire;
 	//public static BufferedImage[] zombie_down, zombie_up, zombie_left, zombie_right;
@@ -62,7 +62,6 @@ public class Assets {
 		kingdom[2] = ImageLoader.loadImage("/cinematic/kingdom/kingdom3.png");
 		kingdom[3] = ImageLoader.loadImage("/cinematic/kingdom/kingdom2.png");
 
-
 		bullet = sheet.crop(0,height*3,width,height);
 		checkpoint = sheet.crop(width*2,height*6, width,height*2);
 		white = sheet.crop(width*7, 0, width, height);
@@ -72,7 +71,7 @@ public class Assets {
 		sky = sheet.crop(0, height * 2, width, height);
 		cloud3 = sheet.crop(width, height * 2, width, height);
 		cloud4 = sheet.crop(width * 2  , height * 2, width, height);
-
+		heart = sheet.crop(width,height*3,width,height);
 
 
 		fire = new BufferedImage[7];

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TileGame1:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/TileGame1_jar</output-path>
+    <root id="archive" name="TileGame1.jar">
+      <element id="module-output" name="TileGame1" />
+      <element id="library" level="module" name="res" module-name="TileGame1" />
+    </root>
+  </artifact>
+</component>

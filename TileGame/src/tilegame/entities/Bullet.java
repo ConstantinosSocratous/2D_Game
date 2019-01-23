@@ -103,15 +103,12 @@ public class Bullet extends Creature {
     public void fall(){
         yMove += gravity;
         if (yMove > maxDY) yMove = maxDY;
-
     }
-
 
     public boolean isCollusion(){return collusion;}
 
     public void render(Graphics g){
         g.drawImage(img,(int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()),width,height,null);
-        g.fillRect(bounds.x,bounds.y,bounds.width,bounds.height);
     }
 
 }

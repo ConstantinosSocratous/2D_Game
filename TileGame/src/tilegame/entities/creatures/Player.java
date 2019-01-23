@@ -40,7 +40,7 @@ public class Player extends Creature {
 		bounds.height =80-1;*/
 
 		//bounds = new Rectangle(0, 0, width, height);
-		
+
 		//Animations
 		animLeft = new Animation(250, Assets.player_left);
 		animRight = new Animation(250, Assets.player_right);
@@ -197,28 +197,24 @@ public class Player extends Creature {
 			yMove = 0;
 			return;
 		}
+
 		xMove = 0;
-
-
 		if(handler.getKeyManager().isUp){
 			jump(20);
-			//handler.getKeyManager().stopJump();
 			handler.getKeyManager().isUp = false;
 		}
-		if(handler.getKeyManager().left){
-			xMove = -speed ;//* (float)handler.getGame().lastFPS/1000000000/(float)handler.getGame().delta;
-		}
-		if(handler.getKeyManager().right){
-			//SoundManager.footstep.start();
-			xMove = speed ;//* (float)handler.getGame().lastFPS/1000000000/(float) handler.getGame().delta;
-		}
-		if(handler.getKeyManager().isSpace){
-			if(xMove>0)
-				handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,false));
-			else if(xMove<0)
-				handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,true));
-			else handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,false));
+		if(handler.getKeyManager().left)xMove = -speed;
+		if(handler.getKeyManager().right)xMove = speed;
 
+		if(handler.getMouseManager().isEligableToShoot()){
+			int mouseX = handler.getMouseManager().getMouseX() - (int)handler.getGameCamera().getyOffset();
+
+			if(mouseX > x - handler.getGameCamera().getxOffset())
+				handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,false));
+			else
+				handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,true));
+
+			handler.getMouseManager().setCanShoot(false);
 			handler.getKeyManager().isSpace = false;
 		}
 		fall();
@@ -249,13 +245,7 @@ public class Player extends Creature {
 		}else if(xMove > 0){
 			return animRight.getCurrentFrame();
 		}
-		 else return standar.getCurrentFrame();/*else if(yMove < 0){
-
-
-			return animUp.getCurrentFrame();
-		}else{
-			return animDown.getCurrentFrame();
-		}*/
+		 else return standar.getCurrentFrame();
 	}
 
 	public void setCanMove(boolean bool){

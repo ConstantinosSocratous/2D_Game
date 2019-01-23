@@ -8,7 +8,7 @@ public class SoundManager {
 
     public static Sound coin,menu,jungle,intro,die;
     public static ArrayList<Sound> sounds;
-    public static boolean mute = true;
+    public static boolean mute = false;
 
     public static void init(){
         sounds = new ArrayList<>();

@@ -24,29 +24,21 @@ public class KeyManager implements KeyListener {
 
 	@Override
 	public synchronized void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_W) {
+		if(e.getKeyCode() == KeyEvent.VK_SPACE) {
 			if(iUp < 1){
 				isUp = true;
 			}
 			iUp++;
-		}else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-			if(iSpace < 1){
-				isSpace = true;
-			}
-			iSpace++;
 		}else{
 			isUp = false;
 			keys[e.getKeyCode()] = true;
 		}
-
 	}
 
 	@Override
 	public synchronized void keyReleased(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_W) {
+		if(e.getKeyCode() == KeyEvent.VK_SPACE) {
 			iUp= 0;
-		}else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-			iSpace= 0;
 		}/*else{
 			isUp = false;
 			isSpace = false;
