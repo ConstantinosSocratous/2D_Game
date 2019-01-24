@@ -3,6 +3,7 @@ package tilegame.states;
 import java.awt.*;
 import java.awt.geom.CubicCurve2D;
 import java.awt.image.BufferedImage;
+import java.util.logging.Level;
 
 import sun.util.resources.cldr.ebu.LocaleNames_ebu;
 import tilegame.Handler;
@@ -13,6 +14,7 @@ import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SoundManager;
 import tilegame.gfx.SpriteSheet;
 import tilegame.tiles.Heart;
+import tilegame.tiles.LevelObject;
 import tilegame.tiles.UIObject;
 import tilegame.worlds.AllLevels;
 import tilegame.worlds.World;
@@ -143,11 +145,9 @@ public class GameState extends State {
 
 			g.setFont(new Font("TimesRoman", Font.BOLD, 25));
 			//DRAW SCORE
-			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-width*14,48);
+			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-width*15,height + (int)height/2);
 
 			g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
-			//DRAW TITLE OF THE LEVEL;
-			g.drawString(LevelsState.ALL_LEVELS[currentLevel].getTitle(), handler.getGame().getWidth()/2-30,32);
 
             if(isWon()){
 				wonObj.tick();
@@ -156,6 +156,12 @@ public class GameState extends State {
 
 				if(numOfTicks>320) {
 					numOfTicks = 0;
+
+					//Unlock next level
+					if(getCurrentLevel()+1 < LevelObject.ALL_LEVEL_OBJ.size()){
+						LevelObject.ALL_LEVEL_OBJ.get(getCurrentLevel()+1).setIsLocked(false);
+					}
+
 					AllLevels.goToLevel(getCurrentLevel()+1);
 				}
 			}else if (isLost()) {

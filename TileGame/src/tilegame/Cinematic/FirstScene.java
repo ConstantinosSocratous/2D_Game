@@ -26,9 +26,11 @@ public class FirstScene extends State {
     private ArrayList<Fire> fires = new ArrayList<>();
 
     //For speeches
-    private Speech[] speeches = new Speech[1];
+    private Speech[] speeches = new Speech[2];
     private int currSpeach = 0;
     private boolean canSpeak = false;
+
+    private int helper = 0;
 
 
     private int numOfTicks = 0;
@@ -66,6 +68,7 @@ public class FirstScene extends State {
 
 
         speeches[0] = new Speech(ImageLoader.loadImage("/cinematic/speeches/1.png"),768,640);
+        speeches[1] = new Speech(ImageLoader.loadImage("/cinematic/speeches/2.png"),969,640);
 
     }
 
@@ -82,13 +85,24 @@ public class FirstScene extends State {
         }else if(numOfTicks>=300 && numOfTicks < 550){
             player.clearxMove();
             canSpeak = true;
+            helper=0;
         }else if(numOfTicks >= 550 && numOfTicks < 620 ){
+            if(helper == 0)currSpeach +=1;
+            helper = 1;
             canSpeak = false;
         }else if(numOfTicks >= 620 && numOfTicks < 1000){
             player.setxMove(1.2f);
             player.move();
-        }else if(numOfTicks >= 1000){
+        }else if(numOfTicks >= 1000 && numOfTicks < 1100){
             player.clearxMove();
+        }else if(numOfTicks >= 1100 && numOfTicks < 1300){
+            canSpeak = true;
+            helper =0;
+        }else if(numOfTicks >= 1300){
+            if(helper == 0)currSpeach +=1;
+            helper = 1;
+            canSpeak = false;
+        }else if(numOfTicks > 1300 && numOfTicks < 1400){
 
         }
     }

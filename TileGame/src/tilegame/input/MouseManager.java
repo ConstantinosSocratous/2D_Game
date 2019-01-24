@@ -8,7 +8,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 
     private boolean leftPressed, rightPressed;
     private int mouseX, mouseY;
-    private boolean canShoot = true;
+    private boolean canShoot = false;
 
     public MouseManager(){
 

@@ -16,6 +16,7 @@ import tilegame.gfx.Assets;
 import tilegame.gfx.SoundManager;
 import tilegame.states.GameState;
 import tilegame.states.LevelsState;
+import tilegame.states.State;
 import tilegame.tiles.Tile;
 
 
@@ -117,7 +118,7 @@ public class Player extends Creature {
 			handler.getWorld().getEntityManager().deleteEntity(e);
 			score +=100;
 			SoundManager.coin.play();
-			if(!isEligibleToJump()) fall();
+			//if(!isEligibleToJump()) fall();
 		}else{fall();}
 
 	}
@@ -192,6 +193,7 @@ public class Player extends Creature {
 	}
 
 	private void getInput(){
+
 		if(isDead() || hasWon()){
 			xMove = 0;
 			yMove = 0;

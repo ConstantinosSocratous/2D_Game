@@ -157,6 +157,7 @@ public class Game implements Runnable {
 	public State getLevelState(){return levelState;}
 	public State getSettingsState(){return settingsState;}
 
+	public Handler getHandler(){return handler;}
 	public Graphics getGraphics(){return g;}
 
 	public MouseManager getMouseManager(){	return mouseManager;}

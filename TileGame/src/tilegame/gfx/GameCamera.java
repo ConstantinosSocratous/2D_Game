@@ -31,37 +31,16 @@ public class GameCamera {
 	}
 	
 	public void centerOnEntity(Entity e){
-		//if(Math.abs(xOffset-e.getX))
+
 		xOffset = e.getX() - handler.getWidth() / 2 + e.getWidth() / 2;
-
-		int camera2 = handler.getHeight()/2;
-		int temp2 = (int)(-yOffset+e.getY());
-
-		//if(camera2-temp2 > 32|| temp2-camera2 >32)
 		yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
-		//if(e.getY() < yDown )
-		//if(Math.abs((int)(-e.getY()+previousY)) < 32*4 )//|| Math.abs((int)(e.getY()-previousY)) < 32* )
-
-
-		//previousY = e.getY();
-		//else if(e.getY() >= yDown)
-			//yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
-
 		checkBlankSpace();
 	}
 
-	public void centerOnPointX(int xIn){
-		//if(Math.abs(xOffset-e.getX))
-		xOffset = xIn - handler.getWidth() / 2 + 16;
-		//if(camera2-temp2 > 32|| temp2-camera2 >32)
-		//yOffset = yIn;
-		//if(e.getY() < yDown )
-		//if(Math.abs((int)(-e.getY()+previousY)) < 32*4 )//|| Math.abs((int)(e.getY()-previousY)) < 32* )
+	public void centerOnPointX(float x, float y){
 
-
-		//previousY = e.getY();
-		//else if(e.getY() >= yDown)
-		//yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
+		xOffset = x;
+		yOffset = y;
 
 		checkBlankSpace();
 	}
