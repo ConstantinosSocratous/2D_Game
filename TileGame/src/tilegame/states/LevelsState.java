@@ -13,16 +13,17 @@ import java.awt.image.BufferedImage;
 
 public class LevelsState extends State{
 
-    private BufferedImage background,lvls;
+    private BufferedImage lvls;
+    private Background bg;
     private final int width = 32;
     private final int height = 32;
     public static LevelObject[] ALL_LEVELS = new LevelObject[3];
     private UIObject menu;
-    private LevelObject lvl0,lvl1,lvl2;
+    private LevelObject lvl0,lvl1,lvl2,lvl3;
 
     public LevelsState(Handler handler){
         super(handler);
-        background = ImageLoader.loadImage("/textures/Background/bg2.png");
+        bg = new Background(handler);
         //
         int bgX = 152;
         int bgBoundsX = 883;
@@ -33,8 +34,9 @@ public class LevelsState extends State{
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/levels.png"));
 
         lvl0 = new LevelObject(handler, bgX+150 , bgY+bgBoundsY-25,120, "/worlds/world0.txt", "The Basics",1,false);
-        lvl1 = new LevelObject(handler, bgX+195 , bgY+bgBoundsY-290,120, "/worlds/world1.txt", "Be Careful!!",1,true);
-        lvl2 = new LevelObject(handler, bgX+330, bgY+bgBoundsY-500,120, "/worlds/world2.txt", "Above ground",1,true);
+        lvl1 = new LevelObject(handler, bgX+195 , bgY+bgBoundsY-290,120, "/worlds/world1.txt", "Tunnel",1,false);
+        lvl2 = new LevelObject(handler, bgX+330, bgY+bgBoundsY-500,120, "/worlds/world2.txt", "Be Careful!!",1,true);
+        lvl3 = new LevelObject(handler, bgX+580, bgY+bgBoundsY-500,120, "/worlds/world3.txt", "Above ground",2,true);
 
 
         SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
@@ -55,16 +57,20 @@ public class LevelsState extends State{
                 State.setState(handler.getGame().getMenuState());
                 sleep(500);
             }else
-            if(lvl0.isMouseOver(handler)){    //LEVEL 1
+            if(lvl0.isMouseOver(handler)){    //LEVEL 0
                 SoundManager.menu.stop();
                 AllLevels.goToLevel(0);
                 sleep(500);
-            }else if(LevelObject.ALL_LEVEL_OBJ.get(1).isMouseOver(handler)){    //LEVEL 2
+            }else if(lvl1.isMouseOver(handler)){    //LEVEL 1
                 AllLevels.goToLevel(1);
                 SoundManager.menu.stop();
                 sleep(500);
-            }else if(LevelObject.ALL_LEVEL_OBJ.get(2).isMouseOver(handler)){    //LEVEL 3
+            }else if(lvl2.isMouseOver(handler)){    //LEVEL 2
                 AllLevels.goToLevel(2);
+                SoundManager.menu.stop();
+                sleep(500);
+            }else if(lvl3.isMouseOver(handler)){    //LEVEL 3
+                AllLevels.goToLevel(3);
                 SoundManager.menu.stop();
                 sleep(500);
             }
@@ -73,7 +79,7 @@ public class LevelsState extends State{
 
     public void render(Graphics g){
         if(State.getState().equals(handler.getGame().getLevelState())) {
-            g.drawImage(background, 0, 0, handler.getWidth(), handler.getHeight(), null);
+            bg.render(g);
             g.drawImage(lvls, 0, 0, handler.getWidth(), handler.getHeight(), null);
 
             for(LevelObject lvl : LevelObject.ALL_LEVEL_OBJ){

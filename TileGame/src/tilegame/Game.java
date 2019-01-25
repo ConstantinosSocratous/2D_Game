@@ -86,7 +86,7 @@ public class Game implements Runnable {
 		//firstScene.init("/cinematic/world.txt");
 		//State.setState(firstScene);
 	}
-	
+
 	private void tick(){
 		keyManager.tick();
 		
@@ -109,12 +109,9 @@ public class Game implements Runnable {
 			State.getState().render(g);
 
 		g.setColor(Color.RED);
-
+        g.setFont(new Font("TimesRoman", Font.BOLD, 25));
 		g.drawString("FPS: " + lastFPS , 32, 32);
-		//g.drawRect(300,300,300,300);
-		//g.drawString("FPS: " + ticks ,0,0);
 
-		//End Drawing!
 		bs.show();
 		g.dispose();
 	}
@@ -126,7 +123,7 @@ public class Game implements Runnable {
 		long lastTime = System.nanoTime();
 		double amountOfTicks = 65.0;
 		double ns = 1000000000 / amountOfTicks;
-		double delta = 0;
+		delta = 0;
 		long timer = System.currentTimeMillis();
 		int frames = 0;
 		while (running) {

@@ -1,16 +1,17 @@
 package tilegame.worlds;
 
 import tilegame.Handler;
+import tilegame.entities.Entity;
 import tilegame.entities.creatures.Mushroom;
-import tilegame.entities.statics.CheckPoint;
-import tilegame.entities.statics.Coin;
-import tilegame.entities.statics.Door;
-import tilegame.entities.statics.Trap;
+import tilegame.entities.statics.*;
 import tilegame.gfx.SoundManager;
 import tilegame.states.GameState;
 import tilegame.states.LevelsState;
 import tilegame.states.State;
 import tilegame.tiles.LevelObject;
+
+import java.util.ArrayList;
+import java.util.logging.Level;
 
 public class AllLevels {
 
@@ -55,12 +56,44 @@ public class AllLevels {
         //CREATE WINNING DOOR
         handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
 
-    }
+        int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
 
+
+    }
     public static void LEVEL1(){
-        //ALL_LEVELS[0]
+
         handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(1).getPath());
         ((GameState)(handler.getGame().getGameState())).setCurrentLevel(1);
+        ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
+        State.setState(handler.getGame().getGameState());
+
+        //CREATE MUSHROOMS
+        //handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,1160,773,true,3));
+
+
+
+        //CREATE COINGS
+        //handler.getWorld().getEntityManager().addEntity(new Coin(handler,1152,780,0,0));
+
+        //CREATE TRAPS
+        // handler.getWorld().getEntityManager().addEntity(new Trap(handler,1408,272,128,64,2000));
+
+        //CREATE CHECKPOINTS
+        //handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,1790,673,64,160,2));
+
+        //CREATE WINNING DOOR
+        handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
+
+        int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
+
+    }
+
+    public static void LEVEL2(){
+        //ALL_LEVELS[0]
+        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(2).getPath());
+        ((GameState)(handler.getGame().getGameState())).setCurrentLevel(2);
         ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
         State.setState(handler.getGame().getGameState());
 
@@ -111,12 +144,15 @@ public class AllLevels {
         //CREATE WINNING DOOR
         handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
 
+        int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
+
     }
 
-    public static void LEVEL2(){
+    public static void LEVEL3(){
 
-        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(2).getPath());
-        ((GameState)(handler.getGame().getGameState())).setCurrentLevel(2);
+        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(3).getPath());
+        ((GameState)(handler.getGame().getGameState())).setCurrentLevel(3);
         ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
         State.setState(handler.getGame().getGameState());
 
@@ -163,7 +199,11 @@ public class AllLevels {
         //CREATE WINNING DOOR
         handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
 
+        int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
+
     }
+
 
     public static void goToLevel(int num){
         if(num != ((GameState)(handler.getGame().getGameState())).getCurrentLevel()){
@@ -174,18 +214,60 @@ public class AllLevels {
         if(num == 0 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked() ){
             ((GameState)(handler.getGame().getGameState())).setCurrentLevel(0);
             AllLevels.LEVEL0();
-        }
-        else if(num == 1 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked() ){
+        }else if(num == 1 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked() ){
             ((GameState)(handler.getGame().getGameState())).setCurrentLevel(1);
             AllLevels.LEVEL1();
-        }
-        else if(num == 2 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
+        }else if(num == 2 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
             ((GameState)(handler.getGame().getGameState())).setCurrentLevel(2);
             AllLevels.LEVEL2();
-        }
-        else if(num >= LevelObject.ALL_LEVEL_OBJ.size()){
+        }else if(num == 3 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
+            ((GameState)(handler.getGame().getGameState())).setCurrentLevel(3);
+            AllLevels.LEVEL3();
+        }else if(num >= LevelObject.ALL_LEVEL_OBJ.size()){
             ((GameState)(handler.getGame().getGameState())).setCurrentLevel(0);
             ((GameState)(handler.getGame().getGameState())).exitGameState();
         }
+    }
+
+    public static void createBackground(int num){
+        if(num == 0 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked() ){
+            AllLevels.LEVEL0_BG();
+        }
+        else if(num == 1 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked() ){
+            AllLevels.LEVEL1_BG();
+        }
+        else if(num == 2 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
+
+            AllLevels.LEVEL2_BG();
+        }
+    }
+
+    public static void LEVEL0_BG(){
+        //CREATE TREES
+        Tree t = new Tree(handler,1400,350,96,256);
+        t.render(handler.getGame().getGraphics());
+
+    }
+    public static void LEVEL1_BG(){
+
+    }
+    public static void LEVEL2_BG(){
+
+    }
+    public static void LEVEL3_BG(){
+
+    }
+
+    public static int getMaxScore(){
+        ArrayList<Entity> entities = handler.getWorld().getEntityManager().getEntities();
+
+        int score = 0;
+        for(Entity e : entities){
+            if(e instanceof  Mushroom || e instanceof Coin){
+                score+=100;
+            }
+        }
+
+        return score;
     }
 }

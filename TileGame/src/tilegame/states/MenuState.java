@@ -17,6 +17,7 @@ public class MenuState extends State {
 	private final int width = 32;
 	private final int height = 32;
 	private UIObject play,exit,levels,settings;
+	private Background bg;
 
 	public MenuState(Handler handler){
 		super(handler);
@@ -26,7 +27,7 @@ public class MenuState extends State {
 	}
 
 	private void init(){
-		//if(!SoundManager.menu.isPlaying())
+		bg = new Background(handler);
 		SoundManager.menu.stop();
 		SoundManager.menu.loop();
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
@@ -73,7 +74,7 @@ public class MenuState extends State {
 	@Override
 	public void render(Graphics g) {
         if(State.getState().equals(handler.getGame().getMenuState())) {
-            g.drawImage(background, 0, 0, handler.getWidth(), handler.getHeight(), null);
+			bg.render(g);
 
             //PLAY BUTTON
             BufferedImage temp = play.getCurrentImage(handler);

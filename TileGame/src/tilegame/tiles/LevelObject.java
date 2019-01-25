@@ -23,6 +23,8 @@ public class LevelObject{
     private boolean isMouseOver = false;
     private boolean isLocked;
 
+    private int maxScore;
+
     public LevelObject(Handler handler, int x, int y,int r, String path, String title,int difficulty, boolean locked){
         this.x = x;
         this.y = y;
@@ -36,7 +38,8 @@ public class LevelObject{
 
         LevelObject.addLevel(this);
     }
-
+    public void setMaxScore(int x){this.maxScore = x;}
+    public int getMaxScore(){return maxScore;}
     public boolean isLocked(){return isLocked;}
     public void setIsLocked(boolean bool){this.isLocked = bool;}
 
@@ -54,6 +57,9 @@ public class LevelObject{
         if(isLocked){
             g.setColor(new Color(0,0,0));
             g.fillOval(x, y, radius, radius);
+            g.setColor(new Color(255,0,0));
+            g.drawString("LOCKED" ,x, y-2);
+            //g.setFont(new Font("TimesRoman", Font.BOLD, 25));
             return;
         }
 

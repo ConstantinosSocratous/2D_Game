@@ -4,6 +4,7 @@ import tilegame.Handler;
 import tilegame.gfx.Animation;
 import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SpriteSheet;
+import tilegame.tiles.LevelObject;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -45,10 +46,13 @@ public class WonState {
     }
 
     private BufferedImage getCurrentImage(){
+        int curLevel = ((GameState)handler.getGame().getGameState()).getCurrentLevel();
+        int maxScore = LevelObject.ALL_LEVEL_OBJ.get(curLevel).getMaxScore();
         int scr = handler.getWorld().getEntityManager().getPlayer().getScore();
-        if(scr<=200) return won[0];
-        else if(scr > 200 && scr <= 400 ) return won[1];
-        else if(scr > 400 && scr <= 600 ) return won[2];
+
+        if(scr <= maxScore*20/100)return won[0];
+        else if(scr > maxScore*20/100 && scr <= maxScore*50/100) return won[1];
+        else if(scr > maxScore*50/100 && scr <= maxScore*80/100) return won[2];
         else return won[3];
 
     }

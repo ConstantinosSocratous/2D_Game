@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
 
 public class SettingsState extends State{
 
-    private BufferedImage background;
+    private Background bg;
     private final int width = 32;
     private final int height = 32;
     private UIObject menu;
@@ -20,7 +20,7 @@ public class SettingsState extends State{
 
     public SettingsState(Handler handler){
         super(handler);
-        background = ImageLoader.loadImage("/textures/Background/bg.png");
+        bg = new Background(handler);
 
         SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
 
@@ -66,7 +66,7 @@ public class SettingsState extends State{
 
     public void render(Graphics g){
         if(State.getState().equals(handler.getGame().getSettingsState())) {
-            g.drawImage(background, 0, 0, handler.getWidth(), handler.getHeight(), null);
+            bg.render(g);
 
             BufferedImage temp3 = menu.getCurrentImage(handler);
             g.drawImage(temp3, menu.getX(), menu.getY(), temp3.getWidth() * 2, temp3.getHeight() * 2, null);

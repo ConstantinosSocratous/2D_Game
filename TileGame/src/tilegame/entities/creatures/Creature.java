@@ -1,6 +1,7 @@
 package tilegame.entities.creatures;
 
 import tilegame.Handler;
+import tilegame.Sounds.Sound;
 import tilegame.entities.Entity;
 import tilegame.gfx.SoundManager;
 import tilegame.tiles.Tile;
@@ -39,6 +40,7 @@ public abstract class Creature extends Entity {
 		if(!checkEntityCollisions(xMove, 0f)) {
 			moveY();
 		}
+
 
 	}
 	

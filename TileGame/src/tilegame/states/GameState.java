@@ -33,7 +33,7 @@ public class GameState extends State {
 	private LostState lostObj = new LostState(handler);
 	private WonState wonObj = new WonState(handler);
 
-	private BufferedImage bg2;
+	private BufferedImage bg;
 
 	private int numOfTicks = 0;
 	private float xSpawn = 0,ySpawn = 0;
@@ -47,16 +47,13 @@ public class GameState extends State {
 	}
 
 	public void init(String path) {
-		//bg1 = ImageLoader.loadImage("/textures/Background/bg1.png");
-		bg2 = ImageLoader.loadImage("/textures/Background/bg2.png");
-		/*bg3 = ImageLoader.loadImage("/textures/Background/bg3.png");
-		bg4 = ImageLoader.loadImage("/textures/Background/bg4.png");
-		bg5 = ImageLoader.loadImage("/textures/Background/bg5.png");
-		*/
+
+		bg = ImageLoader.loadImage("/textures/Background/bg2.png");
 		createWorld(path);
 	}
 
 	public void createWorld(String path) {
+
 		numOfTicks = 0;
 		won = false;
 		lost = false;
@@ -130,16 +127,20 @@ public class GameState extends State {
 	@Override
 	public void render(Graphics g) {
 		if(State.getState().equals( handler.getGame().getGameState())) {
-			g.drawImage(bg2, 0, 0, handler.getWidth(), handler.getHeight(), null);
+			g.drawImage(bg, 0, 0, handler.getWidth(), handler.getHeight(), null);
+			AllLevels.createBackground(currentLevel);
+
 			world.render(g);
 
-			BufferedImage temp = menu.getCurrentImage(handler);
 			//DRAW EXIT BUTTON
+			BufferedImage temp = menu.getCurrentImage(handler);
 			g.drawImage(temp, menu.getX(), menu.getY(), temp.getWidth() * 2, temp.getHeight() * 2, null);
 
+			//DRAW REPEAT BUTTON
 			BufferedImage temp1 = repeat.getCurrentImage(handler);
 			g.drawImage(temp1, repeat.getX(), repeat.getY(), temp1.getWidth() * 2, temp1.getHeight() * 2, null);
 
+			//HEART
 			heart.tick(g);
 			heart.render(g);
 
@@ -150,6 +151,10 @@ public class GameState extends State {
 			g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
 
             if(isWon()){
+				//Unlock next level
+				if(getCurrentLevel()+1 < LevelObject.ALL_LEVEL_OBJ.size()){
+					LevelObject.ALL_LEVEL_OBJ.get(getCurrentLevel()+1).setIsLocked(false);
+				}
 				wonObj.tick();
 				wonObj.render(g);
 				numOfTicks++;
@@ -157,24 +162,17 @@ public class GameState extends State {
 				if(numOfTicks>320) {
 					numOfTicks = 0;
 
-					//Unlock next level
-					if(getCurrentLevel()+1 < LevelObject.ALL_LEVEL_OBJ.size()){
-						LevelObject.ALL_LEVEL_OBJ.get(getCurrentLevel()+1).setIsLocked(false);
-					}
-
 					AllLevels.goToLevel(getCurrentLevel()+1);
 				}
 			}else if (isLost()) {
 				if(numOfTicks ==0)SoundManager.die.play();
-				//System.out.println("LOST");
+
 				numOfTicks++;
 
 				if(numOfTicks>80) {
 					numOfTicks = 0;
 					respawn();
-					//AllLevels.goToLevel(currentLevel);
 				}
-				//exitGameState();
 			}
             
 		}

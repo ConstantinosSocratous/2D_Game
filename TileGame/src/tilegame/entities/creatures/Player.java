@@ -27,6 +27,7 @@ public class Player extends Creature {
 	private Animation standar,animRight,animLeft, animUpRight, animUpLeft;
 	private boolean winLevel=false, canMove= true;
 	private int score = 0;
+	private int helperTicks = 0;
 
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT+16);
@@ -34,13 +35,6 @@ public class Player extends Creature {
 		bounds.y = 0;
 		bounds.width = 64-21-21;
 		bounds.height = 64+16-1;
-		/*super(handler, x, y, 80, 80);
-		bounds.x = 21+15;
-		bounds.y = 0;
-		bounds.width = 80-21-21-17;
-		bounds.height =80-1;*/
-
-		//bounds = new Rectangle(0, 0, width, height);
 
 		//Animations
 		animLeft = new Animation(250, Assets.player_left);
@@ -101,6 +95,7 @@ public class Player extends Creature {
 		//if(!checkEntityCollisions(xMove, 0f)) {
 			moveY();
 		//}
+
 
 	}
 	private void InteractWithCreatureOnY(Entity e){
@@ -205,8 +200,12 @@ public class Player extends Creature {
 			jump(20);
 			handler.getKeyManager().isUp = false;
 		}
-		if(handler.getKeyManager().left)xMove = -speed;
-		if(handler.getKeyManager().right)xMove = speed;
+		if(handler.getKeyManager().left){
+			xMove = -speed;
+		}
+		if(handler.getKeyManager().right){
+			xMove = speed;
+		}
 
 		if(handler.getMouseManager().isEligableToShoot()){
 			int mouseX = handler.getMouseManager().getMouseX() - (int)handler.getGameCamera().getyOffset();
