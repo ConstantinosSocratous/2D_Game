@@ -119,7 +119,7 @@ public class Mushroom extends Creature {
     }
 
     public void deleteMe(){
-        handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(getX()+20),getY()-110,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(getX()+20),getY()-95,0,0));
     }
 
     public void fall(){

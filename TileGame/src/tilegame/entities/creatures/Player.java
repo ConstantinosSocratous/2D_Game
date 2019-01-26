@@ -226,9 +226,9 @@ public class Player extends Creature {
 		helperTicksCooldown++;
 		if(handler.getKeyManager().isShoot && helperTicksCooldown >= SHOOT_COOLDOWN){
 			if(xMove >= 0)
-				shoot(false,this);
+				shoot(false,this,12);
 			else if(xMove < 0)
-				shoot(true,this);
+				shoot(true,this,12);
 
 			helperTicksCooldown = 0;
 			handler.getKeyManager().isShoot = false;
@@ -251,7 +251,6 @@ public class Player extends Creature {
 
 
 	private BufferedImage getCurrentAnimationFrame(){
-
 		if(falling && xMove > 0){//Jump Right
 			return animUpRight.getCurrentFrame();
 		}else if(falling && xMove < 0){//Jump Right

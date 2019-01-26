@@ -4,8 +4,8 @@ import tilegame.Handler;
 import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SoundManager;
 import tilegame.gfx.SpriteSheet;
-import tilegame.tiles.MuteObject;
-import tilegame.tiles.UIObject;
+import tilegame.UI.MuteObject;
+import tilegame.UI.UIObject;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

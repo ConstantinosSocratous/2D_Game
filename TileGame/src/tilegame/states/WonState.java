@@ -1,15 +1,12 @@
 package tilegame.states;
 
 import tilegame.Handler;
-import tilegame.gfx.Animation;
 import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SpriteSheet;
-import tilegame.tiles.LevelObject;
+import tilegame.UI.LevelObject;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
-import java.nio.BufferOverflowException;
 
 public class WonState {
     private BufferedImage[] won;

@@ -7,12 +7,10 @@ import tilegame.entities.creatures.Mushroom;
 import tilegame.entities.statics.*;
 import tilegame.gfx.SoundManager;
 import tilegame.states.GameState;
-import tilegame.states.LevelsState;
 import tilegame.states.State;
-import tilegame.tiles.LevelObject;
+import tilegame.UI.LevelObject;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
 
 public class AllLevels {
 
@@ -71,16 +69,31 @@ public class AllLevels {
         State.setState(handler.getGame().getGameState());
 
         //CREATE MUSHROOMS
-        //handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,1160,773,true,3));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,1280,394,true,3));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,3200,915,true,4));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4992,915,true,5));
 
         //CREATE COINS
-        //handler.getWorld().getEntityManager().addEntity(new Coin(handler,1152,780,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,720,715,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,2112,330,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,1472,845,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,3200,845,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,2368,725,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,3392,550,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,4416,714,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,4672,192,0,0));
 
         //CREATE TRAPS
-        // handler.getWorld().getEntityManager().addEntity(new Trap(handler,1408,272,128,64,2000));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler,2048,330,96,64,1700));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler,1728,650,96,64,2100));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler,2176,1100,128,64,2100));
 
         //CREATE CHECKPOINTS
-        //handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,1790,673,64,160,2));
+        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,2368,227,64,160,2));
+        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,3264,227,64,160,2));
+
+        //CREATE ENEMIES
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4224,680,55));//4224
 
         //CREATE WINNING DOOR
         handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
@@ -101,8 +114,8 @@ public class AllLevels {
         handler.getWorld().getEntityManager().addEntity( new Mushroom(handler,1600,517,false,4));
         handler.getWorld().getEntityManager().addEntity( new Mushroom(handler,2300,582,true,3));
         handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,2800,582,false,3));
-        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,3800,582,true,3));
-        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4150,800,true,5));
+        //handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,3800,582,true,3));
+        //handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4150,800,true,5));
         handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4980,800,false,4));
         handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4400,800,false,5));
         handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4980,800,true,4));
@@ -141,12 +154,14 @@ public class AllLevels {
         handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,3410,673,64,160,2));
         handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,4232,160,64,160,2));
 
+        //CREATE ENEMIES
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4000,680,40));//4224
+
         //CREATE WINNING DOOR
         handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
 
         int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
         LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
-
     }
 
     public static void LEVEL3(){

@@ -144,9 +144,9 @@ public abstract class Creature extends Entity {
 		}
 	}
 
-	protected void shoot(boolean left,Creature fr){
-		if(left) handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,left,fr));
-		else handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+15,getY()+33,32,32,left,fr));
+	protected void shoot(boolean left,Creature fr, float sp){
+		if(left) handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,left,fr,sp));
+		else handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+15,getY()+33,32,32,left,fr,sp));
 	}
 
 	protected boolean collisionWithTile(int x, int y){

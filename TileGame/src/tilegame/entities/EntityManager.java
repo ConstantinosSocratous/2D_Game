@@ -71,6 +71,17 @@ public class EntityManager {
 		}
 	}
 
+	public ArrayList<Entity> getBullets(){
+		ArrayList<Entity> temp = new ArrayList<>();
+		for(Entity entity : entities){
+			if(entity instanceof Bullet){
+				temp.add(entity);
+			}
+		}
+
+		return temp;
+	}
+
 	public Handler getHandler() {
 		return handler;
 	}

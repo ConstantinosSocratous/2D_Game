@@ -4,11 +4,10 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import tilegame.Handler;
-import tilegame.Sounds.Sound;
 import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SoundManager;
 import tilegame.gfx.SpriteSheet;
-import tilegame.tiles.UIObject;
+import tilegame.UI.UIObject;
 import tilegame.worlds.AllLevels;
 
 public class MenuState extends State {

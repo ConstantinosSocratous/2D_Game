@@ -4,6 +4,7 @@ import tilegame.Handler;
 import tilegame.entities.creatures.Creature;
 import tilegame.entities.creatures.Enemy;
 import tilegame.entities.creatures.Mushroom;
+import tilegame.entities.creatures.Player;
 import tilegame.entities.statics.Coin;
 import tilegame.gfx.Assets;
 import tilegame.tiles.Tile;
@@ -13,23 +14,27 @@ import java.awt.image.BufferedImage;
 
 public class Bullet extends Creature {
 
-    private float speed = 12f;
+    private float speed;
     private BufferedImage img;
     protected float maxDY = 1f;
     protected float gravity = 0.02f;
     private boolean collusion = false;
     private Creature c;
 
-    public Bullet(Handler handler, float x, float y, int width, int height,boolean leftDirections,Creature from){
+    public Bullet(Handler handler, float x, float y, int width, int height, boolean leftDirections, Creature from,float speed){
         super(handler,x,y,width,height);
-        img = Assets.bullet;
+        if(from instanceof Player)
+            img = Assets.bullet;
+        else img = Assets.enemyBullet;
         xMove = 0;
         this.c = from;
+        this.speed = 12f;
 
         bounds.x = width/32 * 4;
         bounds.width = width/32* 26;
         bounds.y = height/32 * 13;
         bounds.height = height/32 * 5;
+
 
         if(xMove == 0){
             if(leftDirections) xMove = -speed;
@@ -51,9 +56,9 @@ public class Bullet extends Creature {
         Entity e1 = getEntityWithCollision(0f,0f);
         if(e1 != null){
             if(e1 instanceof Mushroom){
-                ((Mushroom) e1).deleteMe();
+                /*((Mushroom) e1).deleteMe();
                 handler.getWorld().getEntityManager().deleteEntity(e1);
-                collusion = true;
+                collusion = true;*/
             }
         }
     }

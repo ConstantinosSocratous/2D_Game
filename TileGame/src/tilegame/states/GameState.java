@@ -1,21 +1,17 @@
 package tilegame.states;
 
 import java.awt.*;
-import java.awt.geom.CubicCurve2D;
 import java.awt.image.BufferedImage;
-import java.util.logging.Level;
 
-import sun.util.resources.cldr.ebu.LocaleNames_ebu;
 import tilegame.Handler;
-import tilegame.Sounds.Sound;
 import tilegame.entities.creatures.Creature;
 import tilegame.entities.statics.CheckPoint;
 import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SoundManager;
 import tilegame.gfx.SpriteSheet;
 import tilegame.tiles.Heart;
-import tilegame.tiles.LevelObject;
-import tilegame.tiles.UIObject;
+import tilegame.UI.LevelObject;
+import tilegame.UI.UIObject;
 import tilegame.worlds.AllLevels;
 import tilegame.worlds.World;
 

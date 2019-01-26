@@ -4,8 +4,8 @@ import tilegame.Handler;
 import tilegame.gfx.ImageLoader;
 import tilegame.gfx.SoundManager;
 import tilegame.gfx.SpriteSheet;
-import tilegame.tiles.LevelObject;
-import tilegame.tiles.UIObject;
+import tilegame.UI.LevelObject;
+import tilegame.UI.UIObject;
 import tilegame.worlds.AllLevels;
 
 import java.awt.*;
@@ -88,7 +88,6 @@ public class LevelsState extends State{
             }
             BufferedImage temp3 = menu.getCurrentImage(handler);
             g.drawImage(temp3, menu.getX(), menu.getY(), temp3.getWidth() * 2, temp3.getHeight() * 2, null);
-
 
         }
     }
