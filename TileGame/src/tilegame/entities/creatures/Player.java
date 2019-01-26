@@ -22,12 +22,12 @@ import tilegame.tiles.Tile;
 
 public class Player extends Creature {
 	
-	//Animations
-	//private Animation animDown, animUp, animLeft, animRight;
+	private final int SHOOT_COOLDOWN = 20;
+
 	private Animation standar,animRight,animLeft, animUpRight, animUpLeft;
 	private boolean winLevel=false, canMove= true;
 	private int score = 0;
-	private int helperTicks = 0;
+	private int helperTicksCooldown = 60;
 
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT+16);
@@ -65,6 +65,7 @@ public class Player extends Creature {
 			Entity e1 = getEntityWithCollision(0f, yMove);
 			if (e1 != null) {
 				canJump = true;
+				canJump = true;
 				InteractWithCreatureOnY(e1);
 				//DamageWithCreature(e1);
 			}
@@ -78,10 +79,12 @@ public class Player extends Creature {
 				}
 			}else if(e3 instanceof CheckPoint){
 				((GameState)(handler.getGame().getGameState())).setCurrentCheckPoint((CheckPoint) e3);
-
 				handler.getWorld().getEntityManager().deleteEntity(e3);
+			}else if(e3 instanceof  Bullet){
+				//System.out.println(x + "  " + e3.getX());
+				if( !(((Bullet) e3).getFrom() instanceof  Player))
+					decreaseHealth(100);
 			}
-
 			fall();
 		}
 
@@ -96,16 +99,16 @@ public class Player extends Creature {
 			moveY();
 		//}
 
-
 	}
 	private void InteractWithCreatureOnY(Entity e){
 		if(e instanceof Mushroom) {	 //INTERACT WITH MUSHROOM
-		    if(!handler.getWorld().getTile((int)(e.getX()+75)/64,(int)e.getY()/64).isSolid())
+		    /*if(!handler.getWorld().getTile((int)(e.getX()+75)/64,(int)e.getY()/64).isSolid())
                 handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()+75),e.getY(),0,0));
             else if(!handler.getWorld().getTile((int)(e.getX()-75)/64,(int)e.getY()/64).isSolid())
                 handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()-75),e.getY(),0,0));
-            else
-                handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()),e.getY()-120,0,0));
+            else*/
+		    ((Mushroom) e).deleteMe();
+
             handler.getWorld().getEntityManager().deleteEntity(e);
             //if(!isEligibleToJump()) fall();
         }
@@ -207,7 +210,7 @@ public class Player extends Creature {
 			xMove = speed;
 		}
 
-		if(handler.getMouseManager().isEligableToShoot()){
+		/*if(handler.getMouseManager().isEligableToShoot()){
 			int mouseX = handler.getMouseManager().getMouseX() - (int)handler.getGameCamera().getyOffset();
 
 			if(mouseX > x - handler.getGameCamera().getxOffset())
@@ -216,7 +219,19 @@ public class Player extends Creature {
 				handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,true));
 
 			handler.getMouseManager().setCanShoot(false);
-			handler.getKeyManager().isSpace = false;
+			handler.getKeyManager().isShoot = false;
+		}*/
+
+		//ADD COOLDOWN TO SHOOTING
+		helperTicksCooldown++;
+		if(handler.getKeyManager().isShoot && helperTicksCooldown >= SHOOT_COOLDOWN){
+			if(xMove >= 0)
+				shoot(false,this);
+			else if(xMove < 0)
+				shoot(true,this);
+
+			helperTicksCooldown = 0;
+			handler.getKeyManager().isShoot = false;
 		}
 		fall();
 

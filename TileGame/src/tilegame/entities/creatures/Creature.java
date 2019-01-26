@@ -2,6 +2,7 @@ package tilegame.entities.creatures;
 
 import tilegame.Handler;
 import tilegame.Sounds.Sound;
+import tilegame.entities.Bullet;
 import tilegame.entities.Entity;
 import tilegame.gfx.SoundManager;
 import tilegame.tiles.Tile;
@@ -40,8 +41,6 @@ public abstract class Creature extends Entity {
 		if(!checkEntityCollisions(xMove, 0f)) {
 			moveY();
 		}
-
-
 	}
 	
 	public void moveX(){
@@ -144,7 +143,12 @@ public abstract class Creature extends Entity {
 			falling = true;
 		}
 	}
-	
+
+	protected void shoot(boolean left,Creature fr){
+		if(left) handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,left,fr));
+		else handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+15,getY()+33,32,32,left,fr));
+	}
+
 	protected boolean collisionWithTile(int x, int y){
 		return handler.getWorld().getTile(x, y).isSolid();
 	}
@@ -183,7 +187,7 @@ public abstract class Creature extends Entity {
 	public void decreaseHealth(int num){health-=num;}
 
 	public boolean isDead(){
-		if(health < 0) return true;
+		if(health <= 0) return true;
 		else return false;
 	}
 

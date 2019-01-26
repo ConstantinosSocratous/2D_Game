@@ -8,7 +8,7 @@ public class Assets {
 	
 	public static BufferedImage dirt, grass, sky, cloud3, cloud4,rock, white,checkpoint,bullet,heart;
 	public static BufferedImage[] player_static, player_left, player_right, playerUpRight, playerUpLeft, lava;
-	public static BufferedImage[] enemyMoving, door, movingWalls, coin, trap, kingdom,fire;
+	public static BufferedImage[] enemyMoving, door, movingWalls, coin, trap, kingdom,fire,playerEnemyStatic;
 	//public static BufferedImage[] zombie_down, zombie_up, zombie_left, zombie_right;
 
 	public static void init(){
@@ -27,11 +27,11 @@ public class Assets {
 		coin = new BufferedImage[6];
 		trap = new BufferedImage[2];
 		kingdom = new BufferedImage[4];
-		/*player_down[0] = sheet.crop(width * 4, 0, width, height);
-		player_down[1] = sheet.crop(width * 5, 0, width, height);
-		player_up[0] = sheet.crop(width * 6, 0, width, height);
-		player_up[1] = sheet.crop(width * 7, 0, width, height);*/
+		playerEnemyStatic = new BufferedImage[1];
+		//////////////
 
+
+		playerEnemyStatic[0] = sheet.crop(width*7, height*5, width, height);
 		enemyMoving[0] = sheet.crop(0, height*4, width*2, height*2);
 		enemyMoving[1] = sheet.crop(width *2 , height*4, width*2, height*2);
 		player_static[0] = sheet.crop(width * 2, 0, width, height);

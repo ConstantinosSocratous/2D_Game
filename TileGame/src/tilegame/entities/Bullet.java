@@ -2,7 +2,9 @@ package tilegame.entities;
 
 import tilegame.Handler;
 import tilegame.entities.creatures.Creature;
+import tilegame.entities.creatures.Enemy;
 import tilegame.entities.creatures.Mushroom;
+import tilegame.entities.statics.Coin;
 import tilegame.gfx.Assets;
 import tilegame.tiles.Tile;
 
@@ -15,13 +17,14 @@ public class Bullet extends Creature {
     private BufferedImage img;
     protected float maxDY = 1f;
     protected float gravity = 0.02f;
-
     private boolean collusion = false;
+    private Creature c;
 
-    public Bullet(Handler handler, float x, float y, int width, int height,boolean leftDirections){
+    public Bullet(Handler handler, float x, float y, int width, int height,boolean leftDirections,Creature from){
         super(handler,x,y,width,height);
         img = Assets.bullet;
         xMove = 0;
+        this.c = from;
 
         bounds.x = width/32 * 4;
         bounds.width = width/32* 26;
@@ -34,6 +37,8 @@ public class Bullet extends Creature {
         }
     }
 
+    public Creature getFrom(){return c;}
+
     public void tick(){
         this.move();
     }
@@ -42,14 +47,15 @@ public class Bullet extends Creature {
         this.moveX();
         this.moveY();
 
-        /*  COLLUSION WITH ENTITY
+        // COLLUSION WITH ENTITY
         Entity e1 = getEntityWithCollision(0f,0f);
         if(e1 != null){
             if(e1 instanceof Mushroom){
+                ((Mushroom) e1).deleteMe();
                 handler.getWorld().getEntityManager().deleteEntity(e1);
                 collusion = true;
             }
-        }*/
+        }
     }
 
     public void moveX(){
@@ -98,7 +104,7 @@ public class Bullet extends Creature {
             }
         }
 
-        fall();
+        //fall();
     }
     public void fall(){
         yMove += gravity;

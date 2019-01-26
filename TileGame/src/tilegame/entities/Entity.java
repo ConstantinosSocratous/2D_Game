@@ -88,5 +88,6 @@ public abstract class Entity {
 
 	public void setIsDoingDamage(boolean bool){ doingDamage = bool;}
 
+	public Rectangle getRectangle(){return bounds;}
 
 }

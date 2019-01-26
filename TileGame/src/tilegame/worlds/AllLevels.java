@@ -2,6 +2,7 @@ package tilegame.worlds;
 
 import tilegame.Handler;
 import tilegame.entities.Entity;
+import tilegame.entities.creatures.Enemy;
 import tilegame.entities.creatures.Mushroom;
 import tilegame.entities.statics.*;
 import tilegame.gfx.SoundManager;
@@ -53,6 +54,7 @@ public class AllLevels {
         //CREATE CHECKPOINTS
         handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,2944,482,64,160,2));
 
+
         //CREATE WINNING DOOR
         handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
 
@@ -71,9 +73,7 @@ public class AllLevels {
         //CREATE MUSHROOMS
         //handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,1160,773,true,3));
 
-
-
-        //CREATE COINGS
+        //CREATE COINS
         //handler.getWorld().getEntityManager().addEntity(new Coin(handler,1152,780,0,0));
 
         //CREATE TRAPS
@@ -201,9 +201,7 @@ public class AllLevels {
 
         int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
         LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
-
     }
-
 
     public static void goToLevel(int num){
         if(num != ((GameState)(handler.getGame().getGameState())).getCurrentLevel()){
@@ -232,20 +230,19 @@ public class AllLevels {
     public static void createBackground(int num){
         if(num == 0 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked() ){
             AllLevels.LEVEL0_BG();
-        }
-        else if(num == 1 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked() ){
+        }else if(num == 1 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked() ){
             AllLevels.LEVEL1_BG();
-        }
-        else if(num == 2 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
-
+        }else if(num == 2 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
             AllLevels.LEVEL2_BG();
+        }else if(num == 3 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
+            AllLevels.LEVEL3_BG();
         }
     }
 
     public static void LEVEL0_BG(){
         //CREATE TREES
-        Tree t = new Tree(handler,1400,350,96,256);
-        t.render(handler.getGame().getGraphics());
+        //Tree t = new Tree(handler,1400,350,96,256);
+        //t.render(handler.getGame().getGraphics());
 
     }
     public static void LEVEL1_BG(){

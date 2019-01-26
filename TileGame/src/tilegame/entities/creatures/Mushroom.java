@@ -1,6 +1,7 @@
 package tilegame.entities.creatures;
 
 import tilegame.Handler;
+import tilegame.entities.statics.Coin;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
 import tilegame.tiles.Tile;
@@ -17,15 +18,10 @@ public class Mushroom extends Creature {
         this.speed = speed;
         this.left = left;
         bounds.x = 15;
-        bounds.y = 28;
+        bounds.y = 20;//28
         bounds.width = 64-27;
-        bounds.height = 64-35;
-		/*bounds.x = 25;
-		bounds.y = 0;
-		bounds.width = 96-21-21-10;
-		bounds.height =96-1;*/
+        bounds.height = 64-28;//-35
 
-        //bounds = new Rectangle(bounds.x, bounds.y = 17, bounds.width, bounds.height);
         setIsDoingDamage(true);
         //Animation
         anim = new Animation(250, Assets.enemyMoving);
@@ -122,6 +118,9 @@ public class Mushroom extends Creature {
         fall();
     }
 
+    public void deleteMe(){
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(getX()+20),getY()-110,0,0));
+    }
 
     public void fall(){
         yMove += gravity;

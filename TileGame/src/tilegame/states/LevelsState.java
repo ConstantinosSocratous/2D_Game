@@ -34,7 +34,7 @@ public class LevelsState extends State{
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/levels.png"));
 
         lvl0 = new LevelObject(handler, bgX+150 , bgY+bgBoundsY-25,120, "/worlds/world0.txt", "The Basics",1,false);
-        lvl1 = new LevelObject(handler, bgX+195 , bgY+bgBoundsY-290,120, "/worlds/world1.txt", "Tunnel",1,false);
+        lvl1 = new LevelObject(handler, bgX+195 , bgY+bgBoundsY-290,120, "/worlds/world1.txt", "Tunnel",1,true);
         lvl2 = new LevelObject(handler, bgX+330, bgY+bgBoundsY-500,120, "/worlds/world2.txt", "Be Careful!!",1,true);
         lvl3 = new LevelObject(handler, bgX+580, bgY+bgBoundsY-500,120, "/worlds/world3.txt", "Above ground",2,true);
 
