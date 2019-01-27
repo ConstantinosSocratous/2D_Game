@@ -4,6 +4,7 @@ import tilegame.Handler;
 import tilegame.Sounds.Sound;
 import tilegame.entities.Bullet;
 import tilegame.entities.Entity;
+import tilegame.entities.statics.Coin;
 import tilegame.gfx.SoundManager;
 import tilegame.tiles.Tile;
 
@@ -131,6 +132,7 @@ public abstract class Creature extends Entity {
 		}
 	}
 
+
 	protected void jump(float jumpHeight){
 		if(canJump){
 			yMove=-jumpHeight;
@@ -143,8 +145,8 @@ public abstract class Creature extends Entity {
 	}
 
 	protected void shoot(boolean left,Creature fr, float sp){
-		if(left) handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,left,fr,sp));
-		else handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+15,getY()+33,32,32,left,fr,sp));
+		if(left) handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+20,32,32,left,fr,sp));
+		else handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+15,getY()+20,32,32,left,fr,sp));
 	}
 
 	protected boolean collisionWithTile(int x, int y){

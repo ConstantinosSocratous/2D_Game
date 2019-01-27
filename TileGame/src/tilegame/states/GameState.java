@@ -97,6 +97,10 @@ public class GameState extends State {
 				handler.getWorld().getEntityManager().getPlayer().setY(currentCheckPoint.getY());
 				handler.getWorld().getEntityManager().getPlayer().setyMove(0.01f);
 			}
+
+			handler.getWorld().getEntityManager().respawnDeleted();
+
+			//AllLevels.respawn(currentLevel);
 		}
 	}
 
@@ -148,6 +152,9 @@ public class GameState extends State {
 
             if(isWon()){
 				//Unlock next level
+				if(numOfTicks == 0){
+
+				}
 				if(getCurrentLevel()+1 < LevelObject.ALL_LEVEL_OBJ.size()){
 					LevelObject.ALL_LEVEL_OBJ.get(getCurrentLevel()+1).setIsLocked(false);
 				}
@@ -155,7 +162,7 @@ public class GameState extends State {
 				wonObj.render(g);
 				numOfTicks++;
 
-				if(numOfTicks>320) {
+				if(numOfTicks>125) {
 					numOfTicks = 0;
 
 					AllLevels.goToLevel(getCurrentLevel()+1);

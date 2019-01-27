@@ -52,15 +52,6 @@ public class Bullet extends Creature {
         this.moveX();
         this.moveY();
 
-        // COLLUSION WITH ENTITY
-        Entity e1 = getEntityWithCollision(0f,0f);
-        if(e1 != null){
-            if(e1 instanceof Mushroom){
-                /*((Mushroom) e1).deleteMe();
-                handler.getWorld().getEntityManager().deleteEntity(e1);
-                collusion = true;*/
-            }
-        }
     }
 
     public void moveX(){

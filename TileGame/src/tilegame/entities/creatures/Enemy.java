@@ -75,7 +75,7 @@ public class Enemy extends Creature {
 
         collisionWithBullet();
 
-        if(isDead()) handler.getWorld().getEntityManager().deleteEntity(this);
+
         fall();
     }
 
@@ -148,9 +148,9 @@ public class Enemy extends Creature {
         if (e3 != null) {
             if(e3 instanceof  Bullet){
                 if( !(((Bullet) e3).getFrom() instanceof  Enemy)) {
-                    decreaseHealth(100);
+                    handler.getWorld().getEntityManager().deleteEntity(this);
                     ((Bullet) e3).setCollusion(true);
-                    handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(getX()+20),getY()+20,0,0));
+                    handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(getX()+20),getY()+20,true));
                 }
             }
         }

@@ -33,10 +33,10 @@ public class LevelsState extends State{
         lvls = ImageLoader.loadImage("/textures/Background/lvls.png");
 
         lvl0 = new LevelObject(handler, bgX+150 , bgY+bgBoundsY-25,120, "/worlds/world0.txt", "The Basics",1,false);
-        lvl1 = new LevelObject(handler, bgX+195 , bgY+bgBoundsY-290,120, "/worlds/world1.txt", "Getting into",1,true);
-        lvl2 = new LevelObject(handler, bgX+330, bgY+bgBoundsY-500,120, "/worlds/world2.txt", "Be Careful!!",1,true);
-        lvl3 = new LevelObject(handler, bgX+580, bgY+bgBoundsY-500,120, "/worlds/world3.txt", "Above ground",2,true);
-        lvl4 = new LevelObject(handler, bgX+490, bgY+bgBoundsY-300,120, "/worlds/MoreEnemies.txt", "More Enemies",2,true);
+        lvl1 = new LevelObject(handler, bgX+195 , bgY+bgBoundsY-290,120, "/worlds/world1.txt", "Getting into",1,false);
+        lvl2 = new LevelObject(handler, bgX+330, bgY+bgBoundsY-500,120, "/worlds/world2.txt", "Be Careful!!",1,false);
+        lvl3 = new LevelObject(handler, bgX+580, bgY+bgBoundsY-500,120, "/worlds/world3.txt", "Above ground",2,false);
+        lvl4 = new LevelObject(handler, bgX+490, bgY+bgBoundsY-300,120, "/worlds/MoreEnemies.txt", "More Enemies",2,false);
 
         SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
         BufferedImage[] menuI = new BufferedImage[2];

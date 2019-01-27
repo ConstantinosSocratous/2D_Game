@@ -7,12 +7,16 @@ import java.util.Comparator;
 import tilegame.Cinematic.Kingdom;
 import tilegame.Handler;
 import tilegame.entities.creatures.Player;
+import tilegame.entities.statics.CheckPoint;
+import tilegame.entities.statics.Coin;
 
 public class EntityManager {
-	
+
+	private boolean checkpoint = false;
 	private Handler handler;
 	private Player player;
 	private ArrayList<Entity> entities;
+	private ArrayList<Entity> deletedEntities;
 	private Comparator<Entity> renderSorter = new Comparator<Entity>(){
 		@Override
 		public int compare(Entity a, Entity b) {
@@ -25,6 +29,7 @@ public class EntityManager {
 	public EntityManager(Handler handler){
 		this.handler = handler;
 		entities = new ArrayList<Entity>();
+		deletedEntities = new ArrayList<Entity>();
 	}
 	
 	public void tick(){
@@ -52,9 +57,79 @@ public class EntityManager {
 	public void deleteEntity(Entity e){
 		//for(Entity ent : entities){
 		//	if(e.equals(ent))
-				entities.remove(e);
+		if(e instanceof CheckPoint){
+
+            ArrayList<Entity> temp = new ArrayList<>();
+            if(deletedEntities.size() == 0)return;
+            for(Entity ent: deletedEntities){
+                if((ent instanceof Coin))
+                		continue;
+				temp.add(ent);
+            }
+            for(Entity ent: temp){
+                deletedEntities.remove(ent);
+            }
+
+
+            for(Entity entity : entities){
+				if(entity instanceof Coin)
+					((Coin) entity).setGenerated(false);
+			}
+
+			entities.remove(e);
+		}else{
+
+			deletedEntities.add(e);
+			entities.remove(e);
+		}
 		//}
 	}
+
+	public void respawnDeleted(){
+
+		for(Entity e: deletedEntities){
+			if((e instanceof Coin)) {
+				continue;
+			}
+            player.decreaseScore(100);
+			entities.add(e);
+
+		}
+
+		for(Entity e: entities){
+            if((e instanceof Coin)) {
+                if(((Coin) e).isGenerated()) {
+                    player.increaseScore(100);
+                }
+            }
+        }
+		deleteGeneratedCoins();
+		emptyDeletedEntities();
+	}
+
+	public void deleteGeneratedCoins(){
+		ArrayList<Entity> temp = new ArrayList<>();
+		for(Entity e: entities){
+			if(e instanceof Coin){
+				if(((Coin) e).isGenerated()) temp.add(e);
+			}
+		}
+		for(Entity e: temp){
+			entities.remove(e);
+		}
+	}
+
+	public void emptyDeletedEntities(){
+		ArrayList<Entity> temp = new ArrayList<>();
+		if(deletedEntities.size() == 0)return;
+		for(Entity ent: deletedEntities){
+			temp.add(ent);
+		}
+		for(Entity ent: temp){
+			deletedEntities.remove(ent);
+		}
+	}
+
 
 	//GETTERS SETTERS
 	public void deleteCollusionBullets(){

@@ -262,6 +262,8 @@ public class Player extends Creature {
 	}
 
 	public int getScore(){return score;}
+	public void decreaseScore(int n){score-=n;}
+    public void increaseScore(int n){score+=n;}
 	public boolean hasWon(){return winLevel;}
 
 	public void increasexMove(float x){xMove+=x; }

@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="apk" name="unnamed">
+    <output-path>$PROJECT_DIR$/classes/artifacts/unnamed</output-path>
+    <properties id="android-properties">
+      <options>
+        <option name="keyStoreUrl" value="file://" />
+      </options>
+    </properties>
+    <root id="archive" name="unnamed.apk">
+      <element id="artifact" artifact-name="TileGame1:jar" />
+    </root>
+  </artifact>
+</component>

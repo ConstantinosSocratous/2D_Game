@@ -1,6 +1,8 @@
 package tilegame.entities.creatures;
 
 import tilegame.Handler;
+import tilegame.entities.Bullet;
+import tilegame.entities.Entity;
 import tilegame.entities.statics.Coin;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
@@ -18,7 +20,7 @@ public class Mushroom extends Creature {
         this.speed = speed;
         this.left = left;
         bounds.x = 15;
-        bounds.y = 20;//28
+        bounds.y = 25;//28
         bounds.width = 64-27;
         bounds.height = 64-28;//-35
 
@@ -38,8 +40,21 @@ public class Mushroom extends Creature {
 
         move();
 
-        //checkForDamage();
+        collisionWithBullet();
 
+    }
+
+    private void collisionWithBullet(){
+        Entity e3 = getEntityWithCollision(0f, 0f);
+        if (e3 != null) {
+            if(e3 instanceof Bullet){
+                if( !(((Bullet) e3).getFrom() instanceof  Enemy)) {
+                    ((Bullet) e3).setCollusion(true);
+                    handler.getWorld().getEntityManager().deleteEntity(this);
+                    this.deleteMe();
+                }
+            }
+        }
     }
 
     public void move(){
@@ -119,7 +134,7 @@ public class Mushroom extends Creature {
     }
 
     public void deleteMe(){
-        handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(getX()+20),getY()-95,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(getX()+20),getY()-95,true));
     }
 
     public void fall(){
