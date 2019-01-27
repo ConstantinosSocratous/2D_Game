@@ -104,13 +104,11 @@ public abstract class Creature extends Entity {
 				canJump = false;
 				falling = true;
 				y += yMove;
-				//System.out.println(x + " " + y + " " + "JUMP-111");
 			}else {
 				y = ty * Tile.TILEHEIGHT - bounds.y - bounds.height - 1;
 				falling = false;
 				//yMove=0;
 				canJump = true;
-				//System.out.println(x + " " + y + " " + "JUMP");
 			}
 
 

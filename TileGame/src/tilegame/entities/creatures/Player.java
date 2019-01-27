@@ -82,8 +82,10 @@ public class Player extends Creature {
 				handler.getWorld().getEntityManager().deleteEntity(e3);
 			}else if(e3 instanceof  Bullet){
 				//System.out.println(x + "  " + e3.getX());
-				if( !(((Bullet) e3).getFrom() instanceof  Player))
+				if( !(((Bullet) e3).getFrom() instanceof  Player)) {
 					decreaseHealth(100);
+					((Bullet) e3).setCollusion(true);
+				}
 			}
 			fall();
 		}
@@ -102,21 +104,13 @@ public class Player extends Creature {
 	}
 	private void InteractWithCreatureOnY(Entity e){
 		if(e instanceof Mushroom) {	 //INTERACT WITH MUSHROOM
-		    /*if(!handler.getWorld().getTile((int)(e.getX()+75)/64,(int)e.getY()/64).isSolid())
-                handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()+75),e.getY(),0,0));
-            else if(!handler.getWorld().getTile((int)(e.getX()-75)/64,(int)e.getY()/64).isSolid())
-                handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(e.getX()-75),e.getY(),0,0));
-            else*/
 		    ((Mushroom) e).deleteMe();
-
             handler.getWorld().getEntityManager().deleteEntity(e);
-            //if(!isEligibleToJump()) fall();
         }
         else if(e instanceof Coin) {  //INTERACT WITH COIN
 			handler.getWorld().getEntityManager().deleteEntity(e);
 			score +=100;
 			SoundManager.coin.play();
-			//if(!isEligibleToJump()) fall();
 		}else{fall();}
 
 	}

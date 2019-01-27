@@ -117,6 +117,7 @@ public class Bullet extends Creature {
     }
 
     public boolean isCollusion(){return collusion;}
+    public void setCollusion(Boolean bool){collusion = bool;}
 
     public void render(Graphics g){
         g.drawImage(img,(int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()),width,height,null);

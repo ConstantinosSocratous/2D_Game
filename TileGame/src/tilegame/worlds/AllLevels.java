@@ -23,8 +23,8 @@ public class AllLevels {
     public static void LEVEL0(){
         //ALL_LEVELS[0]
         //LevelsState.ALL_LEVELS[0].setEligableToJump(true);
-        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(0).getPath());
-        ((GameState)(handler.getGame().getGameState())).setCurrentLevel(0);
+        int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
         ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
         State.setState(handler.getGame().getGameState());
 
@@ -63,40 +63,40 @@ public class AllLevels {
     }
     public static void LEVEL1(){
 
-        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(1).getPath());
-        ((GameState)(handler.getGame().getGameState())).setCurrentLevel(1);
+        int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
         ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
         State.setState(handler.getGame().getGameState());
 
         //CREATE MUSHROOMS
-        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,1280,394,true,3));
-        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,3200,915,true,4));
-        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4992,915,true,5));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,1280,334,true,3));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,3200,851,true,4));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4992,851,true,5));
 
         //CREATE COINS
-        handler.getWorld().getEntityManager().addEntity(new Coin(handler,720,715,0,0));
-        handler.getWorld().getEntityManager().addEntity(new Coin(handler,2112,330,0,0));
-        handler.getWorld().getEntityManager().addEntity(new Coin(handler,1472,845,0,0));
-        handler.getWorld().getEntityManager().addEntity(new Coin(handler,3200,845,0,0));
-        handler.getWorld().getEntityManager().addEntity(new Coin(handler,2368,725,0,0));
-        handler.getWorld().getEntityManager().addEntity(new Coin(handler,3392,550,0,0));
-        handler.getWorld().getEntityManager().addEntity(new Coin(handler,4416,714,0,0));
-        handler.getWorld().getEntityManager().addEntity(new Coin(handler,4672,192,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,720,651,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,2112,266,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,1472,781,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,3200,781,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,2368,661,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,3392,486,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,4416,650,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,4672,128,0,0));
 
         //CREATE TRAPS
-        handler.getWorld().getEntityManager().addEntity(new Trap(handler,2048,330,96,64,1700));
-        handler.getWorld().getEntityManager().addEntity(new Trap(handler,1728,650,96,64,2100));
-        handler.getWorld().getEntityManager().addEntity(new Trap(handler,2176,1100,128,64,2100));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler,2048,266,96,64,1700));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler,1728,586,96,64,2100));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler,2176,1040,128,64,2100));
 
         //CREATE CHECKPOINTS
-        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,2368,227,64,160,2));
-        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,3264,227,64,160,2));
+        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,2368,163,64,160,2));
+        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,3264,163,64,160,2));
 
         //CREATE ENEMIES
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4224,680,55));//4224
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4224,616,2,3.5f,"RIGHT"));//4224
 
         //CREATE WINNING DOOR
-        handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
+        handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,510));
 
         int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
         LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
@@ -105,8 +105,8 @@ public class AllLevels {
 
     public static void LEVEL2(){
         //ALL_LEVELS[0]
-        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(2).getPath());
-        ((GameState)(handler.getGame().getGameState())).setCurrentLevel(2);
+        int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
         ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
         State.setState(handler.getGame().getGameState());
 
@@ -155,7 +155,7 @@ public class AllLevels {
         handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,4232,160,64,160,2));
 
         //CREATE ENEMIES
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4000,680,40));//4224
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4000,680,3,3f,""));//4224
 
         //CREATE WINNING DOOR
         handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
@@ -166,8 +166,8 @@ public class AllLevels {
 
     public static void LEVEL3(){
 
-        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(3).getPath());
-        ((GameState)(handler.getGame().getGameState())).setCurrentLevel(3);
+        int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
         ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
         State.setState(handler.getGame().getGameState());
 
@@ -218,6 +218,49 @@ public class AllLevels {
         LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
     }
 
+    public static void LEVEL4(){
+
+        int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
+        ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
+        State.setState(handler.getGame().getGameState());
+
+        //CREATE MUSHROOMS
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4800,665,true,4));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,5796,902,true,4));
+
+        //CREATE COINGS
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,1700,690,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,710,350,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,3560,270,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,4690,460,0,0));
+        handler.getWorld().getEntityManager().addEntity(new Coin(handler,4620,202,0,0));
+
+
+        //CREATE TRAPS
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler,3712,660,128,64,2000));
+
+        //CREATE CHECKPOINTS
+        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,1664,610,64,160,2));
+        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,1828,96,64,160,2));
+
+        //CREATE ENEMIES
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1024,850,2,3.4f,"LEFT"));//4224
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1920,850,4,3.4f,"RIGHT"));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,960,384,3,3.4f,"LEFT"));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,896,50,4,3.4f,"LEFT"));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1728,50,3,3.4f,""));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,2550,50,3,3.4f,""));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3776,512,3,3.4f,"LEFT"));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3776,512,3,3.4f,"RIGHT"));
+
+        //CREATE WINNING DOOR
+        handler.getWorld().getEntityManager().addEntity(new Door(handler,7532,700));
+
+        int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
+    }
+
     public static void goToLevel(int num){
         if(num != ((GameState)(handler.getGame().getGameState())).getCurrentLevel()){
             SoundManager.stopAll();
@@ -236,6 +279,9 @@ public class AllLevels {
         }else if(num == 3 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
             ((GameState)(handler.getGame().getGameState())).setCurrentLevel(3);
             AllLevels.LEVEL3();
+        }else if(num == 4 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
+            ((GameState)(handler.getGame().getGameState())).setCurrentLevel(4);
+            AllLevels.LEVEL4();
         }else if(num >= LevelObject.ALL_LEVEL_OBJ.size()){
             ((GameState)(handler.getGame().getGameState())).setCurrentLevel(0);
             ((GameState)(handler.getGame().getGameState())).exitGameState();
@@ -251,6 +297,8 @@ public class AllLevels {
             AllLevels.LEVEL2_BG();
         }else if(num == 3 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
             AllLevels.LEVEL3_BG();
+        }else if(num == 4 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
+            AllLevels.LEVEL4_BG();
         }
     }
 
@@ -269,13 +317,16 @@ public class AllLevels {
     public static void LEVEL3_BG(){
 
     }
+    public static void LEVEL4_BG(){
+
+    }
 
     public static int getMaxScore(){
         ArrayList<Entity> entities = handler.getWorld().getEntityManager().getEntities();
 
         int score = 0;
         for(Entity e : entities){
-            if(e instanceof  Mushroom || e instanceof Coin){
+            if(e instanceof  Mushroom || e instanceof Coin || e instanceof Enemy){
                 score+=100;
             }
         }

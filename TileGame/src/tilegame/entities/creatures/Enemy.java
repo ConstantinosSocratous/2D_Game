@@ -3,14 +3,11 @@ package tilegame.entities.creatures;
 import tilegame.Handler;
 import tilegame.entities.Bullet;
 import tilegame.entities.Entity;
-import tilegame.entities.statics.CheckPoint;
-import tilegame.entities.statics.Trap;
+import tilegame.entities.statics.Coin;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
-import tilegame.states.GameState;
 import tilegame.tiles.Tile;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,23 +15,33 @@ import java.util.Random;
 public class Enemy extends Creature {
 
     private final int SHOOT_COOLDOWN = 60;
-    private int JUMP_COOLDOWN;
+    private final int MAX_CLEVERNESS = 10;
 
+    protected float speed;
     private Animation animStatic;
-    private int helperTicksJumpCooldown;
     private int helperTicksCooldown = 60;
-    private boolean shouldJump = false;
+    private int poss;
 
-    public Enemy(Handler handler, float x, float y, int ticksPerJump){
+    public Enemy(Handler handler, float x, float y, int possibility, float sp, String move){
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT+16);
 
         bounds.x = 21;
         bounds.y = 0;
         bounds.width = 64-21-21;
         bounds.height = 64+16-1;
-        JUMP_COOLDOWN = ticksPerJump;
-        helperTicksJumpCooldown = ticksPerJump;
+        poss = possibility;
+        this.speed = sp;
         animStatic = new Animation(500, Assets.playerEnemyStatic);
+
+        decideInitMoving(move);
+    }
+
+    private void decideInitMoving(String m) {
+        if (m.equals("LEFT"))
+            xMove = -this.speed;
+        else if (m.equals("RIGHT"))
+            xMove = this.speed;
+        else xMove = 0;
     }
 
     @Override
@@ -45,43 +52,144 @@ public class Enemy extends Creature {
         //Movement
         move();
 
-
         helperTicksCooldown++;
-        helperTicksJumpCooldown++;
-        if(bulletFound() && helperTicksJumpCooldown >= JUMP_COOLDOWN){
+        if(bulletFoundLeft() && getIfJump() && xMove<=0) {
             jump(20);
-            helperTicksJumpCooldown = 0;
         }
-        if(playerFoundLeft() && helperTicksCooldown >= SHOOT_COOLDOWN){
+        if(bulletFoundRight() && getIfJump() && xMove>=0){
+            jump(20);
+        }
+
+        if(playerFoundLeft() && helperTicksCooldown >= SHOOT_COOLDOWN && xMove<=0){
             shoot(true,this,10);
             helperTicksCooldown = 0;
         }
-        if(playerFoundRight() && helperTicksCooldown >= SHOOT_COOLDOWN){
+        if(playerFoundRight() && helperTicksCooldown >= SHOOT_COOLDOWN && xMove>=0){
             shoot(false,this,10);
             helperTicksCooldown = 0;
         }
 
+        if(xMove == 0){
 
-
-
-        Entity e3 = getEntityWithCollision(0f, 0f);
-        if (e3 != null) {
-          if(e3 instanceof  Bullet){
-                //System.out.println(x + "  " + e3.getX());
-              if( !(((Bullet) e3).getFrom() instanceof  Enemy))
-                  decreaseHealth(100);
-          }
         }
+
+        collisionWithBullet();
 
         if(isDead()) handler.getWorld().getEntityManager().deleteEntity(this);
         fall();
-        //fall();
     }
 
-    private boolean bulletFound(){
+    public void move(){
+        moveX();
+        moveY();
+    }
 
+    public void moveX(){
+        if(xMove > 0){//Moving right
+            int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
+
+            if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
+                    !collisionWithTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
+                x += xMove;
+            }else{
+                x = tx * Tile.TILEWIDTH - bounds.x - bounds.width - 1;
+                xMove =-speed;
+            }
+
+        }else if(xMove < 0){//Moving left
+            int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
+
+            if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
+                    !collisionWithTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
+                x += xMove;
+            }else{
+                x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - bounds.x;
+                xMove =speed;
+            }
+
+        }
+    }
+    public void moveY(){
+        if(yMove < 0){//Up
+            int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
+
+            if(!collisionWithTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
+                    !collisionWithTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
+                canJump = false;
+                falling = true;
+                y += yMove;
+            }else{
+                y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y;
+                yMove = y;
+                falling = true;
+                canJump = false;
+            }
+
+        }else if(yMove > 0){//Down
+            int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+            if(ty > handler.getGame().getHeight())	return;
+
+            if(!collisionWithTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
+                    !collisionWithTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
+                canJump = false;
+                falling = true;
+                y += yMove;
+            }else {
+                y = ty * Tile.TILEHEIGHT - bounds.y - bounds.height - 1;
+                falling = false;
+                canJump = true;
+            }
+        }
+        fall();
+    }
+
+    private void collisionWithBullet(){
+        Entity e3 = getEntityWithCollision(0f, 0f);
+        if (e3 != null) {
+            if(e3 instanceof  Bullet){
+                if( !(((Bullet) e3).getFrom() instanceof  Enemy)) {
+                    decreaseHealth(100);
+                    ((Bullet) e3).setCollusion(true);
+                    handler.getWorld().getEntityManager().addEntity(new Coin(handler,(int)(getX()+20),getY()+20,0,0));
+                }
+            }
+        }
+    }
+
+    /**
+     * Decide if the enemy can jump based on given probability
+     * @return Boolean
+     */
+    private boolean getIfJump(){
+        Random rand = new Random();
+        int n = rand.nextInt(MAX_CLEVERNESS) + 1;
+        if(n <= poss) return true;
+        else return false;
+    }
+
+    private boolean bulletFoundLeft() {
         ArrayList<Entity> bullets = handler.getWorld().getEntityManager().getBullets();
+        Rectangle rThis = new Rectangle((int) (getX() + bounds.x), (int) getY(), 64, 96);
 
+        for (Entity e : bullets) {
+            Bullet b = ((Bullet) e);
+            if (b.getFrom() instanceof Enemy) continue;
+            int plX = (int) (b.getRectangle().getBounds().getX() + b.getX()-100);
+            int plY = (int) (b.getRectangle().getBounds().getY() + b.getY());
+            int plW = (int) (b.getRectangle().getBounds().getWidth() + 200);
+            int plH = (int) (b.getRectangle().getBounds().getHeight());
+
+            Rectangle rBullet = new Rectangle(plX, plY, plW, plH);
+            if (rThis.intersects(rBullet) && b.getxMove()>0) {
+                return true;
+            } else {
+            }
+        }
+        return false;
+    }
+
+    private boolean bulletFoundRight(){
+        ArrayList<Entity> bullets = handler.getWorld().getEntityManager().getBullets();
         Rectangle rThis = new Rectangle((int)(getX()+bounds.x),(int)getY(),64,96);
 
         for(Entity e: bullets){
@@ -93,15 +201,10 @@ public class Enemy extends Creature {
             int plH = (int) (b.getRectangle().getBounds().getHeight());
 
             Rectangle rBullet = new Rectangle(plX,plY,plW,plH);
-            if(rThis.intersects(rBullet)) {
+            if(rThis.intersects(rBullet) && b.getxMove()<0) {
                 return true;
-            }else{
-               // System.out.println(rBullet);
-                //System.out.println(rThis);
-                //System.out.println();
-            }
+            }else{}
         }
-
         return false;
     }
 
