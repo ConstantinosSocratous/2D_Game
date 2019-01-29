@@ -19,7 +19,7 @@ public class LevelsState extends State{
     private final int height = 32;
     public static LevelObject[] ALL_LEVELS = new LevelObject[3];
     private UIObject menu;
-    private LevelObject lvl0,lvl1,lvl2,lvl3,lvl4;
+    private LevelObject lvl0,lvl1,lvl2,lvl3,lvl4,lvl5;
 
     public LevelsState(Handler handler){
         super(handler);
@@ -33,10 +33,11 @@ public class LevelsState extends State{
         lvls = ImageLoader.loadImage("/textures/Background/lvls.png");
 
         lvl0 = new LevelObject(handler, bgX+150 , bgY+bgBoundsY-25,120, "/worlds/world0.txt", "The Basics",1,false);
-        lvl1 = new LevelObject(handler, bgX+195 , bgY+bgBoundsY-290,120, "/worlds/world1.txt", "Getting into",1,false);
-        lvl2 = new LevelObject(handler, bgX+330, bgY+bgBoundsY-500,120, "/worlds/world2.txt", "Be Careful!!",1,false);
-        lvl3 = new LevelObject(handler, bgX+580, bgY+bgBoundsY-500,120, "/worlds/world3.txt", "Above ground",2,false);
-        lvl4 = new LevelObject(handler, bgX+490, bgY+bgBoundsY-300,120, "/worlds/MoreEnemies.txt", "More Enemies",2,false);
+        lvl1 = new LevelObject(handler, bgX+195 , bgY+bgBoundsY-290,120, "/worlds/world1.txt", "Getting into",1,true);
+        lvl2 = new LevelObject(handler, bgX+330, bgY+bgBoundsY-500,120, "/worlds/world2.txt", "Be Careful!!",1,true);
+        lvl3 = new LevelObject(handler, bgX+580, bgY+bgBoundsY-500,120, "/worlds/world3.txt", "Above ground",2,true);
+        lvl4 = new LevelObject(handler, bgX+490, bgY+bgBoundsY-300,120, "/worlds/MoreEnemies.txt", "More Enemies",2,true);
+        lvl5 = new LevelObject(handler, bgX+390, bgY+bgBoundsY-120,120, "/worlds/UndergroundForest.txt", "Underground Forest",2,true);
 
         SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
         BufferedImage[] menuI = new BufferedImage[2];
@@ -74,6 +75,10 @@ public class LevelsState extends State{
                 sleep(500);
             }else if(lvl4.isMouseOver(handler)){    //LEVEL 4
                 AllLevels.goToLevel(4);
+                SoundManager.menu.stop();
+                sleep(500);
+            }else if(lvl5.isMouseOver(handler)){    //LEVEL 4
+                AllLevels.goToLevel(5);
                 SoundManager.menu.stop();
                 sleep(500);
             }

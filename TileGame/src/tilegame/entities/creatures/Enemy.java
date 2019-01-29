@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class Enemy extends Creature {
 
-    private final int SHOOT_COOLDOWN = 60;
+    private int SHOOT_COOLDOWN = 35;
     private final int MAX_CLEVERNESS = 10;
 
     protected float speed;
@@ -22,7 +22,7 @@ public class Enemy extends Creature {
     private int helperTicksCooldown = 60;
     private int poss;
 
-    public Enemy(Handler handler, float x, float y, int possibility, float sp, String move){
+    public Enemy(Handler handler, float x, float y, int possibility, float sp, String move, int cooldown){
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT+16);
 
         bounds.x = 21;
@@ -31,6 +31,7 @@ public class Enemy extends Creature {
         bounds.height = 64+16-1;
         poss = possibility;
         this.speed = sp;
+        this.SHOOT_COOLDOWN = cooldown;
         animStatic = new Animation(500, Assets.playerEnemyStatic);
 
         decideInitMoving(move);
@@ -60,12 +61,14 @@ public class Enemy extends Creature {
             jump(20);
         }
 
-        if(playerFoundLeft() && helperTicksCooldown >= SHOOT_COOLDOWN && xMove<=0){
-            shoot(true,this,10);
+        if(playerFoundLeft() && helperTicksCooldown >= SHOOT_COOLDOWN && xMove<=0) {
+            shoot(true, this, 10);
+            //xMove = 0;
             helperTicksCooldown = 0;
         }
         if(playerFoundRight() && helperTicksCooldown >= SHOOT_COOLDOWN && xMove>=0){
             shoot(false,this,10);
+            //xMove = 0;
             helperTicksCooldown = 0;
         }
 

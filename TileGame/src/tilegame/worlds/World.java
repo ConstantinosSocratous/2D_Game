@@ -37,7 +37,7 @@ public class World {
 	public void tick(){
 		entityManager.tick();
 	}
-	
+
 	public void render(Graphics g){
 		int xStart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.TILEWIDTH);
 		int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILEWIDTH + 1);
@@ -47,7 +47,7 @@ public class World {
 		for(int y = yStart;y < yEnd;y++){
 			for(int x = xStart;x < xEnd;x++){
 				getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()),
-						(int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
+						(int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()),handler);
 				getTile(x, y).tick();
 			}
 		}

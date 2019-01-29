@@ -8,7 +8,7 @@ public class GameCamera {
 	
 	private Handler handler;
 	private float xOffset, yOffset;
-	private float previousY = 0 ;
+	private int ticks = 0 ;
 	
 	public GameCamera(Handler handler, float xOffset, float yOffset){
 		this.handler = handler;
@@ -39,9 +39,14 @@ public class GameCamera {
 		float tY = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
 
 		//xOffset =  0.10f * (xOffset+tX)*5;
-		yOffset =  0.06f * (yOffset+tY)*4;
+		//yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
+		yOffset = 0.064f * (yOffset+tY)*6;
+//			yOffset = 0.06f * (yOffset+tY)*5;
+
+
 
 		checkBlankSpace();
+
 	}
 
 	

@@ -22,7 +22,7 @@ public class Mushroom extends Creature {
         bounds.x = 15;
         bounds.y = 25;//28
         bounds.width = 64-27;
-        bounds.height = 64-28;//-35
+        bounds.height = 64-30;//-35
 
         setIsDoingDamage(true);
         //Animation
