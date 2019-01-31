@@ -1,16 +1,8 @@
 package tilegame.Sounds;
 import tilegame.gfx.SoundManager;
-import tilegame.utils.FileLoader;
-import tilegame.utils.Utils;
 
-import javax.rmi.CORBA.Util;
 import javax.sound.sampled.*;
-import javax.sound.sampled.spi.AudioFileReader;
-import java.applet.Applet;
-import java.applet.AudioClip;
-import java.io.File;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URL;
 
 public class Sound {

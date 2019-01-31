@@ -221,7 +221,7 @@ public class Enemy extends Creature {
 
         while(!getTile(tempX,tempY).isSolid()){
             Rectangle rThis = new Rectangle((int)(tempX*64),(int)getY(),64,96);// (int)this.bounds.width,(int)this.bounds.height);
-
+            
             Player tempPl = handler.getWorld().getEntityManager().getPlayer();
             int plX = (int) (tempPl.getRectangle().getBounds().getX()+tempPl.getX());
             int plY = (int) (tempPl.getRectangle().getBounds().getY()+tempPl.getY());

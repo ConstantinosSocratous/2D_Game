@@ -30,6 +30,7 @@ public class MenuState extends State {
 		SoundManager.menu.stop();
 		SoundManager.menu.loop();
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
+
 		BufferedImage[] playI = new BufferedImage[2];
 		playI[0] = sheet.crop(width*2,0, width*3,height*3);
 		playI[1] = sheet.crop(width*5,0, width*3,height*3);
@@ -49,20 +50,27 @@ public class MenuState extends State {
 		sett[0] = sheet.crop(width*2,height*5, width*3,height*3);
 		sett[1] = sheet.crop(width*5,height*5, width*3,height*3);
 		settings = new UIObject(sett,handler.getGame().getWidth()-125, handler.getGame().getHeight()-222);
+
+		BufferedImage tst = ImageLoader.loadImage("/textures/menuObjects/play.png");
+		//BufferedImage[] playI = new BufferedImage[2];
+		playI[0] = tst;
+		playI[1] = tst;
+		play = new UIObject(playI ,handler.getWidth()/2-250,200,96,288);
 	}
 
 	@Override
 	public void tick() {
 		if(handler.getMouseManager().isLeftPressed()){
 			if (play.isMouseOver(handler)) {
-				SoundManager.menu.stop();
-				AllLevels.goToLevel(0);
+				//SoundManager.menu.stop();
+				State.setState(handler.getGame().getLevelState());
 				sleep(500);
+				//AllLevels.goToLevel(0);
 			} else if ( exit.isMouseOver(handler)) {
 				System.exit(0);
 			} else if( levels.isMouseOver(handler)){
-				State.setState(handler.getGame().getLevelState());
-				sleep(500);
+				//State.setState(handler.getGame().getLevelState());
+				//sleep(500);
 			}else if( settings.isMouseOver(handler)){
 				State.setState(handler.getGame().getSettingsState());
 				sleep(500);
@@ -77,19 +85,19 @@ public class MenuState extends State {
 
             //PLAY BUTTON
             BufferedImage temp = play.getCurrentImage(handler);
-            g.drawImage(temp, play.getX(), play.getY(), temp.getWidth() * 2, temp.getHeight() * 2, null);
+            g.drawImage(temp, play.getX(), play.getY(), play.getWidth() * 2, play.getHeight() * 2, null);
 
             //EXIT BUTTON
             BufferedImage temp1 = exit.getCurrentImage(handler);
-            g.drawImage(temp1, exit.getX(), exit.getY(), temp1.getWidth() * 2, temp1.getHeight() * 2, null);
+            g.drawImage(temp1, exit.getX(), exit.getY(), exit.getWidth() * 2, exit.getHeight() * 2, null);
 
             //LEVEL SELECT
 			BufferedImage temp2 = levels.getCurrentImage(handler);
-			g.drawImage(temp2, levels.getX(), levels.getY(), temp2.getWidth() * 2, temp2.getHeight() * 2, null);
+			g.drawImage(temp2, levels.getX(), levels.getY(), levels.getWidth() * 2, levels.getHeight() * 2, null);
 
 			//SETTINGS BUTTON
 			BufferedImage temp3 = settings.getCurrentImage(handler);
-			g.drawImage(temp3, settings.getX(), settings.getY(), temp3.getWidth(), temp3.getHeight(), null);
+			g.drawImage(temp3, settings.getX(), settings.getY(), settings.getWidth(), settings.getHeight(), null);
 
         }
 	}

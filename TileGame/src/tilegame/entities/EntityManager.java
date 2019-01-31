@@ -54,6 +54,10 @@ public class EntityManager {
 		entities.add(e);
 	}
 
+	public void removeEntityEntirely(Entity e){
+		entities.remove(e);
+	}
+
 	public void deleteEntity(Entity e){
 		//for(Entity ent : entities){
 		//	if(e.equals(ent))

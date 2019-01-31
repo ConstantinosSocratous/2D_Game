@@ -8,7 +8,7 @@ public class Assets {
 	
 	public static BufferedImage dirt, grass, sky, cloud3, cloud4,rock, white,checkpoint,bullet,heart,enemyBullet;
 	public static BufferedImage[] player_static, player_left, player_right, playerUpRight, playerUpLeft, lava;
-	public static BufferedImage[] enemyMoving, door, movingWalls, coin, trap, kingdom,fire,playerEnemyStatic;
+	public static BufferedImage[] enemyMoving, door, movingWalls, coin, trap, kingdom,fire,playerEnemyStatic,enemyZele,smallCreature;
 	//public static BufferedImage[] zombie_down, zombie_up, zombie_left, zombie_right;
 
 	public static void init(){
@@ -28,9 +28,12 @@ public class Assets {
 		trap = new BufferedImage[2];
 		kingdom = new BufferedImage[4];
 		playerEnemyStatic = new BufferedImage[1];
+		enemyZele = new BufferedImage[4];
+		smallCreature = new BufferedImage[2];
 		//////////////
 
-
+		smallCreature[0] = sheet.crop(width*3, height*6, width*2, height*2);
+		smallCreature[1] = sheet.crop(width*5, height*6, width*2, height*2);
 		playerEnemyStatic[0] = sheet.crop(width*7, height*5, width, height);
 		enemyMoving[0] = sheet.crop(0, height*4, width*2, height*2);
 		enemyMoving[1] = sheet.crop(width *2 , height*4, width*2, height*2);
@@ -48,6 +51,10 @@ public class Assets {
 		movingWalls[0] = sheet.crop(width*3 , height*2, width*5, height);
 		trap[0] = sheet.crop(width*4 , height*4, width, height);
 		trap[1] = sheet.crop(width*5 , height*4, width, height);
+		enemyZele[0] = ImageLoader.loadImage("/textures/enemy.png");
+		enemyZele[1] = ImageLoader.loadImage("/textures/enemy1.png");
+		enemyZele[2] = ImageLoader.loadImage("/textures/enemy2.png");
+		enemyZele[3] = ImageLoader.loadImage("/textures/enemy1.png");
 
 		SpriteSheet sheetCoin = new SpriteSheet(ImageLoader.loadImage("/textures/coin.png"));
 		coin[0] = sheetCoin.crop(0, 0, width, height);
@@ -56,6 +63,7 @@ public class Assets {
 		coin[3] = sheetCoin.crop(height*3, 0, width, height);
 		coin[4] = sheetCoin.crop(height*4, 0, width, height);
 		coin[5] = sheetCoin.crop(height*5, 0, width, height);
+
 
 		kingdom[0] = ImageLoader.loadImage("/cinematic/kingdom/kingdom1.png");
 		kingdom[1] = ImageLoader.loadImage("/cinematic/kingdom/kingdom2.png");

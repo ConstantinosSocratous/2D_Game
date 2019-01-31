@@ -20,6 +20,14 @@ public class UIObject {
         height = image[0].getHeight();
     }
 
+    public UIObject(BufferedImage[] image, int x, int y,int height, int width){
+        this.x = x;
+        this.y = y;
+        this.imageArr = image;
+        this.width = width;
+        this.height = height;
+    }
+
     public BufferedImage getImage(int num){
         if(num>=imageArr.length)
             return null;

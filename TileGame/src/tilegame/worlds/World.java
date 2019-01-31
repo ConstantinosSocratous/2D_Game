@@ -3,12 +3,9 @@ package tilegame.worlds;
 import java.awt.*;
 
 import tilegame.Handler;
-import tilegame.entities.Entity;
 import tilegame.entities.EntityManager;
-import tilegame.entities.creatures.Mushroom;
 import tilegame.entities.creatures.Player;
 import tilegame.tiles.Tile;
-import tilegame.utils.FileLoader;
 import tilegame.utils.Utils;
 
 public class World {
@@ -47,7 +44,7 @@ public class World {
 		for(int y = yStart;y < yEnd;y++){
 			for(int x = xStart;x < xEnd;x++){
 				getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()),
-						(int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()),handler);
+						(int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
 				getTile(x, y).tick();
 			}
 		}

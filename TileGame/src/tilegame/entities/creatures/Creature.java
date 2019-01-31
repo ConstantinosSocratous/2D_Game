@@ -4,11 +4,8 @@ import tilegame.Handler;
 import tilegame.Sounds.Sound;
 import tilegame.entities.Bullet;
 import tilegame.entities.Entity;
-import tilegame.entities.statics.Coin;
-import tilegame.gfx.SoundManager;
 import tilegame.tiles.Tile;
 
-import java.awt.*;
 
 public abstract class Creature extends Entity {
 	
@@ -25,6 +22,8 @@ public abstract class Creature extends Entity {
 	protected float gravity = 0.5f;
 	protected boolean falling = true;
 	protected boolean canJump = false;
+
+	protected boolean cameraFollow = true;
 
 
 	public Creature(Handler handler, float x, float y, int width, int height) {
@@ -85,15 +84,12 @@ public abstract class Creature extends Entity {
 				canJump = false;
 				falling = true;
 				y += yMove;
-				//System.out.println(x + " " + y + " " + "JUMP---33333");
-
 			}else{
 				//y += yMove;
 				y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y;
 				yMove = y;
 				falling = true;
 				canJump = false;
-				//System.out.println(x + " " + y + " " + "JUMP-----222");
 			}
 
 		}else if(yMove > 0){//Down
@@ -110,6 +106,7 @@ public abstract class Creature extends Entity {
 				falling = false;
 				//yMove=0;
 				canJump = true;
+
 			}
 
 
@@ -143,6 +140,59 @@ public abstract class Creature extends Entity {
 			falling = true;
 		}
 	}
+
+	protected void checkForDamageWithTiles(){
+		if(xMove >= 0){//Moving right
+			int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
+
+			if(collisionWithDamageTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) ||
+					collisionWithDamageTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
+				decreaseHealth(100);
+				//canJump = true;
+				return;
+			}else{
+
+			}
+
+		}if(xMove < 0){//Moving left
+			int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
+
+			if(collisionWithDamageTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) ||
+					collisionWithDamageTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
+				decreaseHealth(100);
+				//canJump = true;
+				return;
+			}else{
+			}
+		}
+		if(yMove < 0){//Up
+			int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
+			if(collisionWithDamageTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) ||
+					collisionWithDamageTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
+				//canJump = true;
+				decreaseHealth(100);
+				return;
+			}else{
+			}
+		}
+		if(yMove > 0){//Down
+			int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+			if(ty > handler.getGame().getHeight())	return;
+
+			if(collisionWithDamageTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) ||
+					collisionWithDamageTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
+				//falling = false;
+				//canJump = true;
+				decreaseHealth(100);
+				return;
+			}else {
+
+			}
+
+		}
+
+	}
+
 
 	protected void shoot(boolean left,Creature fr, float sp){
 		if(left) handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+20,32,32,left,fr,sp));

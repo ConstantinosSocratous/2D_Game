@@ -2,8 +2,11 @@ package tilegame;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.io.*;
 
+import sun.util.resources.cldr.ebu.LocaleNames_ebu;
 import tilegame.Cinematic.FirstScene;
+import tilegame.UI.LevelObject;
 import tilegame.display.Display;
 import tilegame.gfx.Assets;
 import tilegame.gfx.GameCamera;
@@ -11,6 +14,7 @@ import tilegame.gfx.SoundManager;
 import tilegame.input.KeyManager;
 import tilegame.input.MouseManager;
 import tilegame.states.*;
+import tilegame.utils.Utils;
 import tilegame.worlds.AllLevels;
 
 public class Game implements Runnable {
@@ -44,6 +48,9 @@ public class Game implements Runnable {
 	//ALL LEVELS
 	private AllLevels allLevels;
 
+	//For auto saving
+	private int numOfTicks = 0;
+
 	//fps
 	public double lastFPS;
 	//private int ticks;
@@ -73,7 +80,6 @@ public class Game implements Runnable {
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0);
 
-
 		allLevels = new AllLevels(handler);
 		gameState = new GameState(handler);
 		menuState = new MenuState(handler);
@@ -83,8 +89,56 @@ public class Game implements Runnable {
 
 		menuState.init("");
 		State.setState(menuState);
+
+		tryLoading();
 		//firstScene.init("/cinematic/world.txt");
 		//State.setState(firstScene);
+	}
+
+	private void tryLoading(){
+		String path = "/LoadGame/game.txt";
+		String file = Utils.loadFileAsString(path);
+		//if(true)return;
+		String[] temp = file.split("\n");
+		String[] tokens = temp[0].split(" ");
+
+		//if(tokens.length != LevelObject.ALL_LEVEL_OBJ.size()-1) return;
+
+		for(int i=0; i<tokens.length; i++){
+			if(tokens[i].equals("1")) {
+				LevelObject.ALL_LEVEL_OBJ.get(i).setIsLocked(false);
+
+			}
+			else if(tokens[i] == "0"){
+
+				LevelObject.ALL_LEVEL_OBJ.get(i).setIsLocked(true);
+			}
+		}
+		System.out.println("GAME LOADED");
+	}
+
+	public void saveGame(){
+		String path = "/LoadGame/game.txt";
+
+		try{
+			PrintWriter writer = new PrintWriter(new File(this.getClass().getResource(path).getPath()));
+			writer.print("");
+
+			for(int i=0; i < LevelObject.ALL_LEVEL_OBJ.size(); i++){
+				if(LevelObject.ALL_LEVEL_OBJ.get(i).isLocked())
+					writer.append("0");
+				else writer.append("1");
+
+				if(i != LevelObject.ALL_LEVEL_OBJ.size()-1) writer.append(" ");
+			}
+
+
+			writer.close();
+			System.out.println("GAME SAVED");
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+
 	}
 
 	private void tick(){
@@ -92,6 +146,13 @@ public class Game implements Runnable {
 		
 		if(State.getState() != null)
 			State.getState().tick();
+
+		//For saving
+		numOfTicks++;
+		if(numOfTicks > 600){
+			saveGame();
+			numOfTicks =0;
+		}
 	}
 
 	private void render(){

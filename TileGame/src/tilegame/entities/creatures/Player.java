@@ -7,10 +7,7 @@ import tilegame.Handler;
 import tilegame.Sounds.Sound;
 import tilegame.entities.Bullet;
 import tilegame.entities.Entity;
-import tilegame.entities.statics.CheckPoint;
-import tilegame.entities.statics.Coin;
-import tilegame.entities.statics.Door;
-import tilegame.entities.statics.Trap;
+import tilegame.entities.statics.*;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
 import tilegame.gfx.SoundManager;
@@ -80,12 +77,19 @@ public class Player extends Creature {
 			}else if(e3 instanceof CheckPoint){
 				((GameState)(handler.getGame().getGameState())).setCurrentCheckPoint((CheckPoint) e3);
 				handler.getWorld().getEntityManager().deleteEntity(e3);
+
 			}else if(e3 instanceof  Bullet){
 				//System.out.println(x + "  " + e3.getX());
 				if( !(((Bullet) e3).getFrom() instanceof  Player)) {
 					decreaseHealth(100);
 					((Bullet) e3).setCollusion(true);
 				}
+			}else if(e3 instanceof EnemyGreen || e3 instanceof SmallCreature){
+					decreaseHealth(100);
+			}else if(e instanceof Coin) {  //INTERACT WITH COIN
+				handler.getWorld().getEntityManager().deleteEntity(e);
+				score +=100;
+				SoundManager.coin.play();
 			}
 			fall();
 		}
@@ -94,24 +98,15 @@ public class Player extends Creature {
 	}
 
 	public void move(){
-		//if(!checkEntityCollisions(xMove, 0f)){
-			moveX();
-		//}
-		//if(!checkEntityCollisions(xMove, 0f)) {
-			moveY();
-		//}
+		moveX();
 
+		moveY();
 	}
 	private void InteractWithCreatureOnY(Entity e){
 		if(e instanceof Mushroom) {	 //INTERACT WITH MUSHROOM
 		    ((Mushroom) e).deleteMe();
             handler.getWorld().getEntityManager().deleteEntity(e);
-        }
-        else if(e instanceof Coin) {  //INTERACT WITH COIN
-			handler.getWorld().getEntityManager().deleteEntity(e);
-			score +=100;
-			SoundManager.coin.play();
-		}else{fall();}
+        }else{fall();}
 
 	}
 
@@ -120,68 +115,7 @@ public class Player extends Creature {
 			if (e instanceof Mushroom) decreaseHealth(100);
 		}else if(e instanceof Door ){
 			winLevel = true;
-		}else if(e instanceof Coin) {	//INTERACT WITH COIN
-			SoundManager.coin.play();
-			handler.getWorld().getEntityManager().deleteEntity(e);
-			score +=100;
 		}
-	}
-
-	private boolean isEligibleToJump(){
-		int currentLevelTemp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
-		return LevelsState.ALL_LEVELS[currentLevelTemp].isEligableToJump();
-	}
-
-	private void checkForDamageWithTiles(){
-			if(xMove >= 0){//Moving right
-				int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-
-				if(collisionWithDamageTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) ||
-						collisionWithDamageTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
-                    decreaseHealth(100);
-                    //canJump = true;
-                    return;
-				}else{
-
-				}
-
-			}if(xMove < 0){//Moving left
-				int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
-
-				if(collisionWithDamageTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) ||
-						collisionWithDamageTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
-                    decreaseHealth(100);
-					//canJump = true;
-                    return;
-				}else{
-				}
-			}
-			if(yMove < 0){//Up
-				int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-				if(collisionWithDamageTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) ||
-						collisionWithDamageTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
-					//canJump = true;
-                    decreaseHealth(100);
-                    return;
-				}else{
-				}
-			}
-			if(yMove > 0){//Down
-				int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
-				if(ty > handler.getGame().getHeight())	return;
-
-				if(collisionWithDamageTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) ||
-						collisionWithDamageTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
-					//falling = false;
-					//canJump = true;
-					decreaseHealth(100);
-                    return;
-				}else {
-
-				}
-
-			}
-
 	}
 
 	private void getInput(){
@@ -204,18 +138,6 @@ public class Player extends Creature {
 			xMove = speed;
 		}
 
-		/*if(handler.getMouseManager().isEligableToShoot()){
-			int mouseX = handler.getMouseManager().getMouseX() - (int)handler.getGameCamera().getyOffset();
-
-			if(mouseX > x - handler.getGameCamera().getxOffset())
-				handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,false));
-			else
-				handler.getWorld().getEntityManager().addEntity(new Bullet(handler,getX()+35,getY()+33,32,32,true));
-
-			handler.getMouseManager().setCanShoot(false);
-			handler.getKeyManager().isShoot = false;
-		}*/
-
 		//ADD COOLDOWN TO SHOOTING
 		helperTicksCooldown++;
 		if(handler.getKeyManager().isShoot && helperTicksCooldown >= SHOOT_COOLDOWN){
@@ -235,14 +157,6 @@ public class Player extends Creature {
 	public void render(Graphics g) {
 		g.drawImage(getCurrentAnimationFrame(), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 	}
-
-	private int getTempX(){
-		return  (int)xMove+(int)x- (int)handler.getGameCamera().getxOffset();
-	}
-	private int getTempY(){
-		return  (int)yMove+(int)y- (int)handler.getGameCamera().getyOffset();
-	}
-
 
 	private BufferedImage getCurrentAnimationFrame(){
 		if(falling && xMove > 0){//Jump Right

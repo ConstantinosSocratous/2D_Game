@@ -2,6 +2,7 @@ package tilegame.gfx;
 
 import tilegame.Handler;
 import tilegame.entities.Entity;
+import tilegame.entities.creatures.Player;
 import tilegame.tiles.Tile;
 
 public class GameCamera {
@@ -32,27 +33,12 @@ public class GameCamera {
 	
 	public void centerOnEntity(Entity e){
 
-		/*xOffset = e.getX() - handler.getWidth() / 2 + e.getWidth() / 2;
-		yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;*/
-
 		xOffset = e.getX() - handler.getWidth() / 2 + e.getWidth() / 2;
-		float tY = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
 
-		//xOffset =  0.10f * (xOffset+tX)*5;
 		//yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
-		yOffset = 0.064f * (yOffset+tY)*6;
-//			yOffset = 0.06f * (yOffset+tY)*5;
+		float tY = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
+		yOffset = 0.075f * (yOffset+tY)*5;
 
-
-
-		checkBlankSpace();
-
-	}
-
-	
-	public void move(float xAmt, float yAmt){
-		xOffset += xAmt;
-		yOffset += yAmt;
 		checkBlankSpace();
 	}
 

@@ -1,9 +1,11 @@
 package tilegame.worlds;
 
+import com.sun.java.accessibility.util.AccessibilityListenerList;
 import tilegame.Handler;
 import tilegame.entities.Entity;
 import tilegame.entities.creatures.Enemy;
 import tilegame.entities.creatures.Mushroom;
+import tilegame.entities.creatures.SmallCreature;
 import tilegame.entities.statics.*;
 import tilegame.gfx.SoundManager;
 import tilegame.states.GameState;
@@ -52,8 +54,6 @@ public class AllLevels {
 
         //CREATE WINNING DOOR
         handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,574));
-
-
 
     }
     public static void LEVEL1(boolean respawnCoins){
@@ -237,17 +237,16 @@ public class AllLevels {
 
     }
 
-    public static void LEVEL5(boolean respawnCoins){
-
+    public static void LEVEL5(boolean respawnCoins) {
         //CREATE MUSHROOMS
-        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,2368,847,true,4));
-        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,3000,847,false,4));
-        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,3712,1200,false,3));
-        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,896,880,false,3));
-        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,448,930,false,3));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler, 2368, 847, true, 4));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler, 3000, 847, false, 4));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler, 3712, 1200, false, 3));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler, 896, 880, false, 3));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler, 448, 930, false, 3));
 
         //CREATE COINS
-        if(respawnCoins) {
+        if (respawnCoins) {
             handler.getWorld().getEntityManager().addEntity(new Coin(handler, 1600, 384, false));
             handler.getWorld().getEntityManager().addEntity(new Coin(handler, 2752, 512, false));
             handler.getWorld().getEntityManager().addEntity(new Coin(handler, 2432, 1152, false));
@@ -257,25 +256,72 @@ public class AllLevels {
         }
 
         //CREATE TRAPS
-        handler.getWorld().getEntityManager().addEntity(new Trap(handler,1856,905,128,64,2000));
-        handler.getWorld().getEntityManager().addEntity(new Trap(handler,3392,1230,128,64,2000));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler, 1856, 905, 128, 64, 2000));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler, 3392, 1230, 128, 64, 2000));
 
 
         //CREATE CHECKPOINTS
-        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,2048,675,64,160,2));
-        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,2410,1060,64,160,2));
+        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler, 2048, 675, 64, 160, 2));
+        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler, 2410, 1060, 64, 160, 2));
 
         //CREATE ENEMIES
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3200,200,5,3.4f,"",120));
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,2680,50,1,3.4f,"",150));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler, 3200, 200, 5, 3.4f, "", 120));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler, 2680, 50, 1, 3.4f, "", 150));
 
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1664,1200,4,3.4f,"LEFT",60));
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,2280,1080,3,3.4f,"",180));
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4865,832,5,3.4f,"",120));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler, 1664, 1200, 4, 3.4f, "LEFT", 60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler, 2280, 1080, 3, 3.4f, "", 230));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler, 4865, 832, 5, 3.4f, "", 120));
         //CREATE WINNING DOOR
-        //handler.getWorld().getEntityManager().addEntity(new Door(handler,7532,700));
+        handler.getWorld().getEntityManager().addEntity(new Door(handler, 6900, 830));
 
     }
+
+    public static void LEVEL6(boolean respawnCoins){
+        //CREATE MUSHROOMS
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,855,245,true,2));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,1792,775,false,5));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4224,128,false,5));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,4608,128,false,5));
+
+        //CREATE COINS
+        if(respawnCoins) {
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 855, 380, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 855, 160, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 930, 160, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 1920, 715, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 6720, 576, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 7040, 768, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 8768, 395, false));
+        }
+
+        //CREATE TRAPS
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler,1024,585,128,64,2000));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler,2368,525,128,64,2000));
+
+
+        //CREATE CHECKPOINTS
+        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,2240,482,64,160,2));
+        handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,5696,680,64,160,2));
+
+
+        //CREATE ENEMIES
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1850,300,6,2.8f,"LEFT",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3772,50,6,2.8f,"",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3264,400,6,3.7f,"RIGHT",60));
+
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,8270,500,6,3.7f,"",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,8324,200,6,3.7f,"",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,8270,50,6,3.7f,"",60));
+
+        //CREATE GREEN ENEMIES
+        handler.getWorld().getEntityManager().addEntity(new EnemyGreen(handler,4736,320,120));
+        handler.getWorld().getEntityManager().addEntity(new EnemyGreen(handler,5632,320,160));
+
+        //CREATE WINNING DOOR
+        handler.getWorld().getEntityManager().addEntity(new Door(handler,8820,190));
+
+    }
+
 
     public static void goToLevel(int num){
         if(num != ((GameState)(handler.getGame().getGameState())).getCurrentLevel()){
@@ -291,63 +337,70 @@ public class AllLevels {
             if (num == 0 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()) {
                 ((GameState) (handler.getGame().getGameState())).setCurrentLevel(0);
 
-                int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
-                handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
-                ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
-                State.setState(handler.getGame().getGameState());
+                AllLevels.prepareWorld();
 
                 AllLevels.LEVEL0(true);
+                int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+                LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
             } else if (num == 1 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()) {
                 ((GameState) (handler.getGame().getGameState())).setCurrentLevel(1);
-
-                int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
-                handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
-                ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
-                State.setState(handler.getGame().getGameState());
+                AllLevels.prepareWorld();
 
                 AllLevels.LEVEL1(true);
+                int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+                LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
             } else if (num == 2 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()) {
                 ((GameState) (handler.getGame().getGameState())).setCurrentLevel(2);
 
-                int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
-                handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
-                ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
-                State.setState(handler.getGame().getGameState());
+                AllLevels.prepareWorld();
 
                 AllLevels.LEVEL2(true);
+                int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+                LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
             } else if (num == 3 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()) {
                 ((GameState) (handler.getGame().getGameState())).setCurrentLevel(3);
 
-                int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
-                handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
-                ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
-                State.setState(handler.getGame().getGameState());
+                AllLevels.prepareWorld();
 
                 AllLevels.LEVEL3(true);
+                int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+                LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
             } else if (num == 4 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()) {
                 ((GameState) (handler.getGame().getGameState())).setCurrentLevel(4);
 
-                int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
-                handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
-                ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
-                State.setState(handler.getGame().getGameState());
+                AllLevels.prepareWorld();
 
                 AllLevels.LEVEL4(true);
+                int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+                LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
             }else if (num == 5 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()) {
                 ((GameState) (handler.getGame().getGameState())).setCurrentLevel(5);
 
-                int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
-                handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
-                ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
-                State.setState(handler.getGame().getGameState());
+                AllLevels.prepareWorld();
 
                 AllLevels.LEVEL5(true);
+                int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+                LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
+            }else if (num == 6 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()) {
+                ((GameState) (handler.getGame().getGameState())).setCurrentLevel(6);
+
+                AllLevels.prepareWorld();
+
+                AllLevels.LEVEL6(true);
+                int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+                LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
             }
 
 
-            int t = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
-            LevelObject.ALL_LEVEL_OBJ.get(t).setMaxScore(AllLevels.getMaxScore());
         }
+    }
+
+    public static void prepareWorld(){
+        int temp = ((GameState)(handler.getGame().getGameState())).getCurrentLevel();
+        handler.getGame().getGameState().init(LevelObject.ALL_LEVEL_OBJ.get(temp).getPath());
+        ((GameState)handler.getGame().getGameState()).setCurrentCheckPoint(null);
+        State.setState(handler.getGame().getGameState());
+
     }
 
     public static void createBackground(int num){
@@ -363,6 +416,8 @@ public class AllLevels {
             AllLevels.LEVEL4_BG();
         }else if(num == 5 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
             AllLevels.LEVEL5_BG();
+        }else if(num == 6 && !LevelObject.ALL_LEVEL_OBJ.get(num).isLocked()){
+            AllLevels.LEVEL6_BG();
         }
     }
 
@@ -385,6 +440,9 @@ public class AllLevels {
 
     }
     public static void LEVEL5_BG(){
+
+    }
+    public static void LEVEL6_BG(){
 
     }
 
