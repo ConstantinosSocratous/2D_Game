@@ -26,7 +26,7 @@ public class World {
 		entityManager.setPlayer(pl);
 		
 		loadWorld(path);
-		
+
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);
 	}

@@ -75,6 +75,7 @@ public class Player extends Creature {
 					decreaseHealth(100);
 				}
 			}else if(e3 instanceof CheckPoint){
+				SoundManager.checkpoint.play();
 				((GameState)(handler.getGame().getGameState())).setCurrentCheckPoint((CheckPoint) e3);
 				handler.getWorld().getEntityManager().deleteEntity(e3);
 

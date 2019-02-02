@@ -91,6 +91,7 @@ public class Game implements Runnable {
 		State.setState(menuState);
 
 		tryLoading();
+
 		//firstScene.init("/cinematic/world.txt");
 		//State.setState(firstScene);
 	}
@@ -107,10 +108,8 @@ public class Game implements Runnable {
 		for(int i=0; i<tokens.length; i++){
 			if(tokens[i].equals("1")) {
 				LevelObject.ALL_LEVEL_OBJ.get(i).setIsLocked(false);
-
 			}
 			else if(tokens[i] == "0"){
-
 				LevelObject.ALL_LEVEL_OBJ.get(i).setIsLocked(true);
 			}
 		}
@@ -132,13 +131,34 @@ public class Game implements Runnable {
 				if(i != LevelObject.ALL_LEVEL_OBJ.size()-1) writer.append(" ");
 			}
 
-
 			writer.close();
 			System.out.println("GAME SAVED");
 		}catch(IOException e){
 			e.printStackTrace();
 		}
 
+	}
+
+	public void newGame(){
+		String path = "/LoadGame/game.txt";
+
+		try{
+			PrintWriter writer = new PrintWriter(new File(this.getClass().getResource(path).getPath()));
+			writer.print("");
+
+			writer.append("1 ");
+			for(int i=1; i < LevelObject.ALL_LEVEL_OBJ.size(); i++){
+				writer.append("0");
+				LevelObject.ALL_LEVEL_OBJ.get(i).setIsLocked(true);
+				if(i != LevelObject.ALL_LEVEL_OBJ.size()-1) writer.append(" ");
+			}
+
+			writer.close();
+			System.out.println("GAME SAVED");
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		tryLoading();
 	}
 
 	private void tick(){
