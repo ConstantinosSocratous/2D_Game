@@ -19,26 +19,26 @@ public class LevelsState extends State{
     private final int height = 32;
     public static LevelObject[] ALL_LEVELS = new LevelObject[3];
     private UIObject menu;
-    private LevelObject lvl0,lvl1,lvl2,lvl3,lvl4,lvl5,lvl6;
+    private LevelObject lvl0,lvl1,lvl2,lvl3,lvl4,lvl5,lvl6,lvl7;
 
     public LevelsState(Handler handler){
         super(handler);
         bg = new Background(handler);
-        //
-        int bgX = 152;
-        int bgBoundsX = 883;
-        int bgY = 87;
-        int bgBoundsY = 616;
-        //
+
         lvls = ImageLoader.loadImage("/textures/Background/lvls.png");
 
-        lvl0 = new LevelObject(handler, bgX+150 , bgY+bgBoundsY-25,120, "/worlds/world0.txt", "The Basics",1,false);
-        lvl1 = new LevelObject(handler, bgX+195 , bgY+bgBoundsY-290,120, "/worlds/world1.txt", "Getting into",1,true);
-        lvl2 = new LevelObject(handler, bgX+330, bgY+bgBoundsY-500,120, "/worlds/world2.txt", "Be Careful!!",1,true);
-        lvl3 = new LevelObject(handler, bgX+580, bgY+bgBoundsY-500,120, "/worlds/world3.txt", "Above ground",2,true);
-        lvl4 = new LevelObject(handler, bgX+490, bgY+bgBoundsY-300,120, "/worlds/MoreEnemies.txt", "More Enemies",2,true);
-        lvl5 = new LevelObject(handler, bgX+390, bgY+bgBoundsY-100,120, "/worlds/UndergroundForest.txt", "Underground Forest",2,true);
-        lvl6 = new LevelObject(handler, bgX+600, bgY+bgBoundsY-50,120, "/worlds/LongRun.txt", "Long Run",2,true);
+        int w = (int) handler.getWidth()/12;
+        int h = (int) handler.getHeight()/10;
+
+        lvl0 = new LevelObject(handler, (int)(w/0.75), (int)(h*6.5),120, "/worlds/world0.txt", "The Basics",1,false);
+        lvl1 = new LevelObject(handler, (int)(w*1.8) , (int)(h*4.5),120, "/worlds/world1.txt", "Getting into",1,true);
+        lvl2 = new LevelObject(handler, (int)(w*1.3),  (int)(h*2.5),120, "/worlds/world2.txt", "Be Careful!!",1,true);
+        lvl3 = new LevelObject(handler, (int)(w*2.4), (int)(h*0.7),120, "/worlds/world3.txt", "Above ground",2,true);
+        lvl4 = new LevelObject(handler, (int)(w*3.8), (int)(h*0.9),120, "/worlds/MoreEnemies.txt", "More Enemies",2,true);
+        lvl5 = new LevelObject(handler, (int)(w*3.4), (int)(h*2.7),120, "/worlds/UndergroundForest.txt", "Underground Forest",2,true);
+        lvl6 = new LevelObject(handler, (int)(w*3.6), (int)(h*4.8),120, "/worlds/LongRun.txt", "Long Run",2,true);
+        lvl7 = new LevelObject(handler, (int)(w*5), (int)(h*6.2),120, "/worlds/BeQuick.txt", "Be Quick",3,false);
+
 
         SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
         BufferedImage[] menuI = new BufferedImage[2];
@@ -77,12 +77,16 @@ public class LevelsState extends State{
                 AllLevels.goToLevel(4);
                 SoundManager.menu.stop();
                 sleep(500);
-            }else if(lvl5.isMouseOver(handler)){    //LEVEL 4
+            }else if(lvl5.isMouseOver(handler)){    //LEVEL 5
                 AllLevels.goToLevel(5);
                 SoundManager.menu.stop();
                 sleep(500);
-            }else if(lvl6.isMouseOver(handler)){    //LEVEL 4
+            }else if(lvl6.isMouseOver(handler)){    //LEVEL 6
                 AllLevels.goToLevel(6);
+                SoundManager.menu.stop();
+                sleep(500);
+            }else if(lvl7.isMouseOver(handler)){    //LEVEL 7
+                AllLevels.goToLevel(7);
                 SoundManager.menu.stop();
                 sleep(500);
             }
@@ -92,7 +96,7 @@ public class LevelsState extends State{
     public void render(Graphics g){
         if(State.getState().equals(handler.getGame().getLevelState())) {
             bg.render(g);
-            g.drawImage(lvls, 0, 0, handler.getWidth(), handler.getHeight(), null);
+            g.drawImage(lvls, 0, 0, handler.getWidth()-50, handler.getHeight()-50, null);
 
             for(LevelObject lvl : LevelObject.ALL_LEVEL_OBJ){
                 lvl.tick();

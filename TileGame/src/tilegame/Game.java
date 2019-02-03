@@ -169,7 +169,7 @@ public class Game implements Runnable {
 
 		//For saving
 		numOfTicks++;
-		if(numOfTicks > 600){
+		if(numOfTicks > 1000){
 			saveGame();
 			numOfTicks =0;
 		}

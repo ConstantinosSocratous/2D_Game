@@ -35,9 +35,9 @@ public class GameCamera {
 
 		xOffset = e.getX() - handler.getWidth() / 2 + e.getWidth() / 2;
 
-		//yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
-		float tY = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
-		yOffset = 0.075f * (yOffset+tY)*5;
+		yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
+		//float tY = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
+		//yOffset = 0.075f * (yOffset+tY)*7;
 
 		checkBlankSpace();
 	}

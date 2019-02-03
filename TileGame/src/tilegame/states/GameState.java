@@ -149,11 +149,11 @@ public class GameState extends State {
 			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-width*15,height + (int)height/2);
 
 			g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
-
+ 	
             if(isWon()){
 				//Unlock next level
 				if(numOfTicks == 0){
-
+					handler.getGame().saveGame();
 				}
 				if(getCurrentLevel()+1 < LevelObject.ALL_LEVEL_OBJ.size()){
 					LevelObject.ALL_LEVEL_OBJ.get(getCurrentLevel()+1).setIsLocked(false);

@@ -85,7 +85,9 @@ public abstract class Creature extends Entity {
 				falling = true;
 				y += yMove;
 			}else{
-				//y += yMove;
+				/*canJump = false;
+				falling = true;
+				y += yMove;*/
 				y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y;
 				yMove = y;
 				falling = true;

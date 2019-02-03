@@ -15,7 +15,7 @@ public class MenuWorld {
     private int width, height;
     private int spawnX, spawnY;
     private int[][] tiles;
-    private int xMove = 0;
+    private int xMove = 0,yMove =0;
     private int helperTicks = 60;
     //Entities
     private EntityManager entityManager;
@@ -34,8 +34,10 @@ public class MenuWorld {
     public void tick(){
         helperTicks++;
         getInput();
+        handler.getGameCamera().setyOffset(0);
         handler.getGameCamera().setxOffset(handler.getGameCamera().getxOffset()+xMove);
         xMove = 0;
+        yMove = 0;
     }
 
     public void render(Graphics g){
@@ -104,10 +106,16 @@ public class MenuWorld {
     private void getInput(){
         if(handler.getKeyManager().left){
             xMove = -5;
-        }
+        }else
         if(handler.getKeyManager().right){
             xMove = 5;
-        }
+        }else
+        /*if(handler.getKeyManager().up){
+            yMove = -5;
+        }else
+        if(handler.getKeyManager().down){
+            yMove = 5;
+        }*/
         if(handler.getMouseManager().isLeftPressed()){
             removeTile();
         }

@@ -2,11 +2,13 @@ package tilegame.entities.creatures;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.time.YearMonth;
 
 import tilegame.Handler;
 import tilegame.Sounds.Sound;
 import tilegame.entities.Bullet;
 import tilegame.entities.Entity;
+import tilegame.entities.MovingWall;
 import tilegame.entities.statics.*;
 import tilegame.gfx.Animation;
 import tilegame.gfx.Assets;
@@ -51,7 +53,11 @@ public class Player extends Creature {
 		animUpRight.tick();
 		//Movement
 
-		if(canMove)getInput();
+
+		if(canMove)	{
+			getInput();
+
+		}
 		move();
 		checkForDamageWithTiles();
 
@@ -95,6 +101,8 @@ public class Player extends Creature {
 			fall();
 		}
 
+		checkCollisionWithMovingWall();
+
 		handler.getGameCamera().centerOnEntity(this);
 	}
 
@@ -103,6 +111,33 @@ public class Player extends Creature {
 
 		moveY();
 	}
+
+	private void checkCollisionWithMovingWall(){
+
+		Rectangle r = new Rectangle((int)x+bounds.x, (int)y+bounds.y+bounds.height,bounds.width, 1);
+		Entity e = getEntityWithCollision(0f, 0f);
+		if(e instanceof MovingWall && yMove > 0){
+			int eX = (int)(e.getX()+e.getRectangle().getBounds().getX());
+			int eW = (int)(e.getRectangle().getBounds().getWidth());
+			int eY = (int)(e.getY()+e.getRectangle().getBounds().getY());
+			int eH = (int)(e.getRectangle().getBounds().getHeight());
+			Rectangle rE = new Rectangle(eX,eY,eW,eH);
+
+			if(r.intersects(rE)) {
+				canJump = true;
+				falling = false;
+				y = e.getY()-bounds.height-2;
+
+				if(yMove == 0){
+					yMove = ((MovingWall) e).getyMove();
+				}
+				if(xMove == 0){
+					//xMove = ((MovingWall) e).getxMove();
+				}
+			}
+		}
+	}
+
 	private void InteractWithCreatureOnY(Entity e){
 		if(e instanceof Mushroom) {	 //INTERACT WITH MUSHROOM
 		    ((Mushroom) e).deleteMe();

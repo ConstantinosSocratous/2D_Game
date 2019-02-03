@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class KeyManager implements KeyListener {
 
 	private boolean[] keys;
-	public boolean up, left, right;
+	public boolean up, left, right,down;
 	public boolean isUp = false;
 	public boolean isShoot = false;
 	private int iShoot = 0;
@@ -17,7 +17,8 @@ public class KeyManager implements KeyListener {
 	}
 	
 	public void tick(){
-		//up = keys[KeyEvent.VK_UP];
+		down = keys[KeyEvent.VK_S];
+		up = keys[KeyEvent.VK_W];
 		left = keys[KeyEvent.VK_A];
 		right = keys[KeyEvent.VK_D];
 	}

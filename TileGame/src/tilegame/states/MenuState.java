@@ -34,6 +34,8 @@ public class MenuState extends State {
 		SoundManager.menu.loop();
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
 
+		int w = (int) handler.getWidth()/12;
+		int h = (int) handler.getHeight()/10;
 
 		BufferedImage[] exitI = new BufferedImage[2];
 		exitI[0] = sheet.crop(0,height*2, width,height);
@@ -43,19 +45,19 @@ public class MenuState extends State {
 		BufferedImage[] sett = new BufferedImage[2];
 		sett[0] = sheet.crop(width*2,height*5, width*3,height*3);
 		sett[1] = sheet.crop(width*5,height*5, width*3,height*3);
-		settings = new UIObject(sett,handler.getGame().getWidth()-125, handler.getGame().getHeight()-222);
+		settings = new UIObject(sett,(int)(w*11.2), (int)(h*8));
 
 		BufferedImage tst = ImageLoader.loadImage("/textures/menuObjects/play.png");
 		BufferedImage[] playI = new BufferedImage[2];
 		playI[0] = tst;
 		playI[1] = tst;
-		play = new UIObject(playI ,handler.getWidth()/2-playI[0].getWidth()/3,playI[0].getHeight()/2,96,288);
+		play = new UIObject(playI ,(int)(w*0.7),(int)(h*2.5),96,288);
 
 		BufferedImage tst1 = ImageLoader.loadImage("/textures/menuObjects/instructions.png");
 		BufferedImage[] instructions = new BufferedImage[2];
 		instructions[0] = tst1;
 		instructions[1] = tst1;
-		instr = new UIObject(instructions ,handler.getWidth()/2-instructions[0].getWidth()/3,instructions[0].getHeight(),96,288);
+		instr = new UIObject(instructions ,(int)(w*0.7),(int)(h*4.5),96,288);
 
 
 		menuWorld = new MenuWorld(handler,"/worlds/MENU.txt");
@@ -63,6 +65,7 @@ public class MenuState extends State {
 
 	@Override
 	public void tick() {
+
 		if(handler.getMouseManager().isLeftPressed()){
 			if (play.isMouseOver(handler)) {
 				//SoundManager.menu.stop();
@@ -80,7 +83,10 @@ public class MenuState extends State {
 				sleep(500);
 			}
 		}
-		menuWorld.tick();
+		if(State.getState().equals(handler.getGame().getMenuState())) {
+			menuWorld.tick();
+		}
+
 	}
 
 	@Override
