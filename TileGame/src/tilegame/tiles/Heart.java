@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 
 public class Heart {
 
-    private final int NUMBER_OF_HEARTS = 3;
+    private final int NUMBER_OF_HEARTS = 10;
 
     private BufferedImage imgs;
     private int x,y;

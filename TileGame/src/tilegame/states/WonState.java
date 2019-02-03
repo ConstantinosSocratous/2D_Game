@@ -38,7 +38,7 @@ public class WonState {
 
 
         int scr = handler.getWorld().getEntityManager().getPlayer().getScore();
-        g.drawString(scr+ "",handler.getWidth()/2,handler.getHeight()/2+100);
+        //g.drawString(scr+ "",handler.getWidth()/2,handler.getHeight()/2+100);
 
     }
 

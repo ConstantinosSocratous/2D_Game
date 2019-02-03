@@ -37,8 +37,9 @@ public class LevelsState extends State{
         lvl4 = new LevelObject(handler, (int)(w*3.8), (int)(h*0.9),120, "/worlds/MoreEnemies.txt", "More Enemies",2,true);
         lvl5 = new LevelObject(handler, (int)(w*3.4), (int)(h*2.7),120, "/worlds/UndergroundForest.txt", "Underground Forest",2,true);
         lvl6 = new LevelObject(handler, (int)(w*3.6), (int)(h*4.8),120, "/worlds/LongRun.txt", "Long Run",2,true);
-        lvl7 = new LevelObject(handler, (int)(w*5), (int)(h*6.2),120, "/worlds/BeQuick.txt", "Be Quick",3,false);
+        lvl7 = new LevelObject(handler, (int)(w*5), (int)(h*6.2),120, "/worlds/BeQuick.txt", "Be Quick",3,true);
 
+        connectLevels();
 
         SpriteSheet sheet1 = new SpriteSheet(ImageLoader.loadImage("/textures/menuSheet.png"));
         BufferedImage[] menuI = new BufferedImage[2];
@@ -48,6 +49,18 @@ public class LevelsState extends State{
     }
 
     public void init(String path){
+
+    }
+
+    private void connectLevels(){
+        lvl0.setNext(lvl1);
+        lvl1.setNext(lvl2);
+        lvl2.setNext(lvl3);
+        lvl3.setNext(lvl4);
+        lvl4.setNext(lvl5);
+        lvl5.setNext(lvl6);
+        lvl6.setNext(lvl7);
+        lvl7.setNext(null);
 
     }
 

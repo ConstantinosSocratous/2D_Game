@@ -85,7 +85,7 @@ public class AllLevels {
         handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,3264,163,64,160,2));
 
         //CREATE ENEMIES
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4224,616,2,3.5f,"RIGHT",60));//4224
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4224,616,0,3.5f,"RIGHT",60));//4224
 
         //CREATE WINNING DOOR
         handler.getWorld().getEntityManager().addEntity(new Door(handler,6272,510));
@@ -143,7 +143,7 @@ public class AllLevels {
         handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,4232,160,64,160,2));
 
         //CREATE ENEMIES
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4000,680,3,3f,"",55));//4224
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,4000,680,1,3f,"",55));//4224
 
         //MOVING WALL
         handler.getWorld().getEntityManager().addEntity(new MovingWall(handler,3750, 400,128,32, 300, false,true,3f));
@@ -231,14 +231,14 @@ public class AllLevels {
         handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,1828,96,64,160,2));
 
         //CREATE ENEMIES
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1024,850,2,3.4f,"LEFT",55));//4224
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1920,850,3,3.4f,"RIGHT",55));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1024,850,1,3.4f,"LEFT",55));//4224
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1920,850,2,3.4f,"RIGHT",55));
         handler.getWorld().getEntityManager().addEntity(new Enemy(handler,960,384,2,3.4f,"LEFT",45));
         handler.getWorld().getEntityManager().addEntity(new Enemy(handler,896,50,3,3.4f,"LEFT",60));
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1728,50,4,3.4f,"",45));
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,2550,50,4,3.4f,"",50));
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3776,512,3,3.4f,"LEFT",60));
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3776,512,3,3.4f,"RIGHT",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1728,50,2,3.4f,"",45));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,2550,50,3,3.4f,"",50));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3776,512,2,3.4f,"LEFT",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3776,512,2,3.4f,"RIGHT",60));
 
 
 
@@ -315,13 +315,13 @@ public class AllLevels {
 
 
         //CREATE ENEMIES
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1850,300,6,2.8f,"LEFT",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,1850,300,5,2.8f,"LEFT",60));
         handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3772,50,6,2.8f,"",60));
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3264,400,6,3.7f,"RIGHT",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,3264,400,4,3.7f,"RIGHT",60));
 
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,8270,500,6,3.7f,"",60));
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,8324,200,6,3.7f,"",60));
-        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,8270,50,6,3.7f,"",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,8270,500,4,3.7f,"",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,8324,200,2,3.7f,"",60));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,8270,50,1,3.7f,"",60));
 
         //CREATE GREEN ENEMIES
         handler.getWorld().getEntityManager().addEntity(new EnemyGreen(handler,4736,320,120));
@@ -334,16 +334,27 @@ public class AllLevels {
 
     public static void LEVEL7(boolean respawnCoins){
         //CREATE MUSHROOMS
-        //handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,855,245,true,2));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,8500,775,true,3));
+        handler.getWorld().getEntityManager().addEntity(new Mushroom(handler,8500,775,false,4));
 
         //CREATE COINS
         if(respawnCoins) {
-           // handler.getWorld().getEntityManager().addEntity(new Coin(handler, 855, 380, false));
-
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 1216, 380, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 1856, 320, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 2496, 380, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 4224, 768, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 4480, 700, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 4864, 512, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 6016, 640, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 7872, 705, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 8576, 704, false));
+            handler.getWorld().getEntityManager().addEntity(new Coin(handler, 8320, 704, false));
         }
 
         //CREATE TRAPS
-        //handler.getWorld().getEntityManager().addEntity(new Trap(handler,1024,585,128,64,2000));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler,7480,770,128,64,2000));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler, 7608,770,128,64,2000));
+        handler.getWorld().getEntityManager().addEntity(new Trap(handler, 7735,770,128,64,2000));
 
         //CREATE CHECKPOINTS
         handler.getWorld().getEntityManager().addEntity(new CheckPoint(handler,3600,680,64,160,2));
@@ -351,10 +362,12 @@ public class AllLevels {
 
         //CREATE ENEMIES
         handler.getWorld().getEntityManager().addEntity(new Enemy(handler,2600,300,6,2.8f,"",70));
+        handler.getWorld().getEntityManager().addEntity(new Enemy(handler,8350,300,6,3.5f,"RIGHT",50));
 
         //CREATE GREEN ENEMIES
         handler.getWorld().getEntityManager().addEntity(new EnemyGreen(handler,3010,191,135));
         handler.getWorld().getEntityManager().addEntity(new EnemyGreen(handler,5380,256,135));
+
 
         //MOVING WALL
         handler.getWorld().getEntityManager().addEntity(new MovingWall(handler,950, 128,160,32, 450, false,true,2.2f));
@@ -364,6 +377,7 @@ public class AllLevels {
         handler.getWorld().getEntityManager().addEntity(new MovingWall(handler,2100, 160,120,32, 580, false,true,3f));
         handler.getWorld().getEntityManager().addEntity(new MovingWall(handler,4450, 335,120,32, 580, false,true,3.2f));
         handler.getWorld().getEntityManager().addEntity(new MovingWall(handler,4650, 450,120,32, 520, false,true,2f));
+        handler.getWorld().getEntityManager().addEntity(new MovingWall(handler,7620, 420,140,32, 330, false,true,2.5f));
 
 
         //CREATE WINNING DOOR
@@ -507,7 +521,7 @@ public class AllLevels {
         int score = 0;
         for(Entity e : entities){
             if(e instanceof  Mushroom || e instanceof Coin || e instanceof Enemy){
-                score+=100;
+                score+=1;
             }
         }
 

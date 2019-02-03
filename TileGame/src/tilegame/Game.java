@@ -90,20 +90,19 @@ public class Game implements Runnable {
 		menuState.init("");
 		State.setState(menuState);
 
-		tryLoading();
+		loadGame();
 
 		//firstScene.init("/cinematic/world.txt");
 		//State.setState(firstScene);
 	}
 
-	private void tryLoading(){
+	public void loadGame(){
 		String path = "/LoadGame/game.txt";
 		String file = Utils.loadFileAsString(path);
 		//if(true)return;
 		String[] temp = file.split("\n");
 		String[] tokens = temp[0].split(" ");
-
-		//if(tokens.length != LevelObject.ALL_LEVEL_OBJ.size()-1) return;
+		String[] scores = temp[1].split(" ");
 
 		for(int i=0; i<tokens.length; i++){
 			if(tokens[i].equals("1")) {
@@ -112,8 +111,11 @@ public class Game implements Runnable {
 			else if(tokens[i] == "0"){
 				LevelObject.ALL_LEVEL_OBJ.get(i).setIsLocked(true);
 			}
+			LevelObject.ALL_LEVEL_OBJ.get(i).setPlayerMaxScore(Integer.parseInt(scores[i]));
 		}
 		System.out.println("GAME LOADED");
+
+
 	}
 
 	public void saveGame(){
@@ -127,6 +129,12 @@ public class Game implements Runnable {
 				if(LevelObject.ALL_LEVEL_OBJ.get(i).isLocked())
 					writer.append("0");
 				else writer.append("1");
+
+				if(i != LevelObject.ALL_LEVEL_OBJ.size()-1) writer.append(" ");
+			}
+			writer.append("\n");
+			for(int i=0; i < LevelObject.ALL_LEVEL_OBJ.size(); i++){
+				writer.append(""+LevelObject.ALL_LEVEL_OBJ.get(i).getPlayerMaxScore());
 
 				if(i != LevelObject.ALL_LEVEL_OBJ.size()-1) writer.append(" ");
 			}
@@ -152,13 +160,23 @@ public class Game implements Runnable {
 				LevelObject.ALL_LEVEL_OBJ.get(i).setIsLocked(true);
 				if(i != LevelObject.ALL_LEVEL_OBJ.size()-1) writer.append(" ");
 			}
-
+			writer.append("\n");
+			for(int i=0; i < LevelObject.ALL_LEVEL_OBJ.size(); i++){
+				writer.append("0");
+				LevelObject.ALL_LEVEL_OBJ.get(i).setPlayerMaxScore(0);
+				if(i != LevelObject.ALL_LEVEL_OBJ.size()-1) writer.append(" ");
+			}
 			writer.close();
-			System.out.println("GAME SAVED");
+
+			Thread.sleep(2000);
+			loadGame();
+
 		}catch(IOException e){
 			e.printStackTrace();
+		}catch (InterruptedException e){
+			e.printStackTrace();
 		}
-		tryLoading();
+
 	}
 
 	private void tick(){
@@ -170,7 +188,7 @@ public class Game implements Runnable {
 		//For saving
 		numOfTicks++;
 		if(numOfTicks > 1000){
-			saveGame();
+			//saveGame();
 			numOfTicks =0;
 		}
 	}
@@ -230,6 +248,9 @@ public class Game implements Runnable {
 
 	}
 
+	public void newLevelState(){
+		levelState = new LevelsState(handler);
+	}
 	public State getGameState(){return gameState;}
 	public State getMenuState(){return menuState;}
 	public State getLevelState(){return levelState;}

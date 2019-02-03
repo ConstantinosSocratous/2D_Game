@@ -146,18 +146,21 @@ public class GameState extends State {
 
 			g.setFont(new Font("TimesRoman", Font.BOLD, 25));
 			//DRAW SCORE
-			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()-width*15,height + (int)height/2);
-
+			g.drawString(handler.getWorld().getEntityManager().getPlayer().getScore() + "", handler.getGame().getWidth()/2,height + (int)height/2);
+			//---------\\
 			g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
  	
             if(isWon()){
 				//Unlock next level
 				if(numOfTicks == 0){
+					if(getCurrentLevel()+1 < LevelObject.ALL_LEVEL_OBJ.size()){
+						LevelObject.ALL_LEVEL_OBJ.get(getCurrentLevel()+1).setIsLocked(false);
+					}
+					LevelObject.ALL_LEVEL_OBJ.get(currentLevel).setPlayerMaxScore(handler.getWorld().getEntityManager().getPlayer().getScore());
+
 					handler.getGame().saveGame();
 				}
-				if(getCurrentLevel()+1 < LevelObject.ALL_LEVEL_OBJ.size()){
-					LevelObject.ALL_LEVEL_OBJ.get(getCurrentLevel()+1).setIsLocked(false);
-				}
+
 				wonObj.tick();
 				wonObj.render(g);
 				numOfTicks++;
@@ -197,7 +200,8 @@ public class GameState extends State {
 		sleep(500);
 		//handler.getGame().getMenuState().init("");
         SoundManager.menu.loop();
-		State.setState(handler.getGame().getMenuState());
+		State.setState(handler.getGame().getLevelState());
+		// State.setState(handler.getGame().getMenuState());
 		setWorld(null);
 	}
 

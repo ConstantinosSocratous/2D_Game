@@ -23,7 +23,7 @@ public class Player extends Creature {
 	
 	private final int SHOOT_COOLDOWN = 20;
 
-	private Animation standar,animRight,animLeft, animUpRight, animUpLeft;
+	private Animation standarL,standar,animRight,animLeft, animUpRight, animUpLeft;
 	private boolean winLevel=false, canMove= true;
 	private int score = 0;
 	private int helperTicksCooldown = 60;
@@ -40,13 +40,15 @@ public class Player extends Creature {
 		animRight = new Animation(250, Assets.player_right);
 		animUpRight = new Animation(250, Assets.playerUpRight);
 		animUpLeft = new Animation(250, Assets.playerUpLeft);
-		standar = new Animation(250,Assets.player_static) ;
+		standar = new Animation(250,Assets.player_static);
+		standarL = new Animation(250,Assets.player_static_left);
 	}
 
 	@Override
 	public void tick() {
 		//Animations
 		standar.tick();
+		standarL.tick();
 		animRight.tick();
 		animLeft.tick();
 		animUpLeft.tick();
@@ -95,7 +97,7 @@ public class Player extends Creature {
 					decreaseHealth(100);
 			}else if(e instanceof Coin) {  //INTERACT WITH COIN
 				handler.getWorld().getEntityManager().deleteEntity(e);
-				score +=100;
+				score +=1;
 				SoundManager.coin.play();
 			}
 			fall();
@@ -168,19 +170,20 @@ public class Player extends Creature {
 			handler.getKeyManager().isUp = false;
 		}
 		if(handler.getKeyManager().left){
+			lookingRight = false;
 			xMove = -speed;
 		}
 		if(handler.getKeyManager().right){
+			lookingRight = true;
 			xMove = speed;
 		}
 
 		//ADD COOLDOWN TO SHOOTING
 		helperTicksCooldown++;
 		if(handler.getKeyManager().isShoot && helperTicksCooldown >= SHOOT_COOLDOWN){
-			if(xMove >= 0)
+			if(lookingRight)
 				shoot(false,this,12);
-			else if(xMove < 0)
-				shoot(true,this,12);
+			else shoot(true,this,12);
 
 			helperTicksCooldown = 0;
 			handler.getKeyManager().isShoot = false;
@@ -204,7 +207,10 @@ public class Player extends Creature {
 		}else if(xMove > 0){
 			return animRight.getCurrentFrame();
 		}
-		 else return standar.getCurrentFrame();
+		 else{
+		 	if(lookingRight)return standar.getCurrentFrame();
+		 	else return standarL.getCurrentFrame();
+		}
 	}
 
 	public void setCanMove(boolean bool){

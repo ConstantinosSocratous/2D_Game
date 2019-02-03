@@ -9,6 +9,7 @@ import tilegame.gfx.Assets;
 import tilegame.tiles.Tile;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -18,9 +19,10 @@ public class Enemy extends Creature {
     private final int MAX_CLEVERNESS = 10;
 
     protected float speed;
-    private Animation animStatic;
+    private Animation animStatic,animStaticLeft;
     private int helperTicksCooldown = 60;
     private int poss;
+    private boolean lookingRight = true;
 
     public Enemy(Handler handler, float x, float y, int possibility, float sp, String move, int cooldown){
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT+16);
@@ -33,6 +35,7 @@ public class Enemy extends Creature {
         this.speed = sp;
         this.SHOOT_COOLDOWN = cooldown;
         animStatic = new Animation(500, Assets.playerEnemyStatic);
+        animStaticLeft = new Animation(500, Assets.playerEnemyStaticLeft);
 
         decideInitMoving(move);
     }
@@ -49,31 +52,29 @@ public class Enemy extends Creature {
     public void tick() {
         //Animations
         animStatic.tick();
-
+        animStaticLeft.tick();
         //Movement
         move();
 
         helperTicksCooldown++;
         if(bulletFoundLeft() && getIfJump() && xMove<=0) {
+            lookingRight = false;
             jump(20);
         }
         if(bulletFoundRight() && getIfJump() && xMove>=0){
+            lookingRight = true;
             jump(20);
         }
 
         if(playerFoundLeft() && helperTicksCooldown >= SHOOT_COOLDOWN && xMove<=0) {
             shoot(true, this, 10);
-            //xMove = 0;
+            lookingRight = false;
             helperTicksCooldown = 0;
         }
         if(playerFoundRight() && helperTicksCooldown >= SHOOT_COOLDOWN && xMove>=0){
             shoot(false,this,10);
-            //xMove = 0;
+            lookingRight = true;
             helperTicksCooldown = 0;
-        }
-
-        if(xMove == 0){
-
         }
 
         collisionWithBullet();
@@ -269,7 +270,18 @@ public class Enemy extends Creature {
 
     @Override
     public void render(Graphics g){
-        g.drawImage(animStatic.getCurrentFrame(), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+        g.drawImage(getCurrentImage(), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+    }
+
+    private BufferedImage getCurrentImage(){
+        if(xMove > 0) return animStatic.getCurrentFrame();
+        else if(xMove < 0) return animStaticLeft.getCurrentFrame();
+        else{
+            if(lookingRight) return animStatic.getCurrentFrame();
+            else return animStaticLeft.getCurrentFrame();
+        }
+
+
     }
 
 

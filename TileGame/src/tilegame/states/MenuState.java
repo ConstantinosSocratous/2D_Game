@@ -75,7 +75,8 @@ public class MenuState extends State {
 			} else if ( exit.isMouseOver(handler)) {
 				System.exit(0);
 			} else if( instr.isMouseOver(handler)){
-				//handler.getGame().newGame();
+				handler.getGame().newGame();
+				//handler.getGame().newLevelState();
 				//State.setState(handler.getGame().getLevelState());
 				//sleep(500);
 			}else if( settings.isMouseOver(handler)){

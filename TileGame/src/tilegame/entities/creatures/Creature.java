@@ -22,8 +22,7 @@ public abstract class Creature extends Entity {
 	protected float gravity = 0.5f;
 	protected boolean falling = true;
 	protected boolean canJump = false;
-
-	protected boolean cameraFollow = true;
+	protected boolean lookingRight = true;
 
 
 	public Creature(Handler handler, float x, float y, int width, int height) {

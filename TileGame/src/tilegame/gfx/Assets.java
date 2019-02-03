@@ -7,15 +7,15 @@ public class Assets {
 	private static final int width = 32, height = 32;
 	
 	public static BufferedImage dirt, grass, sky, cloud3, cloud4,rock, white,checkpoint,bullet,heart,enemyBullet;
-	public static BufferedImage[] player_static, player_left, player_right, playerUpRight, playerUpLeft, lava;
-	public static BufferedImage[] enemyMoving, door, movingWalls, coin, trap, kingdom,fire,playerEnemyStatic,enemyZele,smallCreature;
+	public static BufferedImage[] player_static_left,player_static, player_left, player_right, playerUpRight, playerUpLeft, lava;
+	public static BufferedImage[] enemyMoving, door, movingWalls, coin, trap, kingdom,fire,playerEnemyStatic,playerEnemyStaticLeft,enemyZele,smallCreature;
 	//public static BufferedImage[] zombie_down, zombie_up, zombie_left, zombie_right;
 
 	public static void init(){
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
 		
 		player_right = new BufferedImage[2];
-		//player_jump = new BufferedImage[2];
+		player_static_left = new BufferedImage[1];
 		player_left = new BufferedImage[2];
 		player_static = new BufferedImage[1];
 		playerUpRight = new BufferedImage[1];
@@ -28,6 +28,7 @@ public class Assets {
 		trap = new BufferedImage[2];
 		kingdom = new BufferedImage[4];
 		playerEnemyStatic = new BufferedImage[1];
+		playerEnemyStaticLeft = new BufferedImage[1];
 		enemyZele = new BufferedImage[4];
 		smallCreature = new BufferedImage[2];
 		//////////////
@@ -35,9 +36,11 @@ public class Assets {
 		smallCreature[0] = sheet.crop(width*3, height*6, width*2, height*2);
 		smallCreature[1] = sheet.crop(width*5, height*6, width*2, height*2);
 		playerEnemyStatic[0] = sheet.crop(width*7, height*5, width, height);
+		playerEnemyStaticLeft[0] = sheet.crop(width*7, height*4, width, height);
 		enemyMoving[0] = sheet.crop(0, height*4, width*2, height*2);
 		enemyMoving[1] = sheet.crop(width *2 , height*4, width*2, height*2);
 		player_static[0] = sheet.crop(width * 2, 0, width, height);
+		player_static_left[0] = sheet.crop(width * 5, height, width, height);
 		player_right[0] = sheet.crop(width * 3, 0, width, height);
 		player_right[1] = sheet.crop(width * 3, height, width, height);
 		player_left[0] = sheet.crop(width * 4, 0, width, height);

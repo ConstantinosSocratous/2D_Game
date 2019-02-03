@@ -95,7 +95,7 @@ public class EntityManager {
 			if((e instanceof Coin)) {
 				continue;
 			}
-            player.decreaseScore(100);
+            player.decreaseScore(1);
 			entities.add(e);
 
 		}
@@ -103,7 +103,7 @@ public class EntityManager {
 		for(Entity e: entities){
             if((e instanceof Coin)) {
                 if(((Coin) e).isGenerated()) {
-                    player.increaseScore(100);
+                    player.increaseScore(1);
                 }
             }
         }
